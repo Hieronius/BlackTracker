@@ -1,11 +1,11 @@
 import UIKit
 
-final class MainScreenViewController: UIViewController {
+final class MainScreenViewController: GenericViewController<MainScreenView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("There is a main view controller")
-        view.backgroundColor = .green
+        rootView.backgroundColor = .blue
     }
 
 

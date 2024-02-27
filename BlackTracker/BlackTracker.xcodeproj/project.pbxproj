@@ -12,6 +12,7 @@
 		DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */; };
 		DDF5F1232B8D96140031D54B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF5F1222B8D96140031D54B /* Assets.xcassets */; };
 		DDF5F1322B8D97AD0031D54B /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1312B8D97AD0031D54B /* MainScreenView.swift */; };
+		DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1342B8D98C70031D54B /* GenericViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DDF5F1222B8D96140031D54B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDF5F1272B8D96140031D54B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDF5F1312B8D97AD0031D54B /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		DDF5F1342B8D98C70031D54B /* GenericViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F12E2B8D970E0031D54B /* App */,
+				DDF5F1362B8D99570031D54B /* Models */,
 				DDF5F12F2B8D97150031D54B /* Screens */,
 				DDF5F12D2B8D96FD0031D54B /* Resources */,
 			);
@@ -64,6 +67,7 @@
 		DDF5F12D2B8D96FD0031D54B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DDF5F1332B8D98BB0031D54B /* Helpers */,
 				DDF5F1272B8D96140031D54B /* Info.plist */,
 				DDF5F1222B8D96140031D54B /* Assets.xcassets */,
 			);
@@ -94,6 +98,21 @@
 				DDF5F1312B8D97AD0031D54B /* MainScreenView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DDF5F1332B8D98BB0031D54B /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		DDF5F1362B8D99570031D54B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +186,7 @@
 			files = (
 				DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */,
 				DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */,
+				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
 				DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */,
 				DDF5F1322B8D97AD0031D54B /* MainScreenView.swift in Sources */,
 			);
