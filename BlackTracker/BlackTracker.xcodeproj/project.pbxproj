@@ -13,6 +13,7 @@
 		DDF5F1232B8D96140031D54B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDF5F1222B8D96140031D54B /* Assets.xcassets */; };
 		DDF5F1322B8D97AD0031D54B /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1312B8D97AD0031D54B /* MainScreenView.swift */; };
 		DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1342B8D98C70031D54B /* GenericViewController.swift */; };
+		DDF5F1392B8DA3E80031D54B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DDF5F1382B8DA3E80031D54B /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF5F1392B8DA3E80031D54B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +133,9 @@
 			dependencies = (
 			);
 			name = BlackTracker;
+			packageProductDependencies = (
+				DDF5F1382B8DA3E80031D54B /* SnapKit */,
+			);
 			productName = BlackTracker;
 			productReference = DDF5F1162B8D96120031D54B /* BlackTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -159,6 +164,9 @@
 				Base,
 			);
 			mainGroup = DDF5F10D2B8D96120031D54B;
+			packageReferences = (
+				DDF5F1372B8DA3E80031D54B /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = DDF5F1172B8D96120031D54B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -393,6 +401,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDF5F1372B8DA3E80031D54B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDF5F1382B8DA3E80031D54B /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDF5F1372B8DA3E80031D54B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDF5F10E2B8D96120031D54B /* Project object */;
 }
