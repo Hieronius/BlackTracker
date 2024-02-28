@@ -31,4 +31,8 @@ final class MainScreenView: UIView {
             make.bottom.equalToSuperview().offset(-100)
         }
     }
+    
+    @objc private func imageTapped() {
+        // change image of the imageView to next
+    }
 }
