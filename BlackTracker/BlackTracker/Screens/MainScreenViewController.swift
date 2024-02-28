@@ -1,13 +1,22 @@
 import UIKit
 
 final class MainScreenViewController: GenericViewController<MainScreenView> {
+    
+    // MARK: - Initialization
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("There is a main view controller")
-        rootView.backgroundColor = .blue
     }
 
 
 }
 
+// MARK: - Extensions
+
+extension MainScreenViewController: MainScreenViewDelegate {
+    func imageViewTapped() {
+        // method to get images from imageService and change the content of imageView
+    }
+    
+    
+}
