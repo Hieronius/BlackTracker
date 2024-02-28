@@ -11,3 +11,12 @@ final class MainScreenViewController: GenericViewController<MainScreenView> {
 
 }
 
+// MARK: - Extensions
+
+extension MainScreenViewController: MainScreenViewDelegate {
+    func imageViewTapped() {
+        // method to get images from imageService and change the content of imageView
+    }
+    
+    
+}

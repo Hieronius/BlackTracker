@@ -1,7 +1,15 @@
 import UIKit
 import SnapKit
 
+protocol MainScreenViewDelegate: AnyObject {
+    func imageViewTapped()
+}
+
 final class MainScreenView: UIView {
+    
+    weak var delegate: MainScreenViewDelegate?
+    
+    var imageView: UIImageView!
     
     // MARK: - Initialization
     
@@ -17,7 +25,7 @@ final class MainScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupImageView() {
-        let imageView = UIImageView()
+        imageView = UIImageView()
         imageView.image = UIImage(named: "Bonsai0")
         
         self.addSubview(imageView)
@@ -30,9 +38,13 @@ final class MainScreenView: UIView {
             make.top.equalToSuperview().offset(100)
             make.bottom.equalToSuperview().offset(-100)
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGesture)
     }
     
     @objc private func imageTapped() {
-        // change image of the imageView to next
+        delegate?.imageViewTapped()
     }
 }
