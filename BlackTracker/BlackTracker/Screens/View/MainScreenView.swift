@@ -18,7 +18,7 @@ final class MainScreenView: UIView {
     
     private func setupImageView() {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "tree")
+        imageView.image = UIImage(named: "Bonsai0")
         
         self.addSubview(imageView)
         
