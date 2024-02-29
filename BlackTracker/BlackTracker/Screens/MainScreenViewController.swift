@@ -21,11 +21,11 @@ final class MainScreenViewController: GenericViewController<MainScreenView> {
 extension MainScreenViewController: MainScreenViewDelegate {
     func imageViewTapped() {
         
-        if currentProgressCount == 9 {
-            currentProgressCount = 0
+        if currentProgressCount < ImageService.images.count - 1 {
+            currentProgressCount += 1
             rootView.imageView.image = ImageService.images[currentProgressCount]
         } else {
-            currentProgressCount += 1
+            currentProgressCount = 0
             rootView.imageView.image = ImageService.images[currentProgressCount]
         }
     }
