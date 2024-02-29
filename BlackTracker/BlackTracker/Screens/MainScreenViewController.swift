@@ -12,7 +12,22 @@ final class MainScreenViewController: GenericViewController<MainScreenView> {
         super.viewDidLoad()
         rootView.delegate = self
     }
-
+    
+    // MARK: - Private Methods
+    
+    // Zoom Animation
+    private func animateImageTransition(to newImage: UIImage) {
+        UIView.transition(with: rootView.imageView,
+                          duration: 0.2,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.rootView.imageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            self.rootView.imageView.image = newImage
+            self.rootView.imageView.transform = .identity
+        },
+                          completion: nil)
+    }
+    
 
 }
 
@@ -23,10 +38,10 @@ extension MainScreenViewController: MainScreenViewDelegate {
         
         if currentProgressCount < ImageService.images.count - 1 {
             currentProgressCount += 1
-            rootView.imageView.image = ImageService.images[currentProgressCount]
+            animateImageTransition(to: ImageService.images[currentProgressCount])
         } else {
             currentProgressCount = 0
-            rootView.imageView.image = ImageService.images[currentProgressCount]
+            animateImageTransition(to: ImageService.images[currentProgressCount])
         }
     }
     
