@@ -9,7 +9,8 @@ struct ImageService {
         UIImage(named: "Bonsai4")!,
         UIImage(named: "Bonsai5")!,
         UIImage(named: "Bonsai6")!,
-        UIImage(named: "Bonsai1x")!,
-        UIImage(named: "Bonsai2x")!
+        UIImage(named: "Bonsai7")!,
+        UIImage(named: "Bonsai8")!,
+        UIImage(named: "Bonsai9")!
     ]
 }
