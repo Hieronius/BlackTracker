@@ -27,7 +27,21 @@ final class ProgressScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
+        // setupNavitationViewController
+        // setupTopStackView
+        // setupBottomStackView
         setupProgressImageView()
+    }
+    
+    private func setupTopStackView() {
+        // setup dailyStreakImageView
+        // setup progressStreakImageView
+        // setup rankingStreakImageView
+    }
+    
+    private func setupBottomStackView() {
+        // setup progressPointsImageView
+        // setup addHabitButton
     }
     
     private func setupProgressImageView() {
