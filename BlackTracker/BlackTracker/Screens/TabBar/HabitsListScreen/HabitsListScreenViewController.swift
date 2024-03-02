@@ -1,6 +1,6 @@
 import UIKit
 
-final class HabitsListViewController: GenericViewController<HabitsListView> {
+final class HabitsListScreenViewController: GenericViewController<HabitsListScreenView> {
     
     // MARK: - Initialization
     

@@ -70,10 +70,10 @@
 			isa = PBXGroup;
 			children = (
 				DD9D124A2B92B14C00B599B8 /* TabBar.swift */,
-				DD9D12592B92BCEF00B599B8 /* AchievementsScreen */,
-				DD9D12532B92BC4800B599B8 /* StatisticScreen */,
-				DD9D124D2B92BB0900B599B8 /* HabitsListScreen */,
 				DD9D12492B92B10E00B599B8 /* ProgressScreen */,
+				DD9D124D2B92BB0900B599B8 /* HabitsListScreen */,
+				DD9D12532B92BC4800B599B8 /* StatisticScreen */,
+				DD9D12592B92BCEF00B599B8 /* AchievementsScreen */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";

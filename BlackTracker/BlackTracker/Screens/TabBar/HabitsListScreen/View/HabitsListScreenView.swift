@@ -1,6 +1,6 @@
 import UIKit
 
-final class HabitsListView: UIView {
+final class HabitsListScreenView: UIView {
     
     // MARK: - Initialization
     

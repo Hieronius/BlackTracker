@@ -15,23 +15,35 @@ final class TabBarController: UITabBarController {
     private func setupTabBar() {
         delegate = self
         
-        self.tabBar.backgroundColor = .lightGray
-        self.tabBar.tintColor = .darkGray
+        self.tabBar.backgroundColor = AppColors.darkGray
+        self.tabBar.tintColor = .gray
         
         let progressScreenVC = ProgressScreenViewController()
         let progressImage = UIImage(named: "chart.bar")
         let progressImagePressed = UIImage(named: "chart.bar.fill")
-        let homeTabBarIcon = UITabBarItem(title: "Progress", image: progressImage, selectedImage: progressImagePressed
-                                                 
+        let progressTabBarIcon = UITabBarItem(
+            title: "Progress",
+            image: progressImage,
+            selectedImage: progressImagePressed
         )
-        progressScreenVC.tabBarItem = homeTabBarIcon
+        progressScreenVC.tabBarItem = progressTabBarIcon
         
+        let habitsListScreenVC = HabitsListScreenViewController()
+        let habitsListImage = UIImage(named: "list.bullet.circle")
+        let habitsListImagePressed = UIImage(named: "list.bullet.circle.fill")
+        let habitsTabBarIcon = UITabBarItem(
+            title: "My Habits",
+            image: habitsListImage,
+            selectedImage: habitsListImagePressed
+        )
+        habitsListScreenVC.tabBarItem = habitsTabBarIcon
         
         
         
         let controllers = [
                 progressScreenVC,
-            
+                habitsListScreenVC,
+                
             ]
         self.viewControllers = controllers
         
