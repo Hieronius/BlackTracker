@@ -1,6 +1,6 @@
 import UIKit
 
-final class StatisticsScreen: UIView {
+final class StatisticsScreenView: UIView {
     
     // MARK: - Initialization
     

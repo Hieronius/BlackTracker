@@ -10,8 +10,8 @@
 		DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124A2B92B14C00B599B8 /* TabBar.swift */; };
 		DD9D124F2B92BBB700B599B8 /* HabitsListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */; };
 		DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */; };
-		DD9D12562B92BCC300B599B8 /* StatisticScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */; };
-		DD9D12582B92BCD200B599B8 /* StatisticScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */; };
+		DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12552B92BCC300B599B8 /* StatisticsScreenView.swift */; };
+		DD9D12582B92BCD200B599B8 /* StatisticsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12572B92BCD200B599B8 /* StatisticsScreenViewController.swift */; };
 		DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */; };
 		DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */; };
 		DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12642B92C1D500B599B8 /* AppColors.swift */; };
@@ -29,8 +29,8 @@
 		DD9D124A2B92B14C00B599B8 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListScreenView.swift; sourceTree = "<group>"; };
-		DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticScreenView.swift; sourceTree = "<group>"; };
-		DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticScreenViewController.swift; sourceTree = "<group>"; };
+		DD9D12552B92BCC300B599B8 /* StatisticsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenView.swift; sourceTree = "<group>"; };
+		DD9D12572B92BCD200B599B8 /* StatisticsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenView.swift; sourceTree = "<group>"; };
 		DD9D12642B92C1D500B599B8 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9D12542B92BCB500B599B8 /* View */,
-				DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */,
+				DD9D12572B92BCD200B599B8 /* StatisticsScreenViewController.swift */,
 			);
 			path = StatisticScreen;
 			sourceTree = "<group>";
@@ -107,7 +107,7 @@
 		DD9D12542B92BCB500B599B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */,
+				DD9D12552B92BCC300B599B8 /* StatisticsScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -334,10 +334,10 @@
 				DDF5F11E2B8D96120031D54B /* ProgressScreenViewController.swift in Sources */,
 				DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */,
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
-				DD9D12562B92BCC300B599B8 /* StatisticScreenView.swift in Sources */,
+				DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */,
 				DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */,
 				DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */,
-				DD9D12582B92BCD200B599B8 /* StatisticScreenViewController.swift in Sources */,
+				DD9D12582B92BCD200B599B8 /* StatisticsScreenViewController.swift in Sources */,
 				DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */,
 				DDF5F1322B8D97AD0031D54B /* ProgressScreenView.swift in Sources */,
 				DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */,
