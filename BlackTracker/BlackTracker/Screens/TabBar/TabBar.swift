@@ -15,7 +15,7 @@ final class TabBarController: UITabBarController {
     private func setupTabBar() {
         delegate = self
         
-        // self.tabBar.backgroundColor = AppColors.darkGray
+        self.tabBar.backgroundColor = AppColors.darkGray
         self.tabBar.tintColor = .gray
         
         let progressScreenVC = ProgressScreenViewController()

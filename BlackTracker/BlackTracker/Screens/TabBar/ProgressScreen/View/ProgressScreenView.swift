@@ -7,8 +7,9 @@ protocol ProgressScreenViewDelegate: AnyObject {
 
 final class ProgressScreenView: UIView {
     
-    weak var delegate: ProgressScreenViewDelegate?
+    // MARK: - Public Properties
     
+    weak var delegate: ProgressScreenViewDelegate?
     var imageView: UIImageView!
     
     // MARK: - Initialization
@@ -37,12 +38,7 @@ final class ProgressScreenView: UIView {
         self.addSubview(imageView)
         
         imageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(15)
-            make.right.equalToSuperview().offset(-15)
-            make.top.equalToSuperview().offset(100)
-            make.bottom.equalToSuperview().offset(-100)
+             make.edges.equalTo(safeAreaLayoutGuide)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
