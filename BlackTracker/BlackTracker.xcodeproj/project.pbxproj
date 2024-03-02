@@ -127,6 +127,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DD9D125F2B92BD6A00B599B8 /* AddHabitScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AddHabitScreen;
+			sourceTree = "<group>";
+		};
+		DD9D12602B92BD7400B599B8 /* RankingScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RankingScreen;
+			sourceTree = "<group>";
+		};
+		DD9D12612B92BD7B00B599B8 /* LogInScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LogInScreen;
+			sourceTree = "<group>";
+		};
+		DD9D12622B92BD9400B599B8 /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
+		DD9D12632B92BD9D00B599B8 /* ProfileScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfileScreen;
+			sourceTree = "<group>";
+		};
 		DDF5F10D2B8D96120031D54B = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +213,11 @@
 			isa = PBXGroup;
 			children = (
 				DD9D124C2B92BAAE00B599B8 /* TabBar */,
+				DD9D12632B92BD9D00B599B8 /* ProfileScreen */,
+				DD9D12622B92BD9400B599B8 /* SettingsScreen */,
+				DD9D12612B92BD7B00B599B8 /* LogInScreen */,
+				DD9D12602B92BD7400B599B8 /* RankingScreen */,
+				DD9D125F2B92BD6A00B599B8 /* AddHabitScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
