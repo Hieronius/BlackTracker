@@ -15,7 +15,7 @@ final class TabBarController: UITabBarController {
     private func setupTabBar() {
         delegate = self
         
-        self.tabBar.backgroundColor = AppColors.darkGray
+        // self.tabBar.backgroundColor = AppColors.darkGray
         self.tabBar.tintColor = .gray
         
         let progressScreenVC = ProgressScreenViewController()
@@ -38,27 +38,33 @@ final class TabBarController: UITabBarController {
         )
         habitsListScreenVC.tabBarItem = habitsTabBarIcon
         
-        let statisticScreenVC = StatisticsScreenViewController()
-        let statisticsImage = UIImage(named: "chart.bar")
-        let statisticsImagePressed = UIImage(named: "chart.bar.fill")
+        let statisticsScreenVC = StatisticsScreenViewController()
+        let statisticsImage = UIImage(named: "chart.line.uptrend.xyaxis.circle")
+        let statisticsImagePressed = UIImage(named: "chart.line.uptrend.xyaxis.circle.fill")
         let statisticsTabBarIcon = UITabBarItem(
             title: "Statistics",
             image: statisticsImage,
             selectedImage: statisticsImagePressed
         )
+        statisticsScreenVC.tabBarItem = statisticsTabBarIcon
         
-        let achievementScreenVC
+        let achievementsScreenVC = AchievementScreenViewController()
+        let achievementsImage = UIImage(named: "medal")
+        let achievementsImagePressed = UIImage(named: "medal.fill")
+        let achievementsTabBarIcon = UITabBarItem(
+            title: "Achievements",
+            image: achievementsImage,
+            selectedImage: achievementsImagePressed
+        )
+        achievementsScreenVC.tabBarItem = achievementsTabBarIcon
         
         let controllers = [
                 progressScreenVC,
                 habitsListScreenVC,
-                statisticScreenVC,
-                
+                statisticsScreenVC,
+                achievementsScreenVC
             ]
         self.viewControllers = controllers
-        
-        
-        
     }
 }
 
