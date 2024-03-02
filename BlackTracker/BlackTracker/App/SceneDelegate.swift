@@ -13,7 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                window?.windowScene = windowScene
                window?.overrideUserInterfaceStyle = .light
                
-               self.window?.rootViewController = MainScreenViewController()
+               self.window?.rootViewController = ProgressScreenViewController()
                self.window?.makeKeyAndVisible()
     }
 

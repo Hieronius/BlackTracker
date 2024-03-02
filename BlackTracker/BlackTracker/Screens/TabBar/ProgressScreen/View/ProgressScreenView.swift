@@ -1,13 +1,13 @@
 import UIKit
 import SnapKit
 
-protocol MainScreenViewDelegate: AnyObject {
+protocol ProgressScreenViewDelegate: AnyObject {
     func imageViewTapped()
 }
 
-final class MainScreenView: UIView {
+final class ProgressScreenView: UIView {
     
-    weak var delegate: MainScreenViewDelegate?
+    weak var delegate: ProgressScreenViewDelegate?
     
     var imageView: UIImageView!
     

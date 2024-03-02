@@ -18,18 +18,22 @@ final class TabBarController: UITabBarController {
         self.tabBar.backgroundColor = .lightGray
         self.tabBar.tintColor = .darkGray
         
-        let mainScreenVC = MainScreenViewController()
-        let homeImage = UIImage(named: "house")
-        let homeImagePressed = UIImage(named: "house.fill")
-        let homeTabBarIcon = UITabBarItem(title: "Home", image: homeImage, selectedImage: homeImagePressed
+        let progressScreenVC = ProgressScreenViewController()
+        let progressImage = UIImage(named: "chart.bar")
+        let progressImagePressed = UIImage(named: "chart.bar.fill")
+        let homeTabBarIcon = UITabBarItem(title: "Progress", image: progressImage, selectedImage: progressImagePressed
                                                  
         )
-        mainScreenVC.tabBarItem = homeTabBarIcon
+        progressScreenVC.tabBarItem = homeTabBarIcon
         
         
         
-//        let controllers = [menuVC, detailVC, profileVC, contactsVC, basketVC]
-//        self.viewControllers = controllers
+        
+        let controllers = [
+                progressScreenVC,
+            
+            ]
+        self.viewControllers = controllers
         
         
         

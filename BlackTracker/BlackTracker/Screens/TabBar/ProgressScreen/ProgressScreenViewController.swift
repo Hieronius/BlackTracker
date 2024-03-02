@@ -1,6 +1,6 @@
 import UIKit
 
-final class MainScreenViewController: GenericViewController<MainScreenView> {
+final class ProgressScreenViewController: GenericViewController<ProgressScreenView> {
     
     // MARK: - Private Properties
     
@@ -33,7 +33,7 @@ final class MainScreenViewController: GenericViewController<MainScreenView> {
 
 // MARK: - Extensions
 
-extension MainScreenViewController: MainScreenViewDelegate {
+extension ProgressScreenViewController: ProgressScreenViewDelegate {
     func imageViewTapped() {
         
         if currentProgressCount < ImageService.images.count - 1 {
