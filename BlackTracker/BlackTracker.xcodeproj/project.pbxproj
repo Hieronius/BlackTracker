@@ -12,8 +12,8 @@
 		DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */; };
 		DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12552B92BCC300B599B8 /* StatisticsScreenView.swift */; };
 		DD9D12582B92BCD200B599B8 /* StatisticsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12572B92BCD200B599B8 /* StatisticsScreenViewController.swift */; };
-		DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */; };
-		DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */; };
+		DD9D125B2B92BD0700B599B8 /* AchievementScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementScreenViewController.swift */; };
+		DD9D125E2B92BD2400B599B8 /* AchievementScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementScreenView.swift */; };
 		DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12642B92C1D500B599B8 /* AppColors.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
@@ -31,8 +31,8 @@
 		DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListScreenView.swift; sourceTree = "<group>"; };
 		DD9D12552B92BCC300B599B8 /* StatisticsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenView.swift; sourceTree = "<group>"; };
 		DD9D12572B92BCD200B599B8 /* StatisticsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreenViewController.swift; sourceTree = "<group>"; };
-		DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenViewController.swift; sourceTree = "<group>"; };
-		DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenView.swift; sourceTree = "<group>"; };
+		DD9D125A2B92BD0700B599B8 /* AchievementScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreenViewController.swift; sourceTree = "<group>"; };
+		DD9D125D2B92BD2400B599B8 /* AchievementScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreenView.swift; sourceTree = "<group>"; };
 		DD9D12642B92C1D500B599B8 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				DD9D125C2B92BD0F00B599B8 /* View */,
-				DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */,
+				DD9D125A2B92BD0700B599B8 /* AchievementScreenViewController.swift */,
 			);
 			path = AchievementsScreen;
 			sourceTree = "<group>";
@@ -124,7 +124,7 @@
 		DD9D125C2B92BD0F00B599B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */,
+				DD9D125D2B92BD2400B599B8 /* AchievementScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,11 +336,11 @@
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
 				DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */,
 				DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */,
-				DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */,
+				DD9D125E2B92BD2400B599B8 /* AchievementScreenView.swift in Sources */,
 				DD9D12582B92BCD200B599B8 /* StatisticsScreenViewController.swift in Sources */,
 				DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */,
 				DDF5F1322B8D97AD0031D54B /* ProgressScreenView.swift in Sources */,
-				DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */,
+				DD9D125B2B92BD0700B599B8 /* AchievementScreenViewController.swift in Sources */,
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
 				DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */,
 				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,

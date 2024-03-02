@@ -38,11 +38,21 @@ final class TabBarController: UITabBarController {
         )
         habitsListScreenVC.tabBarItem = habitsTabBarIcon
         
+        let statisticScreenVC = StatisticsScreenViewController()
+        let statisticsImage = UIImage(named: "chart.bar")
+        let statisticsImagePressed = UIImage(named: "chart.bar.fill")
+        let statisticsTabBarIcon = UITabBarItem(
+            title: "Statistics",
+            image: statisticsImage,
+            selectedImage: statisticsImagePressed
+        )
         
+        let achievementScreenVC
         
         let controllers = [
                 progressScreenVC,
                 habitsListScreenVC,
+                statisticScreenVC,
                 
             ]
         self.viewControllers = controllers
