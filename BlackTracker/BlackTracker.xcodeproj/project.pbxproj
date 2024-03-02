@@ -41,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD9D12492B92B10E00B599B8 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5F1302B8D97890031D54B /* View */,
+				DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
 		DDF5F10D2B8D96120031D54B = {
 			isa = PBXGroup;
 			children = (
@@ -91,8 +100,7 @@
 		DDF5F12F2B8D97150031D54B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DDF5F1302B8D97890031D54B /* View */,
-				DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */,
+				DD9D12492B92B10E00B599B8 /* MainScreen */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
