@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124A2B92B14C00B599B8 /* TabBar.swift */; };
+		DD9D124F2B92BBB700B599B8 /* HabitsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */; };
+		DD9D12512B92BBE400B599B8 /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12502B92BBE400B599B8 /* HabitsListView.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
 		DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DD9D124A2B92B14C00B599B8 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListViewController.swift; sourceTree = "<group>"; };
+		DD9D12502B92BBE400B599B8 /* HabitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListView.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,33 @@
 				DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		DD9D124C2B92BAAE00B599B8 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D124A2B92B14C00B599B8 /* TabBar.swift */,
+				DD9D124D2B92BB0900B599B8 /* HabitsList */,
+				DD9D12492B92B10E00B599B8 /* MainScreen */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		DD9D124D2B92BB0900B599B8 /* HabitsList */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D12522B92BBF700B599B8 /* View */,
+				DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */,
+			);
+			path = HabitsList;
+			sourceTree = "<group>";
+		};
+		DD9D12522B92BBF700B599B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D12502B92BBE400B599B8 /* HabitsListView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DDF5F10D2B8D96120031D54B = {
@@ -100,7 +133,7 @@
 		DDF5F12F2B8D97150031D54B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DD9D12492B92B10E00B599B8 /* MainScreen */,
+				DD9D124C2B92BAAE00B599B8 /* TabBar */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -214,9 +247,12 @@
 				DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */,
 				DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */,
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
+				DD9D12512B92BBE400B599B8 /* HabitsListView.swift in Sources */,
 				DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */,
 				DDF5F1322B8D97AD0031D54B /* MainScreenView.swift in Sources */,
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
+				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,
+				DD9D124F2B92BBB700B599B8 /* HabitsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
