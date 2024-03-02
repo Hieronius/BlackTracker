@@ -17,7 +17,7 @@ final class ProgressScreenView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = AppColors.darkGray
-         setupViews()
+        setupViews()
     }
     
     required init(coder: NSCoder) {
@@ -42,7 +42,6 @@ final class ProgressScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        // setupNavitationViewController
         // setupTopStackView
         // setupBottomStackView
         setupProgressImageView()
