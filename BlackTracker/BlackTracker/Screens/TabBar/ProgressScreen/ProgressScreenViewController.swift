@@ -3,7 +3,6 @@ import UIKit
 final class ProgressScreenViewController: GenericViewController<ProgressScreenView> {
     
     // MARK: - Private Properties
-    
     private var currentProgressCount = 0
     
     // MARK: - Initialization
@@ -11,6 +10,7 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
+        self.title = "Black Tracker"
     }
     
     // MARK: - Private Methods

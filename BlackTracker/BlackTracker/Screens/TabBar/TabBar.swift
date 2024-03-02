@@ -29,6 +29,8 @@ final class TabBarController: UITabBarController {
         )
         progressScreenVC.tabBarItem = progressTabBarIcon
         
+        let progressNavigationVC = UINavigationController(rootViewController: progressScreenVC)
+        
         let habitsListScreenVC = HabitsListScreenViewController()
         let habitsListImage = UIImage(named: "list.bullet.circle")
         let habitsListImagePressed = UIImage(named: "list.bullet.circle.fill")
@@ -60,7 +62,7 @@ final class TabBarController: UITabBarController {
         achievementsScreenVC.tabBarItem = achievementsTabBarIcon
         
         let controllers = [
-                progressScreenVC,
+                progressNavigationVC,
                 habitsListScreenVC,
                 statisticsScreenVC,
                 achievementsScreenVC
