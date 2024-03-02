@@ -10,7 +10,27 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
+        setupNavigationVC()
+    }
+    
+    // MARK: - Private Methods
+
+    private func setupNavigationVC() {
         self.title = "Black Tracker"
+        
+        let leftButton = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(leftButtonTapped))
+        navigationItem.leftBarButtonItem = leftButton
+        
+        let rightButton = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(rightButtonTapped))
+        navigationItem.rightBarButtonItem = rightButton
+    }
+    
+    @objc private func leftButtonTapped() {
+        
+    }
+    
+    @objc private func rightButtonTapped() {
+        
     }
     
 }
