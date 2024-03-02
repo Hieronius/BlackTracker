@@ -14,6 +14,7 @@
 		DD9D12582B92BCD200B599B8 /* StatisticScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */; };
 		DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */; };
 		DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */; };
+		DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12642B92C1D500B599B8 /* AppColors.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
 		DDF5F11E2B8D96120031D54B /* ProgressScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */; };
@@ -32,6 +33,7 @@
 		DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenView.swift; sourceTree = "<group>"; };
+		DD9D12642B92C1D500B599B8 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
+				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				DDF5F1322B8D97AD0031D54B /* ProgressScreenView.swift in Sources */,
 				DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */,
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
+				DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */,
 				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,
 				DD9D124F2B92BBB700B599B8 /* HabitsListScreenViewController.swift in Sources */,
 			);
