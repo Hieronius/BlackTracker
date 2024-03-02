@@ -10,14 +10,14 @@ final class ProgressScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: ProgressScreenViewDelegate?
-    var imageView: UIImageView!
+    var progressImageView: UIImageView!
     
     // MARK: - Initialization
     
     init() {
         super.init(frame: .zero)
         backgroundColor = AppColors.darkGray
-        setupImageView()
+        setupViews()
     }
     
     required init(coder: NSCoder) {
@@ -26,24 +26,28 @@ final class ProgressScreenView: UIView {
     
     // MARK: - Private Methods
     
-    private func setupImageView() {
-        imageView = UIImageView()
+    private func setupViews() {
+        setupProgressImageView()
+    }
+    
+    private func setupProgressImageView() {
+        progressImageView = UIImageView()
         
         if let firstImage = ImageService.images.first {
-            imageView.image = firstImage
+            progressImageView.image = firstImage
         } else {
-            imageView.image = UIImage(named: "tree")!
+            progressImageView.image = UIImage(named: "tree")!
         }
         
-        self.addSubview(imageView)
+        self.addSubview(progressImageView)
         
-        imageView.snp.makeConstraints { make in
+        progressImageView.snp.makeConstraints { make in
              make.edges.equalTo(safeAreaLayoutGuide)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
-        imageView.isUserInteractionEnabled = true
-        imageView.addGestureRecognizer(tapGesture)
+        progressImageView.isUserInteractionEnabled = true
+        progressImageView.addGestureRecognizer(tapGesture)
     }
     
     @objc private func imageTapped() {

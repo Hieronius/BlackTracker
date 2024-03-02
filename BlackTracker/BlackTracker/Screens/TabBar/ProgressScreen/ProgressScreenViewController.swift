@@ -17,13 +17,13 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     
     // Zoom Animation
     private func animateImageTransition(to newImage: UIImage) {
-        UIView.transition(with: rootView.imageView,
+        UIView.transition(with: rootView.progressImageView,
                           duration: 0.2,
                           options: .transitionCrossDissolve,
                           animations: {
-            self.rootView.imageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-            self.rootView.imageView.image = newImage
-            self.rootView.imageView.transform = .identity
+            self.rootView.progressImageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            self.rootView.progressImageView.image = newImage
+            self.rootView.progressImageView.transform = .identity
         },
                           completion: nil)
     }
