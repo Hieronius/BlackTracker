@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124A2B92B14C00B599B8 /* TabBar.swift */; };
-		DD9D124F2B92BBB700B599B8 /* HabitsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */; };
-		DD9D12512B92BBE400B599B8 /* HabitsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12502B92BBE400B599B8 /* HabitsListView.swift */; };
+		DD9D124F2B92BBB700B599B8 /* HabitsListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */; };
+		DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */; };
+		DD9D12562B92BCC300B599B8 /* StatisticScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */; };
+		DD9D12582B92BCD200B599B8 /* StatisticScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */; };
+		DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */; };
+		DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
 		DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* MainScreenViewController.swift */; };
@@ -22,8 +26,12 @@
 
 /* Begin PBXFileReference section */
 		DD9D124A2B92B14C00B599B8 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListViewController.swift; sourceTree = "<group>"; };
-		DD9D12502B92BBE400B599B8 /* HabitsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListView.swift; sourceTree = "<group>"; };
+		DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListScreenViewController.swift; sourceTree = "<group>"; };
+		DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsListScreenView.swift; sourceTree = "<group>"; };
+		DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticScreenView.swift; sourceTree = "<group>"; };
+		DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticScreenViewController.swift; sourceTree = "<group>"; };
+		DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenViewController.swift; sourceTree = "<group>"; };
+		DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsScreenView.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,25 +68,61 @@
 			isa = PBXGroup;
 			children = (
 				DD9D124A2B92B14C00B599B8 /* TabBar.swift */,
-				DD9D124D2B92BB0900B599B8 /* HabitsList */,
+				DD9D12592B92BCEF00B599B8 /* AchievementsScreen */,
+				DD9D12532B92BC4800B599B8 /* StatisticScreen */,
+				DD9D124D2B92BB0900B599B8 /* HabitsListScreen */,
 				DD9D12492B92B10E00B599B8 /* MainScreen */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
 		};
-		DD9D124D2B92BB0900B599B8 /* HabitsList */ = {
+		DD9D124D2B92BB0900B599B8 /* HabitsListScreen */ = {
 			isa = PBXGroup;
 			children = (
 				DD9D12522B92BBF700B599B8 /* View */,
-				DD9D124E2B92BBB700B599B8 /* HabitsListViewController.swift */,
+				DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */,
 			);
-			path = HabitsList;
+			path = HabitsListScreen;
 			sourceTree = "<group>";
 		};
 		DD9D12522B92BBF700B599B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DD9D12502B92BBE400B599B8 /* HabitsListView.swift */,
+				DD9D12502B92BBE400B599B8 /* HabitsListScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD9D12532B92BC4800B599B8 /* StatisticScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D12542B92BCB500B599B8 /* View */,
+				DD9D12572B92BCD200B599B8 /* StatisticScreenViewController.swift */,
+			);
+			path = StatisticScreen;
+			sourceTree = "<group>";
+		};
+		DD9D12542B92BCB500B599B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D12552B92BCC300B599B8 /* StatisticScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD9D12592B92BCEF00B599B8 /* AchievementsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D125C2B92BD0F00B599B8 /* View */,
+				DD9D125A2B92BD0700B599B8 /* AchievementsScreenViewController.swift */,
+			);
+			path = AchievementsScreen;
+			sourceTree = "<group>";
+		};
+		DD9D125C2B92BD0F00B599B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D125D2B92BD2400B599B8 /* AchievementsScreenView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,12 +291,16 @@
 				DDF5F11E2B8D96120031D54B /* MainScreenViewController.swift in Sources */,
 				DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */,
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
-				DD9D12512B92BBE400B599B8 /* HabitsListView.swift in Sources */,
+				DD9D12562B92BCC300B599B8 /* StatisticScreenView.swift in Sources */,
+				DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */,
+				DD9D125E2B92BD2400B599B8 /* AchievementsScreenView.swift in Sources */,
+				DD9D12582B92BCD200B599B8 /* StatisticScreenViewController.swift in Sources */,
 				DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */,
 				DDF5F1322B8D97AD0031D54B /* MainScreenView.swift in Sources */,
+				DD9D125B2B92BD0700B599B8 /* AchievementsScreenViewController.swift in Sources */,
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
 				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,
-				DD9D124F2B92BBB700B599B8 /* HabitsListViewController.swift in Sources */,
+				DD9D124F2B92BBB700B599B8 /* HabitsListScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
