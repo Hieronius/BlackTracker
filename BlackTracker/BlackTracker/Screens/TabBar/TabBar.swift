@@ -16,7 +16,8 @@ final class TabBarController: UITabBarController {
         delegate = self
         
         self.tabBar.backgroundColor = AppColors.darkGray
-        self.tabBar.tintColor = .gray
+        self.tabBar.tintColor = .white
+        self.tabBar.unselectedItemTintColor = .gray
         
         let progressScreenVC = ProgressScreenViewController()
         let progressImage = UIImage(named: "chart.bar")
