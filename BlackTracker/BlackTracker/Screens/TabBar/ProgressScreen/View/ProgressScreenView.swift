@@ -24,6 +24,21 @@ final class ProgressScreenView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public Methods
+    
+    // Zoom Animation
+    func animateImageTransition(to newImage: UIImage) {
+        UIView.transition(with: self.progressImageView,
+                          duration: 0.2,
+                          options: .transitionCrossDissolve,
+                          animations: {
+            self.progressImageView.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
+            self.progressImageView.image = newImage
+            self.progressImageView.transform = .identity
+        },
+                          completion: nil)
+    }
+    
     // MARK: - Private Methods
     
     private func setupViews() {
