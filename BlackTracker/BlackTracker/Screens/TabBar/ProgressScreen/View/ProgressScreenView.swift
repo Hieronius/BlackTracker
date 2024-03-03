@@ -12,6 +12,7 @@ final class ProgressScreenView: UIView {
     weak var delegate: ProgressScreenViewDelegate?
     var topStackView: UIStackView!
     var progressImageView: UIImageView!
+    var bottomStackView: UIStackView!
     
     // MARK: - Initialization
     
@@ -44,7 +45,7 @@ final class ProgressScreenView: UIView {
     
     private func setupViews() {
         setupTopStackView()
-        // setupBottomStackView
+        setupBottomStackView()
         setupProgressImageView()
     }
     
@@ -79,8 +80,29 @@ final class ProgressScreenView: UIView {
     }
     
     private func setupBottomStackView() {
-        // setup progressPointsImageView
-        // setup addHabitButton
+        bottomStackView = UIStackView()
+        bottomStackView.axis = .horizontal
+        bottomStackView.alignment = .fill
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.spacing = 50
+        
+        let progressPoints = NumberImageView()
+        progressPoints.configure(withNumber: 5, title: "Progress Points")
+        bottomStackView.addArrangedSubview(progressPoints)
+        
+        let addHabit = NumberImageView()
+        addHabit.configure(withNumber: 6, title: "Add Habit")
+        bottomStackView.addArrangedSubview(addHabit)
+        
+        self.addSubview(bottomStackView)
+        
+        bottomStackView.snp.makeConstraints { make in
+            make.leading.equalTo(safeAreaLayoutGuide).offset(-68)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(68)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-10)
+            make.height.equalTo(50)
+        }
+        
     }
     
     private func setupProgressImageView() {
@@ -95,7 +117,8 @@ final class ProgressScreenView: UIView {
         self.addSubview(progressImageView)
         
         progressImageView.snp.makeConstraints { make in
-            make.top.equalTo(topStackView.snp.bottom).offset(50)
+            make.top.greaterThanOrEqualTo(topStackView.snp.bottom).offset(50)
+            make.bottom.greaterThanOrEqualTo(bottomStackView.snp.top).offset(-25)
             make.leading.equalTo(safeAreaLayoutGuide)
             make.trailing.equalTo(safeAreaLayoutGuide)
         }
