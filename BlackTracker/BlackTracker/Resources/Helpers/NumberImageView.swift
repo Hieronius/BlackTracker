@@ -1,66 +1,70 @@
 import UIKit
+import SnapKit
 
-class NumberImageView: UIImageView {
+class NumberImageView: UIView {
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
-    private var number: Int = 0 {
-        didSet {
-            updateImage()
-        }
-    }
+    private let numberLabel: UILabel = UILabel()
+    private let titleLabel: UILabel = UILabel()
+    private let imageView: UIImageView = UIImageView()
     
     // MARK: - Initialization
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        updateImage()
+        setupViews()
     }
     
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        updateImage()
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Public Methods
     
-    func setNumber(_ number: Int) {
-        self.number = number
+    func configure(withNumber number: Int, title: String, image: UIImage?) {
+        numberLabel.text = "\(number)"
+        titleLabel.text = title
+        imageView.image = image
     }
     
     // MARK: - Private Methods
     
-    private func updateImage() {
-        // Convert the number into an image
-        guard let image = numberToImage(number: number) else {
-            return
-        }
-        
-        // Update the image view's image
-        self.image = image
+    private func setupViews() {
+        setupNumberLabel()
+        setupTitleLabel()
+        setupImageView()
     }
     
-    private func numberToImage(number: Int) -> UIImage? {
-        // Convert the number into an image
-        let numberString = "\(number)"
-        let imageSize = CGSize(width: 20, height: 20) // Adjust size as needed
-        let renderer = UIGraphicsImageRenderer(size: imageSize)
-        
-        let image = renderer.image { context in
-            // Draw the number as text in the center of the image
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.alignment = .center
-            
-            let attributes: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 16), // Adjust font size as needed
-                .paragraphStyle: paragraphStyle,
-                .foregroundColor: UIColor.black // Adjust text color as needed
-            ]
-            
-            let textRect = CGRect(origin: .zero, size: imageSize)
-            numberString.draw(with: textRect, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+    private func setupNumberLabel() {
+        numberLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        numberLabel.textColor = .white
+        numberLabel.textAlignment = .center
+        addSubview(numberLabel)
+        numberLabel.snp.makeConstraints { make in
+            make.centerX.top.equalToSuperview()
         }
-        
-        return image
+    }
+    
+    private func setupTitleLabel() {
+        titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .center
+        addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(numberLabel.snp.bottom).offset(4)
+            make.leading.trailing.equalToSuperview()
+        }
+    }
+    
+    private func setupImageView() {
+        imageView.contentMode = .scaleAspectFit
+        addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.width.height.equalTo(50) // Adjust size as needed
+            make.bottom.equalToSuperview()
+        }
     }
 }
