@@ -4,6 +4,9 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     
     // MARK: - Private Properties
     private var currentProgressCount = 0
+    // dailyVisitsStreak = 1
+    // daily100%ProgressStreak = 1
+    // rank = 1
     
     // MARK: - Initialization
 
