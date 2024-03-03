@@ -10,6 +10,7 @@ final class ProgressScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: ProgressScreenViewDelegate?
+    var topStackView: UIStackView!
     var progressImageView: UIImageView!
     
     // MARK: - Initialization
@@ -42,15 +43,39 @@ final class ProgressScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        // setupTopStackView
+        setupTopStackView()
         // setupBottomStackView
         setupProgressImageView()
     }
     
     private func setupTopStackView() {
-        // setup dailyStreakImageView
-        // setup progressStreakImageView
-        // setup rankingStreakImageView
+        topStackView = UIStackView()
+        topStackView.axis = .horizontal
+        topStackView.alignment = .fill
+        topStackView.distribution = .fillEqually
+        topStackView.spacing = 10
+        
+        let dailyVisitsStreakImage = NumberImageView()
+        dailyVisitsStreakImage.configure(withNumber: 1, title: "Daily Visits")
+        topStackView.addArrangedSubview(dailyVisitsStreakImage)
+        
+        let dailyProgressStreak = NumberImageView()
+        dailyProgressStreak.configure(withNumber: 10, title: "Daily Progress")
+        topStackView.addArrangedSubview(dailyProgressStreak)
+        
+        let rank = NumberImageView()
+        rank.configure(withNumber: 100, title: "Rank")
+        
+        topStackView.addArrangedSubview(rank)
+        
+        self.addSubview(topStackView)
+        
+        topStackView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(25)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-25)
+            make.height.equalTo(50)
+        }
     }
     
     private func setupBottomStackView() {
@@ -70,7 +95,9 @@ final class ProgressScreenView: UIView {
         self.addSubview(progressImageView)
         
         progressImageView.snp.makeConstraints { make in
-             make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.equalTo(topStackView.snp.bottom).offset(50)
+            make.leading.equalTo(safeAreaLayoutGuide)
+            make.trailing.equalTo(safeAreaLayoutGuide)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))

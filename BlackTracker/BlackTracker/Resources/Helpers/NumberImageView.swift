@@ -7,7 +7,6 @@ class NumberImageView: UIView {
     
     private let numberLabel: UILabel = UILabel()
     private let titleLabel: UILabel = UILabel()
-    private let imageView: UIImageView = UIImageView()
     
     // MARK: - Initialization
     
@@ -22,18 +21,17 @@ class NumberImageView: UIView {
     
     // MARK: - Public Methods
     
-    func configure(withNumber number: Int, title: String, image: UIImage?) {
-        numberLabel.text = "\(number)"
+    func configure(withNumber number: Int, title: String) {
         titleLabel.text = title
-        imageView.image = image
+        numberLabel.text = "\(number)"
     }
+    
     
     // MARK: - Private Methods
     
     private func setupViews() {
         setupNumberLabel()
         setupTitleLabel()
-        setupImageView()
     }
     
     private func setupNumberLabel() {
@@ -44,27 +42,30 @@ class NumberImageView: UIView {
         numberLabel.snp.makeConstraints { make in
             make.centerX.top.equalToSuperview()
         }
+        
+        let numberWidth: CGFloat = 55
+        numberLabel.backgroundColor = .clear
+        numberLabel.textColor = .white
+        numberLabel.layer.cornerRadius = numberWidth / 2
+        numberLabel.layer.masksToBounds = true
+        numberLabel.layer.borderWidth = 1
+        numberLabel.layer.borderColor = UIColor.white.cgColor
+        
+        numberLabel.snp.remakeConstraints { make in
+            make.width.equalTo(numberWidth)
+            make.height.equalTo(numberWidth)
+            make.centerX.top.equalToSuperview()
+        }
     }
     
     private func setupTitleLabel() {
         titleLabel.font = UIFont.systemFont(ofSize: 14, weight: .regular)
-        titleLabel.textColor = .white
+        titleLabel.textColor = .gray
         titleLabel.textAlignment = .center
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(numberLabel.snp.bottom).offset(4)
             make.leading.trailing.equalToSuperview()
-        }
-    }
-    
-    private func setupImageView() {
-        imageView.contentMode = .scaleAspectFit
-        addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
-            make.width.height.equalTo(50) // Adjust size as needed
-            make.bottom.equalToSuperview()
         }
     }
 }

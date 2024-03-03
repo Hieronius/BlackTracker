@@ -238,8 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
-				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
 				DD9FC1132B94294E0004B8CA /* NumberImageView.swift */,
+				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
