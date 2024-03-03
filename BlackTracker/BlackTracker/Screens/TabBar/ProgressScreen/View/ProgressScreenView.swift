@@ -10,7 +10,9 @@ final class ProgressScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: ProgressScreenViewDelegate?
+    var topStackView: UIStackView!
     var progressImageView: UIImageView!
+    var bottomStackView: UIStackView!
     
     // MARK: - Initialization
     
@@ -42,20 +44,65 @@ final class ProgressScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        // setupTopStackView
-        // setupBottomStackView
+        setupTopStackView()
+        setupBottomStackView()
         setupProgressImageView()
     }
     
     private func setupTopStackView() {
-        // setup dailyStreakImageView
-        // setup progressStreakImageView
-        // setup rankingStreakImageView
+        topStackView = UIStackView()
+        topStackView.axis = .horizontal
+        topStackView.alignment = .fill
+        topStackView.distribution = .fillEqually
+        topStackView.spacing = 10
+        
+        let dailyVisitsStreakImage = NumberImageView()
+        dailyVisitsStreakImage.configure(withNumber: 1, title: "Daily Visits")
+        topStackView.addArrangedSubview(dailyVisitsStreakImage)
+        
+        let dailyProgressStreak = NumberImageView()
+        dailyProgressStreak.configure(withNumber: 10, title: "Daily Progress")
+        topStackView.addArrangedSubview(dailyProgressStreak)
+        
+        let rank = NumberImageView()
+        rank.configure(withNumber: 100, title: "Rank")
+        
+        topStackView.addArrangedSubview(rank)
+        
+        self.addSubview(topStackView)
+        
+        topStackView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.leading.equalTo(safeAreaLayoutGuide).offset(25)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(-25)
+            make.height.equalTo(50)
+        }
     }
     
     private func setupBottomStackView() {
-        // setup progressPointsImageView
-        // setup addHabitButton
+        bottomStackView = UIStackView()
+        bottomStackView.axis = .horizontal
+        bottomStackView.alignment = .fill
+        bottomStackView.distribution = .fillEqually
+        bottomStackView.spacing = 50
+        
+        let progressPoints = NumberImageView()
+        progressPoints.configure(withNumber: 5, title: "Progress Points")
+        bottomStackView.addArrangedSubview(progressPoints)
+        
+        let addHabit = NumberImageView()
+        addHabit.configure(withNumber: 6, title: "Add Habit")
+        bottomStackView.addArrangedSubview(addHabit)
+        
+        self.addSubview(bottomStackView)
+        
+        bottomStackView.snp.makeConstraints { make in
+            make.leading.equalTo(safeAreaLayoutGuide).offset(-68)
+            make.trailing.equalTo(safeAreaLayoutGuide).offset(68)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-10)
+            make.height.equalTo(50)
+        }
+        
     }
     
     private func setupProgressImageView() {
@@ -70,7 +117,10 @@ final class ProgressScreenView: UIView {
         self.addSubview(progressImageView)
         
         progressImageView.snp.makeConstraints { make in
-             make.edges.equalTo(safeAreaLayoutGuide)
+            make.top.greaterThanOrEqualTo(topStackView.snp.bottom).offset(50)
+            make.bottom.greaterThanOrEqualTo(bottomStackView.snp.top).offset(-25)
+            make.leading.equalTo(safeAreaLayoutGuide)
+            make.trailing.equalTo(safeAreaLayoutGuide)
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
