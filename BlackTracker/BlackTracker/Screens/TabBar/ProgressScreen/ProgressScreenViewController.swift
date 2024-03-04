@@ -59,7 +59,8 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
 
 // MARK: - Extensions
 
-extension ProgressScreenViewController: ProgressScreenViewDelegate {
+extension ProgressScreenViewController:
+    ProgressScreenViewDelegate {
     func imageViewTapped() {
         
         if currentProgressCount < ImageService.images.count - 1 {
@@ -69,6 +70,24 @@ extension ProgressScreenViewController: ProgressScreenViewDelegate {
             currentProgressCount = 0
             rootView.animateImageTransition(to: ImageService.images[currentProgressCount])
         }
+    }
+    
+    func dailyVisitsImageViewTapped() {
+        let calendarVC = CalendarScreenViewController()
+        present(calendarVC, animated: true)
+    }
+    
+    func dailyProgressImageViewTapped() {
+        let calendarVC = CalendarScreenViewController()
+        present(calendarVC, animated: true)
+    }
+    
+    func rankImageViewTapped() {
+        //
+    }
+    
+    func addHabitButtonTapped() {
+        //
     }
     
     
