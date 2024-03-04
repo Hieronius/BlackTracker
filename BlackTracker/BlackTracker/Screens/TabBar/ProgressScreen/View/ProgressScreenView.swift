@@ -3,6 +3,10 @@ import SnapKit
 
 protocol ProgressScreenViewDelegate: AnyObject {
     func imageViewTapped()
+    func dailyVisitsImageTapped()
+    func dailyProgressImageTapped()
+    func rankImageTapped()
+    func addHabitButtonTapped()
 }
 
 final class ProgressScreenView: UIView {
@@ -56,18 +60,31 @@ final class ProgressScreenView: UIView {
         topStackView.distribution = .fillEqually
         topStackView.spacing = 10
         
-        let dailyVisitsStreakImage = CustomRoundImageView()
-        dailyVisitsStreakImage.configure(withNumber: 1, withTitle: "Daily Visits")
-        topStackView.addArrangedSubview(dailyVisitsStreakImage)
+        let dailyVisitsStreakImageView = CustomRoundImageView()
+        dailyVisitsStreakImageView.configure(withNumber: 1, withTitle: "Daily Visits")
         
-        let dailyProgressStreak = CustomRoundImageView()
-        dailyProgressStreak.configure(withNumber: 10, withTitle: "Daily Progress")
-        topStackView.addArrangedSubview(dailyProgressStreak)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyVisitsImageTapped))
+        dailyVisitsStreakImageView.isUserInteractionEnabled = true
+        dailyVisitsStreakImageView.addGestureRecognizer(tapGesture)
         
-        let rank = CustomRoundImageView()
-        rank.configure(withNumber: 100, withTitle: "Rank")
+        topStackView.addArrangedSubview(dailyVisitsStreakImageView)
         
-        topStackView.addArrangedSubview(rank)
+        let dailyProgressStreakImageView = CustomRoundImageView()
+        dailyProgressStreakImageView.configure(withNumber: 10, withTitle: "Daily Progress")
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyProgressImageTapped))
+        dailyProgressStreakImageView.isUserInteractionEnabled = true
+        dailyProgressStreakImageView.addGestureRecognizer(tapGesture)
+        
+        topStackView.addArrangedSubview(dailyProgressStreakImageView)
+        
+        let rankImageView = CustomRoundImageView()
+        rankImageView.configure(withNumber: 100, withTitle: "Rank")
+        topStackView.addArrangedSubview(rankImageView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(rankImageTapped))
+        rankImageView.isUserInteractionEnabled = true
+        rankImageView.addGestureRecognizer(tapGesture)
         
         self.addSubview(topStackView)
         
