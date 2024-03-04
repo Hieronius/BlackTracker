@@ -25,7 +25,7 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
             target: self,
             action: #selector(settingsButtonTapped))
         
-        settingsButton.tintColor = .white
+        settingsButton.tintColor = .gray
         settingsButton.image = UIImage(named: "gear")
         navigationItem.leftBarButtonItem = settingsButton
         
@@ -35,17 +35,19 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
             target: self,
             action: #selector(profileButtonTapped))
         
-        profileButton.tintColor = .white
+        profileButton.tintColor = .gray
         profileButton.image = UIImage(named: "person.crop.circle")
         navigationItem.rightBarButtonItem = profileButton
     }
     
     @objc private func settingsButtonTapped() {
         // go to Settings Screen
+        // change tint color to white
     }
     
     @objc private func profileButtonTapped() {
         // go to Profile Screen
+        // change tint color to white
     }
     
 }
