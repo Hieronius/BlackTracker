@@ -91,7 +91,7 @@ final class ProgressScreenView: UIView {
         bottomStackView.addArrangedSubview(progressPoints)
         
         let addHabit = CustomRoundImageView()
-        addHabit.configure(withChar: "+", withBackgroundColor: .black)
+        addHabit.configure(withChar: "+", withBackgroundColor: AppColors.veryDarkGray)
         bottomStackView.addArrangedSubview(addHabit)
         
         self.addSubview(bottomStackView)
