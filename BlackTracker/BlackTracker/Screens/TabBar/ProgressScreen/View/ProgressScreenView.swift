@@ -72,7 +72,7 @@ final class ProgressScreenView: UIView {
         self.addSubview(topStackView)
         
         topStackView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide).offset(10)
+            make.top.equalToSuperview().offset(75)
             make.leading.equalTo(safeAreaLayoutGuide).offset(25)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-25)
             make.height.equalTo(50)

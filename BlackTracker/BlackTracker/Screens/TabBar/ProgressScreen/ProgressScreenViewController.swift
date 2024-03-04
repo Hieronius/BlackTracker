@@ -19,6 +19,10 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     // MARK: - Private Methods
 
     private func setupNavigationVC() {
+         navigationController?.navigationBar.topItem?.title = "Progress"
+        navigationController?.navigationBar.backgroundColor = AppColors.veryDarkGray
+        navigationController?.navigationBar.isTranslucent = true
+        
         let settingsButton = UIBarButtonItem(
             title: "Left",
             style: .plain,
