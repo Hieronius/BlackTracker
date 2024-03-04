@@ -15,9 +15,9 @@ final class TabBarController: UITabBarController {
     private func setupTabBar() {
         delegate = self
         
-        self.tabBar.backgroundColor = AppColors.darkGray
-        self.tabBar.tintColor = .white
-        self.tabBar.unselectedItemTintColor = .gray
+        tabBar.tintColor = .white
+        tabBar.unselectedItemTintColor = .gray
+        tabBar.backgroundColor = AppColors.veryDarkGray
         
         let progressScreenVC = ProgressScreenViewController()
         let progressImage = UIImage(named: "chart.bar")
@@ -27,7 +27,7 @@ final class TabBarController: UITabBarController {
             image: progressImage,
             selectedImage: progressImagePressed
         )
-        progressScreenVC.tabBarItem = progressTabBarIcon
+         progressScreenVC.tabBarItem = progressTabBarIcon
         
         let progressNavigationVC = UINavigationController(rootViewController: progressScreenVC)
         
