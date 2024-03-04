@@ -3,9 +3,9 @@ import SnapKit
 
 protocol ProgressScreenViewDelegate: AnyObject {
     func imageViewTapped()
-    func dailyVisitsImageTapped()
-    func dailyProgressImageTapped()
-    func rankImageTapped()
+    func dailyVisitsImageViewTapped()
+    func dailyProgressImageViewTapped()
+    func rankImageViewTapped()
     func addHabitButtonTapped()
 }
 
@@ -63,18 +63,18 @@ final class ProgressScreenView: UIView {
         let dailyVisitsStreakImageView = CustomRoundImageView()
         dailyVisitsStreakImageView.configure(withNumber: 1, withTitle: "Daily Visits")
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyVisitsImageTapped))
+        let dailyVisitsTapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyVisitsImageViewTapped))
         dailyVisitsStreakImageView.isUserInteractionEnabled = true
-        dailyVisitsStreakImageView.addGestureRecognizer(tapGesture)
+        dailyVisitsStreakImageView.addGestureRecognizer(dailyVisitsTapGesture)
         
         topStackView.addArrangedSubview(dailyVisitsStreakImageView)
         
         let dailyProgressStreakImageView = CustomRoundImageView()
         dailyProgressStreakImageView.configure(withNumber: 10, withTitle: "Daily Progress")
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyProgressImageTapped))
+        let dailyProgressTapGesture = UITapGestureRecognizer(target: self, action: #selector(dailyProgressImageViewTapped))
         dailyProgressStreakImageView.isUserInteractionEnabled = true
-        dailyProgressStreakImageView.addGestureRecognizer(tapGesture)
+        dailyProgressStreakImageView.addGestureRecognizer(dailyProgressTapGesture)
         
         topStackView.addArrangedSubview(dailyProgressStreakImageView)
         
@@ -82,9 +82,9 @@ final class ProgressScreenView: UIView {
         rankImageView.configure(withNumber: 100, withTitle: "Rank")
         topStackView.addArrangedSubview(rankImageView)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(rankImageTapped))
+        let ranktapGesture = UITapGestureRecognizer(target: self, action: #selector(rankImageViewTapped))
         rankImageView.isUserInteractionEnabled = true
-        rankImageView.addGestureRecognizer(tapGesture)
+        rankImageView.addGestureRecognizer(ranktapGesture)
         
         self.addSubview(topStackView)
         
@@ -140,12 +140,28 @@ final class ProgressScreenView: UIView {
             make.trailing.equalTo(safeAreaLayoutGuide)
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
         progressImageView.isUserInteractionEnabled = true
         progressImageView.addGestureRecognizer(tapGesture)
     }
     
-    @objc private func imageTapped() {
+    @objc private func imageViewTapped() {
         delegate?.imageViewTapped()
+    }
+    
+    @objc private func dailyVisitsImageViewTapped() {
+        delegate?.dailyVisitsImageViewTapped()
+    }
+    
+    @objc private func dailyProgressImageViewTapped() {
+        delegate?.dailyProgressImageViewTapped()
+    }
+    
+    @objc private func rankImageViewTapped() {
+        delegate?.rankImageViewTapped()
+    }
+    
+    @objc private func addHabitButtonTapped() {
+        delegate?.addHabitButtonTapped()
     }
 }
