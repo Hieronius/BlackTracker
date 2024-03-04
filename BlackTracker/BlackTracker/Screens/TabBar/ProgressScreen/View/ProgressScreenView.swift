@@ -57,15 +57,15 @@ final class ProgressScreenView: UIView {
         topStackView.spacing = 10
         
         let dailyVisitsStreakImage = NumberImageView()
-        dailyVisitsStreakImage.configure(withNumber: 1, title: "Daily Visits")
+        dailyVisitsStreakImage.configure(withNumber: 1, withTitle: "Daily Visits")
         topStackView.addArrangedSubview(dailyVisitsStreakImage)
         
         let dailyProgressStreak = NumberImageView()
-        dailyProgressStreak.configure(withNumber: 10, title: "Daily Progress")
+        dailyProgressStreak.configure(withNumber: 10, withTitle: "Daily Progress")
         topStackView.addArrangedSubview(dailyProgressStreak)
         
         let rank = NumberImageView()
-        rank.configure(withNumber: 100, title: "Rank")
+        rank.configure(withNumber: 100, withTitle: "Rank")
         
         topStackView.addArrangedSubview(rank)
         
@@ -87,11 +87,11 @@ final class ProgressScreenView: UIView {
         bottomStackView.spacing = 50
         
         let progressPoints = NumberImageView()
-        progressPoints.configure(withNumber: 5, title: "Progress Points")
+        progressPoints.configure(withNumber: 5, withTitle: "Grow Points")
         bottomStackView.addArrangedSubview(progressPoints)
         
         let addHabit = NumberImageView()
-        addHabit.configure(withNumber: 6, title: "Add Habit")
+        addHabit.configure(withChar: "+", withBackgroundColor: .black)
         bottomStackView.addArrangedSubview(addHabit)
         
         self.addSubview(bottomStackView)
@@ -99,7 +99,7 @@ final class ProgressScreenView: UIView {
         bottomStackView.snp.makeConstraints { make in
             make.leading.equalTo(safeAreaLayoutGuide).offset(-68)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(68)
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-10)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-25)
             make.height.equalTo(50)
         }
         
@@ -117,8 +117,8 @@ final class ProgressScreenView: UIView {
         self.addSubview(progressImageView)
         
         progressImageView.snp.makeConstraints { make in
-            make.top.greaterThanOrEqualTo(topStackView.snp.bottom).offset(50)
-            make.bottom.greaterThanOrEqualTo(bottomStackView.snp.top).offset(-25)
+            make.top.equalTo(topStackView.snp.bottom).offset(50)
+            make.bottom.equalTo(bottomStackView.snp.top).offset(-25)
             make.leading.equalTo(safeAreaLayoutGuide)
             make.trailing.equalTo(safeAreaLayoutGuide)
         }

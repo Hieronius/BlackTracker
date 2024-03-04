@@ -5,7 +5,7 @@ class NumberImageView: UIView {
     
     // MARK: - Properties
     
-    private let numberLabel: UILabel = UILabel()
+    private let contentLabel: UILabel = UILabel()
     private let titleLabel: UILabel = UILabel()
     
     // MARK: - Initialization
@@ -21,11 +21,27 @@ class NumberImageView: UIView {
     
     // MARK: - Public Methods
     
-    func configure(withNumber number: Int, title: String) {
-        titleLabel.text = title
-        numberLabel.text = "\(number)"
+    func configure(withNumber number: Int? = nil,
+                   withChar char: Character? = nil,
+                   withTitle title: String? = nil,
+                   withBackgroundColor backgroundColor: UIColor? = nil) {
+        
+        if let number = number {
+            contentLabel.text = "\(number)"
+        } else if let char = char {
+            contentLabel.text = "\(char)"
+        } else {
+            contentLabel.text = nil
+        }
+        
+        if let title = title {
+            titleLabel.text = title
+        }
+        
+        if let backgroundColor = backgroundColor {
+            contentLabel.backgroundColor = backgroundColor
+        }
     }
-    
     
     // MARK: - Private Methods
     
@@ -35,23 +51,23 @@ class NumberImageView: UIView {
     }
     
     private func setupNumberLabel() {
-        numberLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
-        numberLabel.textColor = .white
-        numberLabel.textAlignment = .center
-        addSubview(numberLabel)
-        numberLabel.snp.makeConstraints { make in
+        contentLabel.font = UIFont.systemFont(ofSize: 24, weight: .bold)
+        contentLabel.textColor = .white
+        contentLabel.textAlignment = .center
+        addSubview(contentLabel)
+        contentLabel.snp.makeConstraints { make in
             make.centerX.top.equalToSuperview()
         }
         
         let numberWidth: CGFloat = 55
-        numberLabel.backgroundColor = .clear
-        numberLabel.textColor = .white
-        numberLabel.layer.cornerRadius = numberWidth / 2
-        numberLabel.layer.masksToBounds = true
-        numberLabel.layer.borderWidth = 1
-        numberLabel.layer.borderColor = UIColor.white.cgColor
+        contentLabel.backgroundColor = .clear
+        contentLabel.textColor = .white
+        contentLabel.layer.cornerRadius = numberWidth / 2
+        contentLabel.layer.masksToBounds = true
+        contentLabel.layer.borderWidth = 1
+        contentLabel.layer.borderColor = UIColor.white.cgColor
         
-        numberLabel.snp.remakeConstraints { make in
+        contentLabel.snp.remakeConstraints { make in
             make.width.equalTo(numberWidth)
             make.height.equalTo(numberWidth)
             make.centerX.top.equalToSuperview()
@@ -64,7 +80,7 @@ class NumberImageView: UIView {
         titleLabel.textAlignment = .center
         addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(numberLabel.snp.bottom).offset(4)
+            make.top.equalTo(contentLabel.snp.bottom).offset(4)
             make.leading.trailing.equalToSuperview()
         }
     }
