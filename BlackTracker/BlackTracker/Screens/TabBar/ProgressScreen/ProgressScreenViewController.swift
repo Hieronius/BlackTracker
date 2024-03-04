@@ -19,12 +19,22 @@ final class ProgressScreenViewController: GenericViewController<ProgressScreenVi
     // MARK: - Private Methods
 
     private func setupNavigationVC() {
-        let settingsButton = UIBarButtonItem(title: "Left", style: .plain, target: self, action: #selector(settingsButtonTapped))
+        let settingsButton = UIBarButtonItem(
+            title: "Left",
+            style: .plain,
+            target: self,
+            action: #selector(settingsButtonTapped))
+        
         settingsButton.tintColor = .white
         settingsButton.image = UIImage(named: "gear")
         navigationItem.leftBarButtonItem = settingsButton
         
-        let profileButton = UIBarButtonItem(title: "Right", style: .plain, target: self, action: #selector(profileButtonTapped))
+        let profileButton = UIBarButtonItem(
+            title: "Right",
+            style: .plain,
+            target: self,
+            action: #selector(profileButtonTapped))
+        
         profileButton.tintColor = .white
         profileButton.image = UIImage(named: "person.crop.circle")
         navigationItem.rightBarButtonItem = profileButton
