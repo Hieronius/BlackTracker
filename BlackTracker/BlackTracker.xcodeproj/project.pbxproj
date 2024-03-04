@@ -15,7 +15,7 @@
 		DD9D125B2B92BD0700B599B8 /* AchievementScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125A2B92BD0700B599B8 /* AchievementScreenViewController.swift */; };
 		DD9D125E2B92BD2400B599B8 /* AchievementScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D125D2B92BD2400B599B8 /* AchievementScreenView.swift */; };
 		DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9D12642B92C1D500B599B8 /* AppColors.swift */; };
-		DD9FC1142B94294E0004B8CA /* NumberImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9FC1132B94294E0004B8CA /* NumberImageView.swift */; };
+		DD9FC1142B94294E0004B8CA /* CustomRoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
 		DDF5F11E2B8D96120031D54B /* ProgressScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */; };
@@ -35,7 +35,7 @@
 		DD9D125A2B92BD0700B599B8 /* AchievementScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreenViewController.swift; sourceTree = "<group>"; };
 		DD9D125D2B92BD2400B599B8 /* AchievementScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementScreenView.swift; sourceTree = "<group>"; };
 		DD9D12642B92C1D500B599B8 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
-		DD9FC1132B94294E0004B8CA /* NumberImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberImageView.swift; sourceTree = "<group>"; };
+		DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundImageView.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -238,7 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
-				DD9FC1132B94294E0004B8CA /* NumberImageView.swift */,
+				DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */,
 				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
 			);
 			path = Helpers;
@@ -347,7 +347,7 @@
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
 				DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */,
 				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,
-				DD9FC1142B94294E0004B8CA /* NumberImageView.swift in Sources */,
+				DD9FC1142B94294E0004B8CA /* CustomRoundImageView.swift in Sources */,
 				DD9D124F2B92BBB700B599B8 /* HabitsListScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -56,15 +56,15 @@ final class ProgressScreenView: UIView {
         topStackView.distribution = .fillEqually
         topStackView.spacing = 10
         
-        let dailyVisitsStreakImage = NumberImageView()
+        let dailyVisitsStreakImage = CustomRoundImageView()
         dailyVisitsStreakImage.configure(withNumber: 1, withTitle: "Daily Visits")
         topStackView.addArrangedSubview(dailyVisitsStreakImage)
         
-        let dailyProgressStreak = NumberImageView()
+        let dailyProgressStreak = CustomRoundImageView()
         dailyProgressStreak.configure(withNumber: 10, withTitle: "Daily Progress")
         topStackView.addArrangedSubview(dailyProgressStreak)
         
-        let rank = NumberImageView()
+        let rank = CustomRoundImageView()
         rank.configure(withNumber: 100, withTitle: "Rank")
         
         topStackView.addArrangedSubview(rank)
@@ -86,11 +86,11 @@ final class ProgressScreenView: UIView {
         bottomStackView.distribution = .fillEqually
         bottomStackView.spacing = 50
         
-        let progressPoints = NumberImageView()
+        let progressPoints = CustomRoundImageView()
         progressPoints.configure(withNumber: 5, withTitle: "Grow Points")
         bottomStackView.addArrangedSubview(progressPoints)
         
-        let addHabit = NumberImageView()
+        let addHabit = CustomRoundImageView()
         addHabit.configure(withChar: "+", withBackgroundColor: .black)
         bottomStackView.addArrangedSubview(addHabit)
         
