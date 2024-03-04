@@ -3,6 +3,7 @@ import UIKit
 final class ProgressScreenViewController: GenericViewController<ProgressScreenView> {
     
     // MARK: - Private Properties
+    
     private var currentProgressCount = 0
     // dailyVisitsStreak = 1
     // daily100%ProgressStreak = 1
