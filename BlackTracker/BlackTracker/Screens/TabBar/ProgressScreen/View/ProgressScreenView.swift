@@ -99,7 +99,7 @@ final class ProgressScreenView: UIView {
         bottomStackView.snp.makeConstraints { make in
             make.leading.equalTo(safeAreaLayoutGuide).offset(-68)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(68)
-            make.bottom.equalTo(safeAreaLayoutGuide).offset(-25)
+            make.bottom.equalTo(safeAreaLayoutGuide).offset(-30)
             make.height.equalTo(50)
         }
         
