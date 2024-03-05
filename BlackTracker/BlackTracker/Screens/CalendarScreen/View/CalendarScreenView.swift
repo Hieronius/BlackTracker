@@ -1,6 +1,15 @@
 import UIKit
+import SnapKit
+
+protocol CalendarScreenViewDelegate: AnyObject {
+    // methods to work with calendar
+}
 
 final class CalendarScreenView: UIView {
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: CalendarScreenViewDelegate?
     
     // MARK: - Initialization
     
@@ -17,6 +26,10 @@ final class CalendarScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        
+        let calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        addSubview(calendarView)
+        calendarView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }
