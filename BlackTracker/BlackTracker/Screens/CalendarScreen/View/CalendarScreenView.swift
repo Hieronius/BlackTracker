@@ -1,5 +1,6 @@
 import UIKit
 import SnapKit
+import CalendarKit
 
 protocol CalendarScreenViewDelegate: AnyObject {
     func dayTapped()
@@ -16,7 +17,7 @@ final class CalendarScreenView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = AppColors.darkGray
-        // setupViews()
+         setupViews()
     }
     
     required init(coder: NSCoder) {
@@ -26,10 +27,7 @@ final class CalendarScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        let calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        addSubview(calendarView)
-        calendarView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+        
     }
+    
 }
