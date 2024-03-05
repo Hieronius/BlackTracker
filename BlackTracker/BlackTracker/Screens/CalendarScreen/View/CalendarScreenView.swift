@@ -2,7 +2,7 @@ import UIKit
 import SnapKit
 
 protocol CalendarScreenViewDelegate: AnyObject {
-    // methods to work with calendar
+    func dayTapped()
 }
 
 final class CalendarScreenView: UIView {
@@ -16,7 +16,7 @@ final class CalendarScreenView: UIView {
     init() {
         super.init(frame: .zero)
         backgroundColor = AppColors.darkGray
-        setupViews()
+        // setupViews()
     }
     
     required init(coder: NSCoder) {
