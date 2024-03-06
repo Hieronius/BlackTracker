@@ -10,6 +10,7 @@ final class CalendarScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: CalendarScreenViewDelegate?
+    var calendarCollectionView: UICollectionView!
     
     // MARK: - Private Properties
     
@@ -17,6 +18,7 @@ final class CalendarScreenView: UIView {
     // MARK: - Initialization
     
     init() {
+        // the whole view can be twice as small of it's current size to display only calendarCollectionView
         super.init(frame: .zero)
         setupViews()
     }
@@ -29,5 +31,31 @@ final class CalendarScreenView: UIView {
     
     private func setupViews() {
         backgroundColor = AppColors.darkGray
+        setupCalendarCollectionView()
+    }
+    
+    private func setupCalendarCollectionView() {
+        
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        
+        calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        calendarCollectionView.isScrollEnabled = false
+        calendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        calendarCollectionView.backgroundColor = .lightGray
+        
+        self.addSubview(calendarCollectionView)
+        
+        calendarCollectionView.snp.makeConstraints { make in
+            make.leading.equalTo(self.readableContentGuide.snp.leading)
+            make.trailing.equalTo(self.readableContentGuide.snp.trailing)
+            
+            make.centerY.equalTo(self.snp.centerY).offset(10)
+            
+            make.height.equalTo(self.snp.height).multipliedBy(0.5)
+        }
     }
 }
