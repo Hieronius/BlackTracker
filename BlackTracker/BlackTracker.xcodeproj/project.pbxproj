@@ -237,12 +237,12 @@
 		DDF5F12F2B8D97150031D54B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				DDA680E62B959800005E93C4 /* CalendarScreen */,
 				DD9D124C2B92BAAE00B599B8 /* TabBar */,
 				DD9D12632B92BD9D00B599B8 /* ProfileScreen */,
 				DD9D12622B92BD9400B599B8 /* SettingsScreen */,
 				DD9D12612B92BD7B00B599B8 /* LogInScreen */,
 				DD9D12602B92BD7400B599B8 /* RankingScreen */,
+				DDA680E62B959800005E93C4 /* CalendarScreen */,
 				DD9D125F2B92BD6A00B599B8 /* AddHabitScreen */,
 			);
 			path = Screens;

@@ -1,12 +1,23 @@
 import UIKit
+import SnapKit
+
+protocol CalendarScreenViewDelegate: AnyObject {
+    func dayTapped() // Update the method name to reflect month selection
+}
 
 final class CalendarScreenView: UIView {
+    
+    // MARK: - Public Properties
+    
+    weak var delegate: CalendarScreenViewDelegate?
+    
+    // MARK: - Private Properties
+    
     
     // MARK: - Initialization
     
     init() {
         super.init(frame: .zero)
-        backgroundColor = AppColors.darkGray
         setupViews()
     }
     
@@ -17,6 +28,6 @@ final class CalendarScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        
+        backgroundColor = AppColors.darkGray
     }
 }

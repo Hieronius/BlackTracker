@@ -34,6 +34,9 @@ final class ProgressScreenView: UIView {
     
     // Zoom Animation
     func animateImageTransition(to newImage: UIImage) {
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+        feedbackGenerator.impactOccurred()
+        
         UIView.transition(with: self.progressImageView,
                           duration: 0.2,
                           options: .transitionCrossDissolve,
@@ -89,7 +92,7 @@ final class ProgressScreenView: UIView {
         self.addSubview(topStackView)
         
         topStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(75)
+            make.top.equalTo(safeAreaLayoutGuide).offset(20)
             make.leading.equalTo(safeAreaLayoutGuide).offset(25)
             make.trailing.equalTo(safeAreaLayoutGuide).offset(-25)
             make.height.equalTo(50)
@@ -119,7 +122,6 @@ final class ProgressScreenView: UIView {
             make.bottom.equalTo(safeAreaLayoutGuide).offset(-30)
             make.height.equalTo(50)
         }
-        
     }
     
     private func setupProgressImageView() {
