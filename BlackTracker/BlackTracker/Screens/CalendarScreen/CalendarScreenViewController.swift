@@ -19,6 +19,6 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
 
 extension CalendarScreenViewController: CalendarScreenViewDelegate {
     func dayTapped() {
-        // some code here
+        print("calendar day tapped. reaction from CalendarScreenViewController")
     }
 }
