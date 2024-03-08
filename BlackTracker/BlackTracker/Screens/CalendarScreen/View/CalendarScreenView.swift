@@ -18,7 +18,6 @@ final class CalendarScreenView: UIView {
     // MARK: - Initialization
     
     init() {
-        // the whole view can be twice as small of it's current size to display only calendarCollectionView
         super.init(frame: .zero)
         setupViews()
     }
@@ -36,14 +35,12 @@ final class CalendarScreenView: UIView {
     
     private func setupCalendarCollectionView() {
         
-        
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         
         calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         calendarCollectionView.isScrollEnabled = false
-        calendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
         
         calendarCollectionView.backgroundColor = .lightGray
         
