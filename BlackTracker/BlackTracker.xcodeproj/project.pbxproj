@@ -175,6 +175,7 @@
 		DDA680E62B959800005E93C4 /* CalendarScreen */ = {
 			isa = PBXGroup;
 			children = (
+				DDF5F1362B8D99570031D54B /* Model */,
 				DDA680E92B9598AE005E93C4 /* View */,
 				DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */,
 			);
@@ -209,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F12E2B8D970E0031D54B /* App */,
-				DDF5F1362B8D99570031D54B /* Models */,
 				DDF5F12F2B8D97150031D54B /* Screens */,
 				DDF6A94A2B8EE0CE009A13BA /* Services */,
 				DDF5F12D2B8D96FD0031D54B /* Resources */,
@@ -268,12 +268,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		DDF5F1362B8D99570031D54B /* Models */ = {
+		DDF5F1362B8D99570031D54B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DDAC6F992B9A9DFA00049C0E /* Day.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DDF6A94A2B8EE0CE009A13BA /* Services */ = {
