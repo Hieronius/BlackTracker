@@ -14,6 +14,7 @@ final class CalendarScreenView: UIView {
     
     // MARK: - Private Properties
     
+    private let calendar = Calendar(identifier: .gregorian)
     
     // MARK: - Initialization
     
