@@ -16,16 +16,16 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
 }
 
 // MARK: - Day Generation
-private extension CalendarScreenView {
+private extension CalendarScreenViewController {
   // 1
   func monthMetadata(for baseDate: Date) throws -> MonthMetadata {
     // 2
-    guard let numberOfDaysInMonth = calendar.range(
+      guard let numberOfDaysInMonth = rootView.calendar.range(
         of: .day,
         in: .month,
         for: baseDate)?.count,
-        let firstDayOfMonth = calendar.date(
-        from: calendar.dateComponents([.year, .month], from: baseDate)
+            let firstDayOfMonth = rootView.calendar.date(
+                from: rootView.calendar.dateComponents([.year, .month], from: baseDate)
         )
       else {
         // 3
@@ -33,7 +33,7 @@ private extension CalendarScreenView {
     }
 
     // 4
-      let firstDayWeekday = self.calendar.component(.weekday, from: firstDayOfMonth)
+      let firstDayWeekday = rootView.calendar.component(.weekday, from: firstDayOfMonth)
 
     // 5
     return MonthMetadata(
