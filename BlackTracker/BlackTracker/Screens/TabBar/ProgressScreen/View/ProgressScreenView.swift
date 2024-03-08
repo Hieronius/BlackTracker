@@ -147,6 +147,8 @@ final class ProgressScreenView: UIView {
         progressImageView.addGestureRecognizer(tapGesture)
     }
     
+    // MARK: - Actions
+    
     @objc private func imageViewTapped() {
         delegate?.imageViewTapped()
     }
