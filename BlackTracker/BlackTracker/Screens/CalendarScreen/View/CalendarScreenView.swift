@@ -11,10 +11,10 @@ final class CalendarScreenView: UIView {
     
     weak var delegate: CalendarScreenViewDelegate?
     var calendarCollectionView: UICollectionView!
+    let calendar = Calendar(identifier: .gregorian)
     
     // MARK: - Private Properties
     
-    private let calendar = Calendar(identifier: .gregorian)
     
     // MARK: - Initialization
     

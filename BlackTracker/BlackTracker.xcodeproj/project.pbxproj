@@ -19,6 +19,7 @@
 		DDA680E82B95982C005E93C4 /* CalendarScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */; };
 		DDA680EB2B9598C2005E93C4 /* CalendarScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */; };
 		DDAC6F9A2B9A9DFA00049C0E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC6F992B9A9DFA00049C0E /* Day.swift */; };
+		DDAC6FA52B9AB8B200049C0E /* MonthMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */; };
 		DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F1192B8D96120031D54B /* AppDelegate.swift */; };
 		DDF5F11C2B8D96120031D54B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */; };
 		DDF5F11E2B8D96120031D54B /* ProgressScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */; };
@@ -42,6 +43,7 @@
 		DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenViewController.swift; sourceTree = "<group>"; };
 		DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenView.swift; sourceTree = "<group>"; };
 		DDAC6F992B9A9DFA00049C0E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthMetaData.swift; sourceTree = "<group>"; };
 		DDF5F1162B8D96120031D54B /* BlackTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDF5F1192B8D96120031D54B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DDF5F11B2B8D96120031D54B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				DDAC6F992B9A9DFA00049C0E /* Day.swift */,
+				DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			files = (
 				DDF5F11E2B8D96120031D54B /* ProgressScreenViewController.swift in Sources */,
 				DDF5F11A2B8D96120031D54B /* AppDelegate.swift in Sources */,
+				DDAC6FA52B9AB8B200049C0E /* MonthMetaData.swift in Sources */,
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
 				DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */,
 				DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */,
