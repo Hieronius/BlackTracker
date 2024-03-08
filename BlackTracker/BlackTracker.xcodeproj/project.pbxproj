@@ -190,6 +190,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		DDAC6F9D2B9AAF1900049C0E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DDAC6FA02B9AAF6A00049C0E /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
+				DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
+		DDAC6FA12B9AAF7800049C0E /* GlobalElements */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
+			);
+			path = GlobalElements;
+			sourceTree = "<group>";
+		};
 		DDF5F10D2B8D96120031D54B = {
 			isa = PBXGroup;
 			children = (
@@ -261,9 +285,9 @@
 		DDF5F1332B8D98BB0031D54B /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				DDF5F1342B8D98C70031D54B /* GenericViewController.swift */,
-				DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */,
-				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
+				DDAC6FA12B9AAF7800049C0E /* GlobalElements */,
+				DDAC6FA02B9AAF6A00049C0E /* CustomElements */,
+				DDAC6F9D2B9AAF1900049C0E /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
