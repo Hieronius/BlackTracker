@@ -45,7 +45,6 @@
 		DD9FC1132B94294E0004B8CA /* CustomRoundImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundImageView.swift; sourceTree = "<group>"; };
 		DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenViewController.swift; sourceTree = "<group>"; };
 		DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenView.swift; sourceTree = "<group>"; };
-		DDAB091E2B9BFA2100FCF05E /* BlackCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackCalendar.swift; sourceTree = "<group>"; };
 		DDAB09202B9C088600FCF05E /* CalendarScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenHeaderView.swift; sourceTree = "<group>"; };
 		DDAB09222B9C089400FCF05E /* CalendarScreenFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenFooterView.swift; sourceTree = "<group>"; };
 		DDAC6F992B9A9DFA00049C0E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
@@ -194,7 +193,6 @@
 		DDA680E92B9598AE005E93C4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				DDAB091E2B9BFA2100FCF05E /* BlackCalendar.swift */,
 				DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */,
 				DDAB09202B9C088600FCF05E /* CalendarScreenHeaderView.swift */,
 				DDAB09222B9C089400FCF05E /* CalendarScreenFooterView.swift */,

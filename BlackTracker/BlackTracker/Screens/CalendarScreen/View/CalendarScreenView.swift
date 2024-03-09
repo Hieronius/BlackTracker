@@ -12,6 +12,8 @@ final class CalendarScreenView: UIView {
     weak var delegate: CalendarScreenViewDelegate?
     var calendarCollectionView: UICollectionView!
     let calendar = Calendar(identifier: .gregorian)
+    var headerView: CalendarScreenHeaderView!
+    // var footerView: Calendar
     
     // MARK: - Private Properties
     
@@ -30,6 +32,9 @@ final class CalendarScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
+        
+        // setup header (or in collection view)
+        // setup footer (or in collection)
         backgroundColor = AppColors.darkGray
         setupCalendarCollectionView()
     }
