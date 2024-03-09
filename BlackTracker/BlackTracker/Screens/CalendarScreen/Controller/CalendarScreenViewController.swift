@@ -53,6 +53,12 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         let calendar = dateService.calendar
         numberOfWeeksInBaseDate = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
     }
+    
+    private func updateDaysAndReloadCollectionView() {
+        days = generateDaysInMonth(for: baseDate) // Regenerate days array
+        rootView.calendarCollectionView.reloadData() // Reload collection view data
+        rootView.headerView.baseDate = baseDate // Update header with current month
+    }
 }
 
 // MARK: - Day Generation
@@ -190,6 +196,8 @@ extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
           value: -1,
           to: baseDate
           ) ?? baseDate
+        
+        updateDaysAndReloadCollectionView()
     }
     
     func nextMonthButtonTapped() {
@@ -198,7 +206,10 @@ extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
           value: 1,
           to: baseDate
           ) ?? baseDate
+        
+        updateDaysAndReloadCollectionView()
     }
+    
 }
 
 // MARK: - UICollectionViewDataSource

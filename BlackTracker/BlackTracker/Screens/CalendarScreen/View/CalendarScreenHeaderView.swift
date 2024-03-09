@@ -19,6 +19,7 @@ class CalendarScreenHeaderView: UIView {
     var baseDate = Date() {
         didSet {
             monthLabel.text = dateFormatter.string(from: baseDate)
+            print("change header")
         }
     }
     

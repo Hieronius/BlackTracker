@@ -29,6 +29,14 @@ class CalendarScreenFooterView: UIView {
     
     // MARK: - Private Methods
     
+    
+    private func setupViews() {
+        setupFooterView()
+        setupSeparatorView()
+        setupPreviousMonthButton()
+        setupNextMonthButton()
+    }
+    
     private func setupFooterView() {
         backgroundColor = .systemGroupedBackground
 
@@ -38,13 +46,6 @@ class CalendarScreenFooterView: UIView {
         ]
         layer.cornerCurve = .continuous
         layer.cornerRadius = 15
-    }
-    
-    private func setupViews() {
-        setupFooterView()
-        setupSeparatorView()
-        setupPreviousMonthButton()
-        setupNextMonthButton()
     }
     
     private func setupSeparatorView() {
