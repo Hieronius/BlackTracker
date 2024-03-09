@@ -10,10 +10,10 @@ final class CalendarScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: CalendarScreenViewDelegate?
-    var calendarCollectionView: UICollectionView!
     let calendar = Calendar(identifier: .gregorian)
+    var calendarCollectionView: UICollectionView!
     var headerView: CalendarScreenHeaderView!
-    // var footerView: Calendar
+    var footerView: CalendarScreenFooterView!
     
     // MARK: - Private Properties
     
@@ -33,10 +33,18 @@ final class CalendarScreenView: UIView {
     
     private func setupViews() {
         
-        // setup header (or in collection view)
-        // setup footer (or in collection)
+        // MARK: I should make constraints for collection view -> HeaderView -> FooterView
         backgroundColor = AppColors.darkGray
+        
         setupCalendarCollectionView()
+        
+        headerView = CalendarScreenHeaderView()
+        addSubview(headerView)
+        
+        footerView = CalendarScreenFooterView()
+        addSubview(footerView)
+        
+        
     }
     
     private func setupCalendarCollectionView() {
