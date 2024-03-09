@@ -28,6 +28,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
+        rootView.headerView.delegate = self
     }
     
 }
@@ -144,4 +145,13 @@ extension CalendarScreenViewController: CalendarScreenViewDelegate {
     func dayTapped() {
         print("calendar day tapped. reaction from CalendarScreenViewController")
     }
+}
+
+// MARK: - CalendarScreenHeaderViewDelegate
+
+extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
+    func closeButtonTapped() {
+        print("close button tapped. Reaction from Controller")
+    }
+    
 }
