@@ -10,13 +10,7 @@ class CalendarScreenHeaderView: UIView {
     var dayOfWeekStackView: UIStackView!
     var separatorView: UIView!
     
-    private lazy var dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.calendar = Calendar(identifier: .gregorian)
-        dateFormatter.locale = Locale.autoupdatingCurrent
-        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM y")
-        return dateFormatter
-    }()
+    private var dateFormatter: DateFormatter!
     
     // MARK: - Properties
     
@@ -45,9 +39,7 @@ class CalendarScreenHeaderView: UIView {
         layer.cornerRadius = 15
         
         setupViews()
-        setupConstraints()
-        
-        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
+        setupDateFormatter()
     }
     
     required init?(coder: NSCoder) {
@@ -57,13 +49,29 @@ class CalendarScreenHeaderView: UIView {
     // MARK: - Setup
     
     private func setupViews() {
+        setupMonthLabel()
+        setupCloseButton()
+        setupDayOfWeekStackView()
+        setupSeparatorView()
+    }
+    
+    private func setupMonthLabel() {
         monthLabel = UILabel()
         monthLabel.font = .systemFont(ofSize: 26, weight: .bold)
         monthLabel.text = "Month"
         monthLabel.accessibilityTraits = .header
         monthLabel.isAccessibilityElement = true
+        
         addSubview(monthLabel)
         
+        monthLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalTo(closeButton.snp.leading).offset(5)
+        }
+    }
+    
+    private func setupCloseButton() {
         closeButton = UIButton()
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: configuration)
@@ -73,15 +81,22 @@ class CalendarScreenHeaderView: UIView {
         closeButton.isUserInteractionEnabled = true
         closeButton.isAccessibilityElement = true
         closeButton.accessibilityLabel = "Close Picker"
+        
         addSubview(closeButton)
         
+        closeButton.snp.makeConstraints { make in
+            make.centerY.equalTo(monthLabel)
+            make.height.width.equalTo(28)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+        
+        closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
+    }
+    
+    private func setupDayOfWeekStackView() {
         dayOfWeekStackView = UIStackView()
         dayOfWeekStackView.distribution = .fillEqually
         addSubview(dayOfWeekStackView)
-        
-        separatorView = UIView()
-        separatorView.backgroundColor = UIColor.label.withAlphaComponent(0.2)
-        addSubview(separatorView)
         
         for dayNumber in 1...7 {
             let dayLabel = UILabel()
@@ -92,30 +107,30 @@ class CalendarScreenHeaderView: UIView {
             dayLabel.isAccessibilityElement = false
             dayOfWeekStackView.addArrangedSubview(dayLabel)
         }
-    }
-    
-    private func setupConstraints() {
-        monthLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
-            make.leading.equalToSuperview().offset(15)
-            make.trailing.equalTo(closeButton.snp.leading).offset(5)
-        }
-        
-        closeButton.snp.makeConstraints { make in
-            make.centerY.equalTo(monthLabel)
-            make.height.width.equalTo(28)
-            make.trailing.equalToSuperview().offset(-15)
-        }
         
         dayOfWeekStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.bottom.equalTo(separatorView.snp.bottom).offset(-5)
         }
+    }
+    
+    private func setupSeparatorView() {
+        separatorView = UIView()
+        separatorView.backgroundColor = UIColor.label.withAlphaComponent(0.2)
+        
+        addSubview(separatorView)
         
         separatorView.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.height.equalTo(1)
         }
+    }
+    
+    private func setupDateFormatter() {
+        dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        dateFormatter.locale = Locale.autoupdatingCurrent
+        dateFormatter.setLocalizedDateFormatFromTemplate("MMMM y")
     }
     
     // MARK: - Actions
@@ -147,4 +162,3 @@ class CalendarScreenHeaderView: UIView {
         }
     }
 }
-
