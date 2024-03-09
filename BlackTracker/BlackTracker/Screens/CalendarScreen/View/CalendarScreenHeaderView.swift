@@ -3,27 +3,32 @@ import SnapKit
 
 class CalendarScreenHeaderView: UIView {
     
-    // MARK: - Views
+    // MARK: - Public Properties
     
     var monthLabel: UILabel!
     var closeButton: UIButton!
     var dayOfWeekStackView: UIStackView!
     var separatorView: UIView!
     
-    private var dateFormatter: DateFormatter!
-    
-    // MARK: - Properties
-    
+    /// Base date used for displaying month information.
     var baseDate = Date() {
         didSet {
             monthLabel.text = dateFormatter.string(from: baseDate)
         }
     }
     
+    /// Date formatter for formatting date information.
+    private var dateFormatter: DateFormatter!
+    
+    // MARK: - Properties
+    
+    /// Closure to handle the action when the close button is tapped. Should be replaced with Delegate
     var exitButtonTappedCompletionHandler: (() -> Void)
     
     // MARK: - Initialization
     
+    /// Initializes the calendar screen header view.
+    /// - Parameter exitButtonTappedCompletionHandler: Closure to handle the action when the close button is tapped.
     init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
         self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
         
@@ -46,7 +51,7 @@ class CalendarScreenHeaderView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup
+    // MARK: - Private Methods
     
     private func setupViews() {
         setupMonthLabel()
@@ -141,6 +146,9 @@ class CalendarScreenHeaderView: UIView {
     
     // MARK: - Helper Methods
     
+    /// Returns the abbreviated letter representation for the day of the week.
+    /// - Parameter dayNumber: The numerical representation of the day of the week (1-7).
+    /// - Returns: Abbreviated letter representation of the day of the week.
     private func dayOfWeekLetter(for dayNumber: Int) -> String {
         switch dayNumber {
         case 1:
