@@ -76,7 +76,7 @@ class CalendarScreenHeaderView: UIView {
         monthLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(15)
             make.leading.equalToSuperview().offset(15)
-            make.trailing.equalTo(closeButton.snp.leading).offset(5)
+            // make.trailing.equalTo(closeButton.snp.leading).offset(5)
         }
     }
     
@@ -119,7 +119,7 @@ class CalendarScreenHeaderView: UIView {
         
         dayOfWeekStackView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalTo(separatorView.snp.bottom).offset(-5)
+            // make.bottom.equalTo(separatorView.snp.bottom).offset(-5)
         }
     }
     
