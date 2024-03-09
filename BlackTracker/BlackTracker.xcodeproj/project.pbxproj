@@ -20,6 +20,8 @@
 		DDA680EB2B9598C2005E93C4 /* CalendarScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */; };
 		DDAB09212B9C088600FCF05E /* CalendarScreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB09202B9C088600FCF05E /* CalendarScreenHeaderView.swift */; };
 		DDAB09232B9C089400FCF05E /* CalendarScreenFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB09222B9C089400FCF05E /* CalendarScreenFooterView.swift */; };
+		DDAB09282B9C8D6D00FCF05E /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB09272B9C8D6D00FCF05E /* DataService.swift */; };
+		DDAB092A2B9CBA5C00FCF05E /* CalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAB09292B9CBA5B00FCF05E /* CalendarCollectionView.swift */; };
 		DDAC6F9A2B9A9DFA00049C0E /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC6F992B9A9DFA00049C0E /* Day.swift */; };
 		DDAC6FA52B9AB8B200049C0E /* MonthMetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */; };
 		DDAC6FA72B9AC53200049C0E /* CalendarDateCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAC6FA62B9AC53200049C0E /* CalendarDateCollectionViewCell.swift */; };
@@ -47,6 +49,8 @@
 		DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenView.swift; sourceTree = "<group>"; };
 		DDAB09202B9C088600FCF05E /* CalendarScreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenHeaderView.swift; sourceTree = "<group>"; };
 		DDAB09222B9C089400FCF05E /* CalendarScreenFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreenFooterView.swift; sourceTree = "<group>"; };
+		DDAB09272B9C8D6D00FCF05E /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		DDAB09292B9CBA5B00FCF05E /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
 		DDAC6F992B9A9DFA00049C0E /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthMetaData.swift; sourceTree = "<group>"; };
 		DDAC6FA62B9AC53200049C0E /* CalendarDateCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDateCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -76,8 +80,9 @@
 		DD9D12492B92B10E00B599B8 /* ProgressScreen */ = {
 			isa = PBXGroup;
 			children = (
+				DDAB09252B9C67F500FCF05E /* Model */,
 				DDF5F1302B8D97890031D54B /* View */,
-				DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */,
+				DDAB09262B9C67F900FCF05E /* Controller */,
 			);
 			path = ProgressScreen;
 			sourceTree = "<group>";
@@ -97,8 +102,9 @@
 		DD9D124D2B92BB0900B599B8 /* HabitsListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				DDAB092D2B9CBFA900FCF05E /* Model */,
 				DD9D12522B92BBF700B599B8 /* View */,
-				DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */,
+				DDAB092E2B9CBFB400FCF05E /* Controller */,
 			);
 			path = HabitsListScreen;
 			sourceTree = "<group>";
@@ -185,7 +191,7 @@
 			children = (
 				DDF5F1362B8D99570031D54B /* Model */,
 				DDA680E92B9598AE005E93C4 /* View */,
-				DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */,
+				DDAB09242B9C67E200FCF05E /* Controller */,
 			);
 			path = CalendarScreen;
 			sourceTree = "<group>";
@@ -194,11 +200,50 @@
 			isa = PBXGroup;
 			children = (
 				DDA680EA2B9598C2005E93C4 /* CalendarScreenView.swift */,
+				DDAB09292B9CBA5B00FCF05E /* CalendarCollectionView.swift */,
+				DDAC6FA62B9AC53200049C0E /* CalendarDateCollectionViewCell.swift */,
 				DDAB09202B9C088600FCF05E /* CalendarScreenHeaderView.swift */,
 				DDAB09222B9C089400FCF05E /* CalendarScreenFooterView.swift */,
-				DDAC6FA62B9AC53200049C0E /* CalendarDateCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DDAB09242B9C67E200FCF05E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDA680E72B95982C005E93C4 /* CalendarScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDAB09252B9C67F500FCF05E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDAB09262B9C67F900FCF05E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDAB092D2B9CBFA900FCF05E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDAB092E2B9CBFB400FCF05E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		DDAC6F9D2B9AAF1900049C0E /* Extensions */ = {
@@ -308,6 +353,7 @@
 			children = (
 				DDAC6F992B9A9DFA00049C0E /* Day.swift */,
 				DDAC6FA42B9AB8B200049C0E /* MonthMetaData.swift */,
+				DDAB09272B9C8D6D00FCF05E /* DataService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,6 +446,7 @@
 				DDAC6FA52B9AB8B200049C0E /* MonthMetaData.swift in Sources */,
 				DDF5F1352B8D98C70031D54B /* GenericViewController.swift in Sources */,
 				DD9D12562B92BCC300B599B8 /* StatisticsScreenView.swift in Sources */,
+				DDAB09282B9C8D6D00FCF05E /* DataService.swift in Sources */,
 				DD9D12512B92BBE400B599B8 /* HabitsListScreenView.swift in Sources */,
 				DDAC6FA72B9AC53200049C0E /* CalendarDateCollectionViewCell.swift in Sources */,
 				DDAB09232B9C089400FCF05E /* CalendarScreenFooterView.swift in Sources */,
@@ -410,6 +457,7 @@
 				DDF5F1322B8D97AD0031D54B /* ProgressScreenView.swift in Sources */,
 				DD9D125B2B92BD0700B599B8 /* AchievementScreenViewController.swift in Sources */,
 				DDF6A94C2B8EE0DD009A13BA /* ImageService.swift in Sources */,
+				DDAB092A2B9CBA5C00FCF05E /* CalendarCollectionView.swift in Sources */,
 				DD9D12652B92C1D500B599B8 /* AppColors.swift in Sources */,
 				DDA680EB2B9598C2005E93C4 /* CalendarScreenView.swift in Sources */,
 				DD9D124B2B92B14C00B599B8 /* TabBar.swift in Sources */,

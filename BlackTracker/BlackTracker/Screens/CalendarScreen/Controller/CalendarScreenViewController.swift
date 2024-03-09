@@ -5,33 +5,52 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     // MARK: - Private Properties
     
     private let selectedDate: Date? = nil
+    private lazy var days = generateDaysInMonth(for: baseDate)
+    private var dateFormatter: DateFormatter!
+    private let dateService = DateService.shared
+    private var numberOfWeeksInBaseDate = 0
+    
     private var baseDate: Date = Date() {
       didSet {
-        days = generateDaysInMonth(for: baseDate)
-          rootView.calendarCollectionView.reloadData()
-          rootView.headerView.baseDate = baseDate
+        updateNumberOfWeeks()
       }
     }
-    private lazy var days = generateDaysInMonth(for: baseDate)
-    private let selectedDateChanged: ((Date) -> Void)? = nil
-    private var dateFormatter: DateFormatter!
     
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rootView.delegate = self
-        rootView.headerView.delegate = self
-        rootView.footerView.delegate = self
-        setupDayFormatter()
         
+        setupDelegates()
+        updateNumberOfWeeks()
+        setupDayFormatter()
+        rootView.headerView.baseDate = baseDate
     }
     
     // MARK: - Private Methods
     
+    private func setupDelegates() {
+        rootView.delegate = self
+        rootView.headerView.delegate = self
+        rootView.footerView.delegate = self
+        rootView.collectionView.dataSource = self
+        rootView.collectionView.delegate = self
+    }
+    
     private func setupDayFormatter() {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d"
+    }
+    
+    private func updateNumberOfWeeks() {
+        let calendar = dateService.calendar
+        numberOfWeeksInBaseDate = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
+    }
+    
+    private func updateDaysAndReloadCollectionView() {
+        days = generateDaysInMonth(for: baseDate) // Regenerate days array
+        rootView.collectionView.reloadData() // Reload collection view data
+        rootView.headerView.baseDate = baseDate // Update header with current month
     }
 }
 
@@ -40,18 +59,18 @@ private extension CalendarScreenViewController {
     
     // Get actual data for month
     func monthMetadata(for baseDate: Date) throws -> MonthMetadata {
-        guard let numberOfDaysInMonth = rootView.calendar.range(
+        guard let numberOfDaysInMonth = dateService.calendar.range(
             of: .day,
             in: .month,
             for: baseDate)?.count,
-              let firstDayOfMonth = rootView.calendar.date(
-                from: rootView.calendar.dateComponents([.year, .month], from: baseDate)
+              let firstDayOfMonth = dateService.calendar.date(
+                from: dateService.calendar.dateComponents([.year, .month], from: baseDate)
               )
         else {
             throw CalendarDataError.metadataGeneration
         }
         
-        let firstDayWeekday = rootView.calendar.component(.weekday, from: firstDayOfMonth)
+        let firstDayWeekday = dateService.calendar.component(.weekday, from: firstDayOfMonth)
         
         return MonthMetadata(
             numberOfDays: numberOfDaysInMonth,
@@ -93,16 +112,17 @@ private extension CalendarScreenViewController {
         for baseDate: Date,
         isWithinDisplayedMonth: Bool
     ) -> Day {
-        let date = rootView.calendar.date(
+        let date = dateService.calendar.date(
             byAdding: .day,
             value: dayOffset,
             to: baseDate)
         ?? baseDate
         
+        // An error here
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate!),
+            isSelected: dateService.calendar.isDate(date, inSameDayAs: selectedDate ?? Date()),
             isWithinDisplayedMonth: isWithinDisplayedMonth
         )
     }
@@ -111,7 +131,7 @@ private extension CalendarScreenViewController {
         using firstDayOfDisplayedMonth: Date
     ) -> [Day] {
         guard
-            let lastDayInMonth = rootView.calendar.date(
+            let lastDayInMonth = dateService.calendar.date(
                 byAdding: DateComponents(month: 1, day: -1),
                 to: firstDayOfDisplayedMonth
             )
@@ -119,7 +139,7 @@ private extension CalendarScreenViewController {
             return []
         }
         
-        let additionalDays = 7 - rootView.calendar.component(.weekday, from: lastDayInMonth)
+        let additionalDays = 7 - dateService.calendar.component(.weekday, from: lastDayInMonth)
         guard additionalDays > 0 else {
             return []
         }
@@ -164,18 +184,70 @@ extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
 extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
     
     func previousMonthButtonTapped() {
-        baseDate = rootView.calendar.date(
+        baseDate = dateService.calendar.date(
           byAdding: .month,
           value: -1,
           to: baseDate
           ) ?? baseDate
+        
+        updateDaysAndReloadCollectionView()
     }
     
     func nextMonthButtonTapped() {
-        baseDate = rootView.calendar.date(
+        baseDate = dateService.calendar.date(
           byAdding: .month,
           value: 1,
           to: baseDate
           ) ?? baseDate
+        
+        updateDaysAndReloadCollectionView()
+    }
+    
+}
+
+// MARK: - UICollectionViewDataSource
+extension CalendarScreenViewController: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        days.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let day = days[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
+            for: indexPath) as! CalendarDateCollectionViewCell
+
+        
+        cell.day = day
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CalendarScreenViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        let day = days[indexPath.row]
+        print(day.date)
+        // MARK: there i should place method to change color or print info about day statistics
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = Int(collectionView.frame.width / 7)
+        let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
+        return CGSize(width: width, height: height)
     }
 }

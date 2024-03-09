@@ -19,8 +19,10 @@ class CalendarScreenHeaderView: UIView {
     var baseDate = Date() {
         didSet {
             monthLabel.text = dateFormatter.string(from: baseDate)
+            print("change header")
         }
     }
+    
     
     /// Date formatter for formatting date information.
     private var dateFormatter: DateFormatter!
@@ -43,14 +45,11 @@ class CalendarScreenHeaderView: UIView {
     
     private func setupViews() {
         setupHeaderView()
-        setupMonthLabel()
-        setupCloseButton()
-        setupDayOfWeekStackView()
-        setupSeparatorView()
+        setupHeaderConstraints()
     }
     
     private func setupHeaderView() {
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = .systemGray6
         
         // Set the masked corners of the layer to the top-left and top-right corners to create rounded corners.
         layer.maskedCorners = [
@@ -62,6 +61,12 @@ class CalendarScreenHeaderView: UIView {
         layer.cornerCurve = .continuous
         
         layer.cornerRadius = 15
+        
+        setupMonthLabel()
+        setupCloseButton()
+        setupDayOfWeekStackView()
+        setupSeparatorView()
+        
     }
     
     private func setupMonthLabel() {
@@ -72,12 +77,6 @@ class CalendarScreenHeaderView: UIView {
         monthLabel.isAccessibilityElement = true
         
         addSubview(monthLabel)
-        
-        monthLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
-            make.leading.equalToSuperview().offset(15)
-            // make.trailing.equalTo(closeButton.snp.leading).offset(5)
-        }
     }
     
     private func setupCloseButton() {
@@ -92,12 +91,6 @@ class CalendarScreenHeaderView: UIView {
         closeButton.accessibilityLabel = "Close Picker"
         
         addSubview(closeButton)
-        
-        closeButton.snp.makeConstraints { make in
-            make.centerY.equalTo(monthLabel)
-            make.height.width.equalTo(28)
-            make.trailing.equalToSuperview().offset(-15)
-        }
         
         closeButton.addTarget(self, action: #selector(didTapExitButton), for: .touchUpInside)
     }
@@ -116,11 +109,6 @@ class CalendarScreenHeaderView: UIView {
             dayLabel.isAccessibilityElement = false
             dayOfWeekStackView.addArrangedSubview(dayLabel)
         }
-        
-        dayOfWeekStackView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            // make.bottom.equalTo(separatorView.snp.bottom).offset(-5)
-        }
     }
     
     private func setupSeparatorView() {
@@ -128,11 +116,6 @@ class CalendarScreenHeaderView: UIView {
         separatorView.backgroundColor = UIColor.label.withAlphaComponent(0.2)
         
         addSubview(separatorView)
-        
-        separatorView.snp.makeConstraints { make in
-            make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(1)
-        }
     }
     
     private func setupDateFormatter() {
@@ -140,6 +123,31 @@ class CalendarScreenHeaderView: UIView {
         dateFormatter.calendar = Calendar(identifier: .gregorian)
         dateFormatter.locale = Locale.autoupdatingCurrent
         dateFormatter.setLocalizedDateFormatFromTemplate("MMMM y")
+    }
+    
+    private func setupHeaderConstraints() {
+        // if we want to use constraints from element like monthLabel and closeButton, we first should initialize these elements and after add constraints to it at the same moment
+        monthLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.leading.equalToSuperview().offset(15)
+              make.trailing.equalTo(closeButton.snp.leading).offset(5)
+        }
+        
+        closeButton.snp.makeConstraints { make in
+            make.centerY.equalTo(monthLabel)
+            make.height.width.equalTo(28)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+        
+        dayOfWeekStackView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+             make.bottom.equalTo(separatorView.snp.bottom).offset(-5)
+        }
+        
+        separatorView.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(1)
+        }
     }
     
     // MARK: - Actions
