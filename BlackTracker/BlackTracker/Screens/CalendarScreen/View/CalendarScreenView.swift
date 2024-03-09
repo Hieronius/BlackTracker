@@ -50,7 +50,7 @@ final class CalendarScreenView: UIView {
         calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         calendarCollectionView.isScrollEnabled = false
         
-        calendarCollectionView.backgroundColor = .darkGray
+        calendarCollectionView.backgroundColor = .systemGroupedBackground
         
         self.addSubview(calendarCollectionView)
         
