@@ -102,8 +102,9 @@
 		DD9D124D2B92BB0900B599B8 /* HabitsListScreen */ = {
 			isa = PBXGroup;
 			children = (
+				DDAB092D2B9CBFA900FCF05E /* Model */,
 				DD9D12522B92BBF700B599B8 /* View */,
-				DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */,
+				DDAB092E2B9CBFB400FCF05E /* Controller */,
 			);
 			path = HabitsListScreen;
 			sourceTree = "<group>";
@@ -226,6 +227,21 @@
 			isa = PBXGroup;
 			children = (
 				DDF5F11D2B8D96120031D54B /* ProgressScreenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DDAB092D2B9CBFA900FCF05E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DDAB092E2B9CBFB400FCF05E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD9D124E2B92BBB700B599B8 /* HabitsListScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
