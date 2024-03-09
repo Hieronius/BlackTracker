@@ -22,6 +22,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         super.viewDidLoad()
         rootView.delegate = self
         rootView.headerView.delegate = self
+        rootView.footerView.delegate = self
         setupDayFormatter()
         
     }
@@ -153,12 +154,28 @@ extension CalendarScreenViewController: CalendarScreenViewDelegate {
 extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
     func closeButtonTapped() {
 
+        dismiss(animated: true)
+        print("close button tapped. Reaction from Controller")
+    }
+}
+
+// MARK: - CalendarScreenFooterViewDelegate
+
+extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
+    
+    func previousMonthButtonTapped() {
+        baseDate = rootView.calendar.date(
+          byAdding: .month,
+          value: -1,
+          to: baseDate
+          ) ?? baseDate
+    }
+    
+    func nextMonthButtonTapped() {
         baseDate = rootView.calendar.date(
           byAdding: .month,
           value: 1,
           to: baseDate
           ) ?? baseDate
-        print("close button tapped. Reaction from Controller")
     }
-    
 }
