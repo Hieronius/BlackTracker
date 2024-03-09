@@ -18,7 +18,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
         didSet {
             guard let day = day else { return }
             numberLabel.text = day.number
-            accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
+            // accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
             updateSelectionStatus()
         }
     }
@@ -44,7 +44,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         setupBackground()
         setupNumberLabel()
-        setupDateFormatter()
+        setupCollectionViewCellConstraints()
     }
     
     private func setupBackground() {
@@ -53,11 +53,6 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
         selectionBackgroundView.backgroundColor = .systemRed
         
         contentView.addSubview(selectionBackgroundView)
-        
-        selectionBackgroundView.snp.makeConstraints { make in
-            make.center.equalTo(numberLabel)
-            make.width.height.equalTo(45)
-        }
         
         selectionBackgroundView.layer.cornerRadius = 45 / 2
     }
@@ -70,6 +65,13 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
         numberLabel.textColor = .label
         
         contentView.addSubview(numberLabel)
+    }
+    
+    func setupCollectionViewCellConstraints() {
+        selectionBackgroundView.snp.makeConstraints { make in
+            make.center.equalTo(numberLabel)
+            make.width.height.equalTo(45)
+        }
         
         numberLabel.snp.makeConstraints { make in
             make.center.equalToSuperview()

@@ -33,8 +33,6 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         rootView.footerView.delegate = self
         setupDayFormatter()
         
-        
-        // MARK: I'm not sure i should place these methods here
         // Assign data source and delegate
         rootView.calendarCollectionView.dataSource = self
         rootView.calendarCollectionView.delegate = self
@@ -125,7 +123,7 @@ private extension CalendarScreenViewController {
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate!),
+            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate ?? Date()),
             isWithinDisplayedMonth: isWithinDisplayedMonth
         )
     }
@@ -221,7 +219,7 @@ extension CalendarScreenViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
             for: indexPath) as! CalendarDateCollectionViewCell
-        // swiftlint:disable:previous force_cast
+
         
         cell.day = day
         return cell
@@ -235,7 +233,12 @@ extension CalendarScreenViewController: UICollectionViewDelegateFlowLayout {
         didSelectItemAt indexPath: IndexPath
     ) {
         let day = days[indexPath.row]
-        selectedDateChanged!(day.date)
+        if let selectedDateChanged = selectedDateChanged {
+            selectedDateChanged(day.date)
+        } else {
+            // it's nil, fix it
+            print("selectedDateChanged is nil")
+        }
         dismiss(animated: true, completion: nil)
     }
     
