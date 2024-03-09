@@ -48,7 +48,7 @@ class CalendarScreenHeaderView: UIView {
     }
     
     private func setupHeaderView() {
-        backgroundColor = .systemGroupedBackground
+        backgroundColor = .systemGray6
         
         // Set the masked corners of the layer to the top-left and top-right corners to create rounded corners.
         layer.maskedCorners = [

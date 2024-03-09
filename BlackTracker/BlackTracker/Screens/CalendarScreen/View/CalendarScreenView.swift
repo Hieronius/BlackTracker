@@ -40,6 +40,7 @@ final class CalendarScreenView: UIView {
         setupCalendarFooterView()
     }
     
+    // May be i should create a separate file for it
     private func setupCalendarCollectionView() {
         
         let layout = UICollectionViewFlowLayout()
@@ -49,7 +50,7 @@ final class CalendarScreenView: UIView {
         calendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         calendarCollectionView.isScrollEnabled = false
         
-        calendarCollectionView.backgroundColor = .lightGray
+        calendarCollectionView.backgroundColor = .darkGray
         
         self.addSubview(calendarCollectionView)
         
