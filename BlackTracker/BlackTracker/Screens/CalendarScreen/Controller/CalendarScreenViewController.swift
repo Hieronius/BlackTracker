@@ -4,8 +4,6 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     
     // MARK: - Private Properties
     
-    let calendar = Calendar(identifier: .gregorian)
-    
     private let selectedDate: Date? = nil
     private lazy var days = generateDaysInMonth(for: baseDate)
     private let selectedDateChanged: ((Date) -> Void)? = nil
@@ -24,10 +22,10 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let currentDate = Date()
-        let components = dateService.calendar.dateComponents([.year, .month, .day], from: currentDate)
-        print(components)
-        
+//        let currentDate = Date()
+//        let components = dateService.calendar.dateComponents([.year, .month, .day], from: currentDate)
+//        print(components)
+//
         updateNumberOfWeeks()
         
         rootView.delegate = self
@@ -62,18 +60,18 @@ private extension CalendarScreenViewController {
     
     // Get actual data for month
     func monthMetadata(for baseDate: Date) throws -> MonthMetadata {
-        guard let numberOfDaysInMonth = calendar.range(
+        guard let numberOfDaysInMonth = dateService.calendar.range(
             of: .day,
             in: .month,
             for: baseDate)?.count,
-              let firstDayOfMonth = calendar.date(
-                from: calendar.dateComponents([.year, .month], from: baseDate)
+              let firstDayOfMonth = dateService.calendar.date(
+                from: dateService.calendar.dateComponents([.year, .month], from: baseDate)
               )
         else {
             throw CalendarDataError.metadataGeneration
         }
         
-        let firstDayWeekday = calendar.component(.weekday, from: firstDayOfMonth)
+        let firstDayWeekday = dateService.calendar.component(.weekday, from: firstDayOfMonth)
         
         return MonthMetadata(
             numberOfDays: numberOfDaysInMonth,
@@ -115,7 +113,7 @@ private extension CalendarScreenViewController {
         for baseDate: Date,
         isWithinDisplayedMonth: Bool
     ) -> Day {
-        let date = calendar.date(
+        let date = dateService.calendar.date(
             byAdding: .day,
             value: dayOffset,
             to: baseDate)
@@ -125,7 +123,7 @@ private extension CalendarScreenViewController {
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: calendar.isDate(date, inSameDayAs: selectedDate ?? Date()),
+            isSelected: dateService.calendar.isDate(date, inSameDayAs: selectedDate ?? Date()),
             isWithinDisplayedMonth: isWithinDisplayedMonth
         )
     }
@@ -134,7 +132,7 @@ private extension CalendarScreenViewController {
         using firstDayOfDisplayedMonth: Date
     ) -> [Day] {
         guard
-            let lastDayInMonth = calendar.date(
+            let lastDayInMonth = dateService.calendar.date(
                 byAdding: DateComponents(month: 1, day: -1),
                 to: firstDayOfDisplayedMonth
             )
@@ -142,7 +140,7 @@ private extension CalendarScreenViewController {
             return []
         }
         
-        let additionalDays = 7 - calendar.component(.weekday, from: lastDayInMonth)
+        let additionalDays = 7 - dateService.calendar.component(.weekday, from: lastDayInMonth)
         guard additionalDays > 0 else {
             return []
         }
@@ -187,7 +185,7 @@ extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
 extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
     
     func previousMonthButtonTapped() {
-        baseDate = calendar.date(
+        baseDate = dateService.calendar.date(
           byAdding: .month,
           value: -1,
           to: baseDate
@@ -195,7 +193,7 @@ extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
     }
     
     func nextMonthButtonTapped() {
-        baseDate = calendar.date(
+        baseDate = dateService.calendar.date(
           byAdding: .month,
           value: 1,
           to: baseDate
