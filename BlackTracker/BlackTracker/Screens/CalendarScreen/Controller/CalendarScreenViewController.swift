@@ -5,25 +5,42 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     // MARK: - Private Properties
     
     private let selectedDate: Date? = nil
-    private var baseDate: Date = Date() {
-      didSet {
-        days = generateDaysInMonth(for: baseDate)
-          rootView.calendarCollectionView.reloadData()
-          rootView.headerView.baseDate = baseDate
-      }
-    }
     private lazy var days = generateDaysInMonth(for: baseDate)
     private let selectedDateChanged: ((Date) -> Void)? = nil
     private var dateFormatter: DateFormatter!
+    private let dateService = DateService.shared
+    private var numberOfWeeksInBaseDate = 0
+    
+    private var baseDate: Date = Date() {
+      didSet {
+        updateNumberOfWeeks()
+      }
+    }
     
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let currentDate = Date()
+        let components = dateService.calendar.dateComponents([.year, .month, .day], from: currentDate)
+        print(components)
+        
+        updateNumberOfWeeks()
+        
         rootView.delegate = self
         rootView.headerView.delegate = self
         rootView.footerView.delegate = self
         setupDayFormatter()
+        
+        
+        // MARK: I'm not sure i should place these methods here
+        // Assign data source and delegate
+        rootView.calendarCollectionView.dataSource = self
+        rootView.calendarCollectionView.delegate = self
+        
+        // Set base date for header view
+        rootView.headerView.baseDate = baseDate
         
     }
     
@@ -32,6 +49,11 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     private func setupDayFormatter() {
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d"
+    }
+    
+    private func updateNumberOfWeeks() {
+        let calendar = dateService.calendar
+        numberOfWeeksInBaseDate = calendar.range(of: .weekOfMonth, in: .month, for: baseDate)?.count ?? 0
     }
 }
 
@@ -99,6 +121,7 @@ private extension CalendarScreenViewController {
             to: baseDate)
         ?? baseDate
         
+        // An error here
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
@@ -177,5 +200,52 @@ extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
           value: 1,
           to: baseDate
           ) ?? baseDate
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension CalendarScreenViewController: UICollectionViewDataSource {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        days.count
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let day = days[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
+            for: indexPath) as! CalendarDateCollectionViewCell
+        // swiftlint:disable:previous force_cast
+        
+        cell.day = day
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension CalendarScreenViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        let day = days[indexPath.row]
+        selectedDateChanged!(day.date)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        let width = Int(collectionView.frame.width / 7)
+        let height = Int(collectionView.frame.height) / numberOfWeeksInBaseDate
+        return CGSize(width: width, height: height)
     }
 }

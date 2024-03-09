@@ -22,6 +22,7 @@ class CalendarScreenHeaderView: UIView {
         }
     }
     
+    
     /// Date formatter for formatting date information.
     private var dateFormatter: DateFormatter!
     

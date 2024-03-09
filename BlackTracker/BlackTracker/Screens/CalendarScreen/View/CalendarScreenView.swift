@@ -39,11 +39,6 @@ final class CalendarScreenView: UIView {
         setupCalendarCollectionView()
         setupCalendarHeaderView()
         setupCalendarFooterView()
-        
-        footerView = CalendarScreenFooterView()
-        addSubview(footerView)
-        
-        
     }
     
     private func setupCalendarCollectionView() {
@@ -67,6 +62,11 @@ final class CalendarScreenView: UIView {
             
             make.height.equalTo(self.snp.height).multipliedBy(0.5)
         }
+        
+        calendarCollectionView.register(
+          CalendarDateCollectionViewCell.self,
+          forCellWithReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier
+        )
     }
     
     private func setupCalendarHeaderView() {
