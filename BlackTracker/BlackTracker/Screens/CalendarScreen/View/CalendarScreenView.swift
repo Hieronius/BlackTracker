@@ -10,7 +10,6 @@ final class CalendarScreenView: UIView {
     // MARK: - Public Properties
     
     weak var delegate: CalendarScreenViewDelegate?
-    let calendar = Calendar(identifier: .gregorian)
     var calendarCollectionView: UICollectionView!
     var headerView: CalendarScreenHeaderView!
     var footerView: CalendarScreenFooterView!
