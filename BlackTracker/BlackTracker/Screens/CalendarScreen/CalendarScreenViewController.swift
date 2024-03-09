@@ -4,32 +4,35 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     
     // MARK: - Private Properties
     
-    // isDailyVisitsButtonTapped = false/true
-    private let selectedDate: Date
-//    private var baseDate: Date {
-//      didSet {
-//        days = generateDaysInMonth(for: baseDate)
-//        collectionView.reloadData()
-//        headerView.baseDate = baseDate
-//      }
-//    }
-
-    private let selectedDateChanged: ((Date) -> Void)
-
-    // should be placed on it's own method
-    private lazy var dateFormatter: DateFormatter = {
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "d"
-      return dateFormatter
-    }()
+    private let selectedDate: Date? = nil
+    private var baseDate: Date = Date() {
+      didSet {
+        days = generateDaysInMonth(for: baseDate)
+          rootView.calendarCollectionView.reloadData()
+          rootView.headerView.baseDate = baseDate
+      }
+    }
+    private lazy var days = generateDaysInMonth(for: baseDate)
+    private let selectedDateChanged: ((Date) -> Void)? = nil
+    private var dateFormatter: DateFormatter!
     
     // MARK: - Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
+        rootView.headerView.delegate = self
+        rootView.footerView.delegate = self
+        setupDayFormatter()
+        
     }
     
+    // MARK: - Private Methods
+    
+    private func setupDayFormatter() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d"
+    }
 }
 
 // MARK: - Day Generation
@@ -99,7 +102,7 @@ private extension CalendarScreenViewController {
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate),
+            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate!),
             isWithinDisplayedMonth: isWithinDisplayedMonth
         )
     }
@@ -143,5 +146,36 @@ private extension CalendarScreenViewController {
 extension CalendarScreenViewController: CalendarScreenViewDelegate {
     func dayTapped() {
         print("calendar day tapped. reaction from CalendarScreenViewController")
+    }
+}
+
+// MARK: - CalendarScreenHeaderViewDelegate
+
+extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
+    func closeButtonTapped() {
+
+        dismiss(animated: true)
+        print("close button tapped. Reaction from Controller")
+    }
+}
+
+// MARK: - CalendarScreenFooterViewDelegate
+
+extension CalendarScreenViewController: CalendarScreenFooterViewDelegate {
+    
+    func previousMonthButtonTapped() {
+        baseDate = rootView.calendar.date(
+          byAdding: .month,
+          value: -1,
+          to: baseDate
+          ) ?? baseDate
+    }
+    
+    func nextMonthButtonTapped() {
+        baseDate = rootView.calendar.date(
+          byAdding: .month,
+          value: 1,
+          to: baseDate
+          ) ?? baseDate
     }
 }
