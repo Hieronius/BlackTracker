@@ -37,9 +37,8 @@ final class CalendarScreenView: UIView {
         backgroundColor = AppColors.darkGray
         
         setupCalendarCollectionView()
-        
-        headerView = CalendarScreenHeaderView()
-        addSubview(headerView)
+        setupCalendarHeaderView()
+        setupCalendarFooterView()
         
         footerView = CalendarScreenFooterView()
         addSubview(footerView)
@@ -67,6 +66,32 @@ final class CalendarScreenView: UIView {
             make.centerY.equalTo(self.snp.centerY).offset(10)
             
             make.height.equalTo(self.snp.height).multipliedBy(0.5)
+        }
+    }
+    
+    private func setupCalendarHeaderView() {
+        headerView = CalendarScreenHeaderView()
+        
+        addSubview(headerView)
+        
+        headerView.snp.makeConstraints { make in
+            make.leading.equalTo(calendarCollectionView)
+            make.trailing.equalTo(calendarCollectionView)
+            make.bottom.equalTo(calendarCollectionView.snp.top)
+            make.height.equalTo(85)
+        }
+    }
+    
+    private func setupCalendarFooterView() {
+        footerView = CalendarScreenFooterView()
+        
+        addSubview(footerView)
+        
+        footerView.snp.makeConstraints { make in
+            make.leading.equalTo(calendarCollectionView)
+            make.trailing.equalTo(calendarCollectionView)
+            make.top.equalTo(calendarCollectionView.snp.bottom)
+            make.height.equalTo(60)
         }
     }
 }
