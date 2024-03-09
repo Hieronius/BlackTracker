@@ -5,7 +5,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     // MARK: - Private Properties
     
     // isDailyVisitsButtonTapped = false/true
-    private let selectedDate: Date
+    private let selectedDate: Date? = nil
 //    private var baseDate: Date {
 //      didSet {
 //        days = generateDaysInMonth(for: baseDate)
@@ -14,7 +14,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
 //      }
 //    }
 
-    private let selectedDateChanged: ((Date) -> Void)
+    private let selectedDateChanged: ((Date) -> Void)? = nil
 
     // should be placed on it's own method
     private lazy var dateFormatter: DateFormatter = {
@@ -99,7 +99,7 @@ private extension CalendarScreenViewController {
         return Day(
             date: date,
             number: dateFormatter.string(from: date),
-            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate),
+            isSelected: rootView.calendar.isDate(date, inSameDayAs: selectedDate!),
             isWithinDisplayedMonth: isWithinDisplayedMonth
         )
     }
