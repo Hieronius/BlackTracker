@@ -27,25 +27,15 @@ class CalendarScreenHeaderView: UIView {
     
     // MARK: - Initialization
     
-    /// Initializes the calendar screen header view.
-    /// - Parameter exitButtonTappedCompletionHandler: Closure to handle the action when the close button is tapped.
     init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
-        self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
-        
-        super.init(frame: CGRect.zero)
-        
-        backgroundColor = .systemGroupedBackground
-        
-        layer.maskedCorners = [
-            .layerMinXMinYCorner,
-            .layerMaxXMinYCorner
-        ]
-        layer.cornerCurve = .continuous
-        layer.cornerRadius = 15
-        
-        setupViews()
-        setupDateFormatter()
-    }
+            // Initialize the exitButtonTappedCompletionHandler property with the provided closure.
+            self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
+            
+            super.init(frame: CGRect.zero)
+            
+            setupViews()
+            setupDateFormatter()
+        }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,10 +44,26 @@ class CalendarScreenHeaderView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
+        setupHeaderView()
         setupMonthLabel()
         setupCloseButton()
         setupDayOfWeekStackView()
         setupSeparatorView()
+    }
+    
+    private func setupHeaderView() {
+        backgroundColor = .systemGroupedBackground
+        
+        // Set the masked corners of the layer to the top-left and top-right corners to create rounded corners.
+        layer.maskedCorners = [
+            .layerMinXMinYCorner,
+            .layerMaxXMinYCorner
+        ]
+        
+        // Set the corner curve to continuous to make the corners smooth.
+        layer.cornerCurve = .continuous
+        
+        layer.cornerRadius = 15
     }
     
     private func setupMonthLabel() {
