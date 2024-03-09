@@ -1,10 +1,15 @@
 import UIKit
 import SnapKit
 
+protocol CalendarScreenHeaderViewDelegate: AnyObject {
+    func closeButtonTapped()
+}
+
 class CalendarScreenHeaderView: UIView {
     
     // MARK: - Public Properties
     
+    weak var delegate: CalendarScreenHeaderViewDelegate?
     var monthLabel: UILabel!
     var closeButton: UIButton!
     var dayOfWeekStackView: UIStackView!
@@ -20,22 +25,15 @@ class CalendarScreenHeaderView: UIView {
     /// Date formatter for formatting date information.
     private var dateFormatter: DateFormatter!
     
-    // MARK: - Properties
-    
-    /// Closure to handle the action when the close button is tapped. Should be replaced with Delegate
-    var exitButtonTappedCompletionHandler: (() -> Void)
     
     // MARK: - Initialization
     
-    init(exitButtonTappedCompletionHandler: @escaping (() -> Void)) {
-            // Initialize the exitButtonTappedCompletionHandler property with the provided closure.
-            self.exitButtonTappedCompletionHandler = exitButtonTappedCompletionHandler
-            
-            super.init(frame: CGRect.zero)
-            
-            setupViews()
-            setupDateFormatter()
-        }
+    init() {
+        super.init(frame: CGRect.zero)
+        
+        setupViews()
+        setupDateFormatter()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -147,7 +145,7 @@ class CalendarScreenHeaderView: UIView {
     // MARK: - Actions
     
     @objc private func didTapExitButton() {
-        exitButtonTappedCompletionHandler()
+        delegate?.closeButtonTapped()
     }
     
     // MARK: - Helper Methods
