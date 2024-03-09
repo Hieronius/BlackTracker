@@ -6,7 +6,6 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     
     private let selectedDate: Date? = nil
     private lazy var days = generateDaysInMonth(for: baseDate)
-    private let selectedDateChanged: ((Date) -> Void)? = nil
     private var dateFormatter: DateFormatter!
     private let dateService = DateService.shared
     private var numberOfWeeksInBaseDate = 0
@@ -22,27 +21,21 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let currentDate = Date()
-//        let components = dateService.calendar.dateComponents([.year, .month, .day], from: currentDate)
-//        print(components)
-//
+        setupDelegates()
         updateNumberOfWeeks()
-        
-        rootView.delegate = self
-        rootView.headerView.delegate = self
-        rootView.footerView.delegate = self
         setupDayFormatter()
-        
-        // Assign data source and delegate
-        rootView.collectionView.dataSource = self
-        rootView.collectionView.delegate = self
-        
-        // Set base date for header view
         rootView.headerView.baseDate = baseDate
-        
     }
     
     // MARK: - Private Methods
+    
+    private func setupDelegates() {
+        rootView.delegate = self
+        rootView.headerView.delegate = self
+        rootView.footerView.delegate = self
+        rootView.collectionView.dataSource = self
+        rootView.collectionView.delegate = self
+    }
     
     private func setupDayFormatter() {
         dateFormatter = DateFormatter()
@@ -244,13 +237,8 @@ extension CalendarScreenViewController: UICollectionViewDelegateFlowLayout {
         didSelectItemAt indexPath: IndexPath
     ) {
         let day = days[indexPath.row]
-        if let selectedDateChanged = selectedDateChanged {
-            selectedDateChanged(day.date)
-        } else {
-            // it's nil, fix it
-            print("selectedDateChanged is nil")
-        }
-        dismiss(animated: true, completion: nil)
+        print(day.date)
+        // MARK: there i should place method to change color or print info about day statistics
     }
     
     func collectionView(
