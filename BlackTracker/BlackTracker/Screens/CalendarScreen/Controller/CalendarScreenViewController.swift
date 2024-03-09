@@ -34,8 +34,8 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         setupDayFormatter()
         
         // Assign data source and delegate
-        rootView.calendarCollectionView.dataSource = self
-        rootView.calendarCollectionView.delegate = self
+        rootView.collectionView.dataSource = self
+        rootView.collectionView.delegate = self
         
         // Set base date for header view
         rootView.headerView.baseDate = baseDate
@@ -56,7 +56,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     
     private func updateDaysAndReloadCollectionView() {
         days = generateDaysInMonth(for: baseDate) // Regenerate days array
-        rootView.calendarCollectionView.reloadData() // Reload collection view data
+        rootView.collectionView.reloadData() // Reload collection view data
         rootView.headerView.baseDate = baseDate // Update header with current month
     }
 }
