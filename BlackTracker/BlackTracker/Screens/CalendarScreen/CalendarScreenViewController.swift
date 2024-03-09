@@ -4,24 +4,17 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     
     // MARK: - Private Properties
     
-    // isDailyVisitsButtonTapped = false/true
     private let selectedDate: Date? = nil
-//    private var baseDate: Date {
-//      didSet {
-//        days = generateDaysInMonth(for: baseDate)
-//        collectionView.reloadData()
-//        headerView.baseDate = baseDate
-//      }
-//    }
-
+    private var baseDate: Date = Date() {
+      didSet {
+        days = generateDaysInMonth(for: baseDate)
+          rootView.calendarCollectionView.reloadData()
+          rootView.headerView.baseDate = baseDate
+      }
+    }
+    private lazy var days = generateDaysInMonth(for: baseDate)
     private let selectedDateChanged: ((Date) -> Void)? = nil
-
-    // should be placed on it's own method
-    private lazy var dateFormatter: DateFormatter = {
-      let dateFormatter = DateFormatter()
-      dateFormatter.dateFormat = "d"
-      return dateFormatter
-    }()
+    private var dateFormatter: DateFormatter!
     
     // MARK: - Initialization
     
@@ -29,8 +22,16 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         super.viewDidLoad()
         rootView.delegate = self
         rootView.headerView.delegate = self
+        setupDayFormatter()
+        
     }
     
+    // MARK: - Private Methods
+    
+    private func setupDayFormatter() {
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d"
+    }
 }
 
 // MARK: - Day Generation
@@ -151,6 +152,12 @@ extension CalendarScreenViewController: CalendarScreenViewDelegate {
 
 extension CalendarScreenViewController: CalendarScreenHeaderViewDelegate {
     func closeButtonTapped() {
+
+        baseDate = rootView.calendar.date(
+          byAdding: .month,
+          value: 1,
+          to: baseDate
+          ) ?? baseDate
         print("close button tapped. Reaction from Controller")
     }
     
