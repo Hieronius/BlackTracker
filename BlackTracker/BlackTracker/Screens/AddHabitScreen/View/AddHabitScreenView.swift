@@ -1,12 +1,8 @@
 import UIKit
 
-final class HabitsListScreenView: UIView {
+final class AddHabitScreenView: UIView {
     
     // MARK: - Public Properties
-    
-    // On the top of the screen probably should be filter system
-    
-    // var headerView
     
     // MARK: - Initialization
     

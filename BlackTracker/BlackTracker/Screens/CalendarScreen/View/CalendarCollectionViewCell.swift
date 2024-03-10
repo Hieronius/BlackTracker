@@ -1,6 +1,6 @@
 import UIKit
 
-class CalendarDateCollectionViewCell: UICollectionViewCell {
+class CalendarCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Properties
     
@@ -10,15 +10,15 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     /// The date formatter used for accessibility.
     private var accessibilityDateFormatter: DateFormatter!
     
-    /// Reuse identifier for the cell.
-    static let reuseIdentifier = String(describing: CalendarDateCollectionViewCell.self)
+    // MARK: - Public Properties
+    
+    static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
     
     /// The date associated with this cell.
     var day: Day? {
         didSet {
             guard let day = day else { return }
             numberLabel.text = day.number
-            // accessibilityLabel = accessibilityDateFormatter.string(from: day.date)
             updateSelectionStatus()
         }
     }

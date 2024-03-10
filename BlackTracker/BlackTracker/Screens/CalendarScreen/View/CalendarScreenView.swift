@@ -10,12 +10,9 @@
         // MARK: - Public Properties
         
         weak var delegate: CalendarScreenViewDelegate?
-        var collectionView: UICollectionView!
+        var collectionView: CalendarCollectionView!
         var headerView: CalendarScreenHeaderView!
         var footerView: CalendarScreenFooterView!
-        
-        // MARK: - Private Properties
-        
         
         // MARK: - Initialization
         

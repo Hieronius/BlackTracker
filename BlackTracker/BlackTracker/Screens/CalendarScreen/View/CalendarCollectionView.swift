@@ -2,8 +2,6 @@ import UIKit
 
 class CalendarCollectionView: UICollectionView {
     
-    
-    
     // MARK: - Initialization
     
     init() {
@@ -26,6 +24,6 @@ class CalendarCollectionView: UICollectionView {
         isScrollEnabled = false
         backgroundColor = .systemGroupedBackground
         
-        register(CalendarDateCollectionViewCell.self, forCellWithReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier)
+        register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.reuseIdentifier)
     }
 }

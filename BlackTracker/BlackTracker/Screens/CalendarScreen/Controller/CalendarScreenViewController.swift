@@ -5,6 +5,7 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     // MARK: - Private Properties
     
     private let selectedDate: Date? = nil
+    // "days" should be refactored to func-based initialization
     private lazy var days = generateDaysInMonth(for: baseDate)
     private var dateFormatter: DateFormatter!
     private let dateService = DateService.shared
@@ -15,6 +16,8 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
         updateNumberOfWeeks()
       }
     }
+    
+    // MARK: We can add navigation view controller with 2 buttons for (daily streak / daily progress) filters for calendar. Title - should be shange accordingly to filter
     
     // MARK: - Initialization
     
@@ -165,6 +168,7 @@ private extension CalendarScreenViewController {
 
 extension CalendarScreenViewController: CalendarScreenViewDelegate {
     func dayTapped() {
+        // MARK: use for action when you tap calendar day
         print("calendar day tapped. reaction from CalendarScreenViewController")
     }
 }
@@ -221,10 +225,9 @@ extension CalendarScreenViewController: UICollectionViewDataSource {
         let day = days[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
-            for: indexPath) as! CalendarDateCollectionViewCell
+            withReuseIdentifier: CalendarCollectionViewCell.reuseIdentifier,
+            for: indexPath) as! CalendarCollectionViewCell
 
-        
         cell.day = day
         return cell
     }

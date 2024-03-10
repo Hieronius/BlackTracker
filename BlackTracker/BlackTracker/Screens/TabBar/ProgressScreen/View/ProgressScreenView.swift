@@ -99,6 +99,7 @@ final class ProgressScreenView: UIView {
         }
     }
     
+    // MARK: Probably should be global for all app
     private func setupBottomStackView() {
         bottomStackView = UIStackView()
         bottomStackView.axis = .horizontal
