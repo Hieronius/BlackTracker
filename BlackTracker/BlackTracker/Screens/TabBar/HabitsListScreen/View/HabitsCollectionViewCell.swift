@@ -20,6 +20,10 @@ class HabitsCollectionViewCell: UICollectionViewCell {
     // 15. Skip habit
     // 16. Note
     
+    // MARK: - Private Properties
+    
+    private var stackView: UIStackView!
+    
     // MARK: - Public Properties
     
     /// Reuse identifier for the cell.
@@ -33,9 +37,14 @@ class HabitsCollectionViewCell: UICollectionViewCell {
         setupViews()
     }
     
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Private Methods
     
     private func setupViews() {
+        stackView = UIStackView()
         
     }
 }
