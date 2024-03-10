@@ -15,37 +15,42 @@ final class AddHabitScreenView: UIView {
     
     // habit name
     var nameStackView: UIStackView!
-    var nameLabel = "Name"
+    var nameLabel = "Name:"
     var nameTextField: UITextField!
     
     // habit image
     var imageStackView: UIStackView!
-    var imageLabel = "Image"
+    var imageLabel = "Image:"
     var imageView: UIImageView!
     
     // habit duration in minutes (may be tracking should be implemented later)
     var durationStackView: UIStackView!
-    var durationLabel = "Duration"
+    var durationLabel = "Duration:"
     var durationTextField: UITextField!
+    
+    // habit frequency
+    var frequencyStackView: UIStackView!
+    var frequencyLabel = "Frequency:"
+    var frequencyTextField: UITextField!
+    
+    // habit reminder
+    var reminderStackView: UIStackView!
+    var reminderLabel = "Reminder:"
+    var reminderPicker = UIDatePicker!
     
     // habit category
     var categoryStackView: UIStackView!
-    var categoryLabel = "Category"
+    var categoryLabel = "Category:"
     var categoryTextField: UITextField!
     
     // habit tag
     var tagStackView: UIStackView!
-    var tagLabel = "Tag"
+    var tagLabel = "Tag:"
     var tagTextField: UITextField!
-    
-    // habit frequency
-    var frequencyStackView: UIStackView!
-    var frequencyLabel = "Frequency"
-    var frequencyTextField: UITextField!
     
     // habit rate (daily, weekly, monthly)
     var rateStackView: UIStackView!
-    var rateLabel = "Rate"
+    var rateLabel = "Rate:"
     var rateTextField: UISegmentedControl!
     
     // view for skip/froze/edit/streak options
@@ -80,26 +85,64 @@ final class AddHabitScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
+        setupContainerView()
+    }
+    
+    private func setupContainerView() {
+        containerView = UIView()
+        
+        addSubview(containerView)
+        
+        // add constraints for container view
+        
         setupSettings()
         setupOptions()
         setupNoteField()
-        setupCompleteButton
+        setupCompleteButton()
     }
     
     private func setupSettings() {
         settingsStackView = UIStackView()
         
+        // add nameStack
+        // add imageStack
+        // add frequencyStack
+        // add rateStack
+        // add categoryStack
+        // add tagStack
+        // add reminderStack
+        
+        // add settings to container view
+        
+        // add constraints to top/left of the container view
+        
     }
     
     private func setupOptions() {
+        
+        // add editStack
+        // add frozeStack
+        // add skipStack
+        // add streakStack
+        
+        // add options to container view
+        
+        // add constraints to right of settings / top-right of container view
         
     }
     
     private func setupNoteField() {
         
+        // add to container view
+        
+        // add constraints to settings
+        
     }
     
     private func setupCompleteButton() {
         
+        // add to container view
+        
+        // add constraints to note 
     }
 }
