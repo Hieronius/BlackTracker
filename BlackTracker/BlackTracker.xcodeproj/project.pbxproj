@@ -311,9 +311,9 @@
 		DDAC6FA12B9AAF7800049C0E /* GlobalElements */ = {
 			isa = PBXGroup;
 			children = (
+				DDA68CDC2B9D7C6F001778FE /* Habit.swift */,
 				DDA68CCF2B9D6492001778FE /* HabitManager.swift */,
 				DD9D12642B92C1D500B599B8 /* AppColors.swift */,
-				DDA68CDC2B9D7C6F001778FE /* Habit.swift */,
 			);
 			path = GlobalElements;
 			sourceTree = "<group>";
