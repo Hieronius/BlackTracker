@@ -36,7 +36,7 @@ final class AddHabitScreenView: UIView {
     // habit reminder
     var reminderStackView: UIStackView!
     var reminderLabel = "Reminder:"
-    var reminderPicker = UIDatePicker!
+    var reminderPicker: UIDatePicker!
     
     // habit category
     var categoryStackView: UIStackView!
@@ -93,7 +93,10 @@ final class AddHabitScreenView: UIView {
         
         addSubview(containerView)
         
-        // add constraints for container view
+        // add constraints accordingly to AddHabitView
+        containerView.snp.makeConstraints { make in
+            make.edges.equalTo(self.safeAreaLayoutGuide)
+        }
         
         setupSettings()
         setupOptions()
@@ -103,6 +106,10 @@ final class AddHabitScreenView: UIView {
     
     private func setupSettings() {
         settingsStackView = UIStackView()
+        
+        // Configure stack view
+        settingsStackView.axis = .vertical
+        settingsStackView.spacing = 8 // Adjust spacing between elements
         
         // add nameStack
         // add imageStack
@@ -118,6 +125,42 @@ final class AddHabitScreenView: UIView {
         
     }
     
+    private func setupNameStackView() {
+        
+        // add elements to name stack
+        
+    }
+    
+    private func setupImageStackView() {
+        
+        // add elements to image stack
+    }
+    
+    private func setupFrequencyStackView() {
+        
+        // add elements to frequency stack
+    }
+    
+    private func setupRateStackView() {
+        
+        // add elements to rate stack
+    }
+    
+    private func setupCategoryStackView() {
+        
+        // add elements to category stack
+    }
+    
+    private func setupTagStackView() {
+        
+        // add elements to tag stack
+    }
+    
+    private func setupReminderStack() {
+        
+        // add elements to reminder stack
+    }
+    
     private func setupOptions() {
         
         // add editStack
@@ -129,6 +172,16 @@ final class AddHabitScreenView: UIView {
         
         // add constraints to right of settings / top-right of container view
         
+    }
+    
+    private func setupEditStackView() {
+        
+        // add elements to edit stack
+    }
+    
+    private func setupFrozeStack() {
+        
+        // add elements to frozeStack
     }
     
     private func setupNoteField() {
@@ -143,6 +196,6 @@ final class AddHabitScreenView: UIView {
         
         // add to container view
         
-        // add constraints to note 
+        // add constraints to note
     }
 }
