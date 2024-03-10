@@ -1,6 +1,6 @@
 import UIKit
 
-class CalendarDateCollectionViewCell: UICollectionViewCell {
+class CalendarCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private Properties
     
@@ -11,7 +11,7 @@ class CalendarDateCollectionViewCell: UICollectionViewCell {
     private var accessibilityDateFormatter: DateFormatter!
     
     /// Reuse identifier for the cell.
-    static let reuseIdentifier = String(describing: CalendarDateCollectionViewCell.self)
+    static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
     
     /// The date associated with this cell.
     var day: Day? {

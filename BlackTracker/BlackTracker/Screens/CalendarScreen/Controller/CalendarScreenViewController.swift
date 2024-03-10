@@ -7,7 +7,6 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     private let selectedDate: Date? = nil
     // "days" should be refactored to func-based initialization
     private lazy var days = generateDaysInMonth(for: baseDate)
-    private var days = [Day]()
     private var dateFormatter: DateFormatter!
     private let dateService = DateService.shared
     private var numberOfWeeksInBaseDate = 0
@@ -223,10 +222,9 @@ extension CalendarScreenViewController: UICollectionViewDataSource {
         let day = days[indexPath.row]
         
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: CalendarDateCollectionViewCell.reuseIdentifier,
-            for: indexPath) as! CalendarDateCollectionViewCell
+            withReuseIdentifier: CalendarCollectionViewCell.reuseIdentifier,
+            for: indexPath) as! CalendarCollectionViewCell
 
-        
         cell.day = day
         return cell
     }
