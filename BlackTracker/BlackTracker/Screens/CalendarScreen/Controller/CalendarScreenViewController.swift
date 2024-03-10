@@ -166,6 +166,7 @@ private extension CalendarScreenViewController {
 
 extension CalendarScreenViewController: CalendarScreenViewDelegate {
     func dayTapped() {
+        // MARK: use for action when you tap calendar day
         print("calendar day tapped. reaction from CalendarScreenViewController")
     }
 }
