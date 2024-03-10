@@ -111,17 +111,20 @@ final class AddHabitScreenView: UIView {
         settingsStackView.axis = .vertical
         settingsStackView.spacing = 8 // Adjust spacing between elements
         
-        // add nameStack
-        // add imageStack
-        // add frequencyStack
-        // add rateStack
-        // add categoryStack
-        // add tagStack
-        // add reminderStack
+        settingsStackView.addArrangedSubview(nameStackView)
+        settingsStackView.addArrangedSubview(imageStackView)
+        settingsStackView.addArrangedSubview(frequencyStackView)
+        settingsStackView.addArrangedSubview(rateStackView)
+        settingsStackView.addArrangedSubview(categoryStackView)
+        settingsStackView.addArrangedSubview(tagStackView)
+        settingsStackView.addArrangedSubview(reminderStackView)
         
-        // add settings to container view
+        containerView.addSubview(settingsStackView)
         
-        // add constraints to top/left of the container view
+        settingsStackView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(-15)
+            make.left.equalToSuperview().offset(15)
+        }
         
     }
     
