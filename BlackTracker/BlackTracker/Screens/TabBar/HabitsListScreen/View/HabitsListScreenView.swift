@@ -4,9 +4,9 @@ final class HabitsListScreenView: UIView {
     
     // MARK: - Public Properties
     
-    // var headerView = UISegmentedControl or custom dropdown menu view
-    // var collectionView: HabitsCollectionView!
-    // var footerView = bottom stackView from ProgressBar
+    // On the top of the screen probably should be filter system
+    
+    var headerView
     
     // MARK: - Initialization
     
