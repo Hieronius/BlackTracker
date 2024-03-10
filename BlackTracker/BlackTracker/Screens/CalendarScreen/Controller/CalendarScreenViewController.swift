@@ -17,6 +17,8 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
       }
     }
     
+    // MARK: We can add navigation view controller with 2 buttons for (daily streak / daily progress) filters for calendar. Title - should be shange accordingly to filter
+    
     // MARK: - Initialization
     
     override func viewDidLoad() {

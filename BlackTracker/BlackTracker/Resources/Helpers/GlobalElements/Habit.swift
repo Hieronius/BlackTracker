@@ -1,5 +1,3 @@
-import Foundation
-
 // MARK: List of properties to add:
 // 1. Name
 // 2. Streak
@@ -21,7 +19,7 @@ import Foundation
 struct Habit {
     var image = 0 // image
     var name = "habit"
-    var streak = 5
+    var streak = 5 // don't need to be in "add habit"
     var frequency = "daily" // may be DatePicker or Date
     var category = "fitness"
     var tag = "important"
