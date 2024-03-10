@@ -20,5 +20,22 @@ class HabitsCollectionViewCell: UICollectionViewCell {
     // 15. Skip habit
     // 16. Note
     
+    // MARK: - Public Properties
     
+    /// Reuse identifier for the cell.
+    static let reuseIdentifier = String(describing: CalendarCollectionViewCell.self)
+    
+    // MARK: - Initialization
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        setupViews()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setupViews() {
+        
+    }
 }
