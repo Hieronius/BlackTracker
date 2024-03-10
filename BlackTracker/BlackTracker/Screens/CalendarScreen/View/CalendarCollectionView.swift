@@ -2,8 +2,6 @@ import UIKit
 
 class CalendarCollectionView: UICollectionView {
     
-    
-    
     // MARK: - Initialization
     
     init() {
