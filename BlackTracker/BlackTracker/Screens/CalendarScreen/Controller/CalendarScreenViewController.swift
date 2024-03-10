@@ -5,7 +5,9 @@ final class CalendarScreenViewController: GenericViewController<CalendarScreenVi
     // MARK: - Private Properties
     
     private let selectedDate: Date? = nil
+    // "days" should be refactored to func-based initialization
     private lazy var days = generateDaysInMonth(for: baseDate)
+    private var days = [Day]()
     private var dateFormatter: DateFormatter!
     private let dateService = DateService.shared
     private var numberOfWeeksInBaseDate = 0
