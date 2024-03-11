@@ -118,7 +118,7 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(imageStackView)
         settingsStackView.addArrangedSubview(frequencyStackView)
         settingsStackView.addArrangedSubview(rateStackView)
-//        settingsStackView.addArrangedSubview(categoryStackView)
+        settingsStackView.addArrangedSubview(categoryStackView)
 //        settingsStackView.addArrangedSubview(tagStackView)
 //        settingsStackView.addArrangedSubview(reminderStackView)
         
@@ -199,8 +199,19 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupCategoryStackView() {
+        categoryStackView = UIStackView()
+        categoryStackView.axis = .vertical
+        categoryStackView.spacing = 10
         
-        // add elements to category stack
+        categoryLabel = UILabel()
+        categoryLabel.text = "Category"
+        
+        categoryTextField = UITextField()
+        
+        categoryStackView.addArrangedSubview(categoryLabel)
+        categoryStackView.addArrangedSubview(categoryTextField)
+        
+        settingsStackView.addArrangedSubview(categoryStackView)
     }
     
     private func setupTagStackView() {
