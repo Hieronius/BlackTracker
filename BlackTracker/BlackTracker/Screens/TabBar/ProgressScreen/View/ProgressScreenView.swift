@@ -99,7 +99,7 @@ final class ProgressScreenView: UIView {
         }
     }
     
-    // MARK: Probably should be global for all app
+    // MARK: Start of global bottom stack block
     private func setupBottomStackView() {
         bottomStackView = UIStackView()
         bottomStackView.axis = .horizontal
@@ -113,6 +113,12 @@ final class ProgressScreenView: UIView {
         
         let addHabit = CustomRoundImageView()
         addHabit.configure(withChar: "+", withBackgroundColor: AppColors.veryDarkGray)
+        
+        // Probably should add gesture recognizer to CustomButtonImplementation
+        let addHabitGesture = UITapGestureRecognizer(target: self, action: #selector(addHabitButtonTapped))
+        addHabit.isUserInteractionEnabled = true
+        addHabit.addGestureRecognizer(addHabitGesture)
+        
         bottomStackView.addArrangedSubview(addHabit)
         
         self.addSubview(bottomStackView)
@@ -124,6 +130,7 @@ final class ProgressScreenView: UIView {
             make.height.equalTo(50)
         }
     }
+    // MARK: End of global bottom stack block
     
     private func setupProgressImageView() {
         progressImageView = UIImageView()

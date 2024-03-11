@@ -87,7 +87,8 @@ extension ProgressScreenViewController:
     }
     
     func addHabitButtonTapped() {
-        //
+        let addHabitVC = AddHabitScreenViewController()
+        present(addHabitVC, animated: true)
     }
     
     

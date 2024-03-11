@@ -6,5 +6,7 @@ final class AddHabitScreenViewController: GenericViewController<AddHabitScreenVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("AddHabit controller on the screen")
     }
 }
