@@ -9,6 +9,7 @@ final class AddHabitScreenView: UIView {
     
     // view for all UI elements on the screen
     var containerView: UIView!
+    var containerStackView: UIStackView!
     
     // MARK: - Settings stack view
     var settingsStackView: UIStackView!
@@ -22,7 +23,7 @@ final class AddHabitScreenView: UIView {
     var imageStackView: UIStackView!
     var imageLabel: UILabel!
     // small collection view with emogies can be implemented
-    var imageView: UIImageView!
+    var imageViewLabel: UILabel!
     
     // habit duration in minutes (may be tracking should be implemented later)
     var durationStackView: UIStackView!
@@ -86,27 +87,31 @@ final class AddHabitScreenView: UIView {
     
     private func setupViews() {
         backgroundColor = AppColors.darkGray
-        setupContainerView()
+        setupContainerStackView()
     }
     
-    private func setupContainerView() {
-        containerView = UIView()
-        containerView.backgroundColor = .brown
+    private func setupContainerStackView() {
+        containerStackView = UIStackView()
+        containerStackView.axis = .vertical
+        containerStackView.spacing = 15
         
-        addSubview(containerView)
+        addSubview(containerStackView)
         
-        // add constraints accordingly to AddHabitView
-        containerView.snp.makeConstraints { make in
-            make.edges.equalTo(self.safeAreaLayoutGuide)
+        containerStackView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(15)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).offset(15)
+            make.trailing.equalTo(self.safeAreaLayoutGuide.snp.trailing).offset(-15)
+            make.bottom.equalTo(self.safeAreaLayoutGuide.snp.bottom).offset(-15)
         }
         
-        setupSettings()
-        setupNoteField()
-        setupOptions()
-        setupCompleteButton()
-        
-        // should be constraints from top to bottom
-        
+       setupSettings()
+       print("settings added")
+       setupNoteField()
+       print("note added")
+       setupOptions()
+       print("options added")
+       setupCompleteButton()
+       print("button added")
     }
     
     private func setupSettings() {
@@ -122,7 +127,7 @@ final class AddHabitScreenView: UIView {
         setupTagStackView()
         setupReminderStack()
 
-        containerView.addSubview(settingsStackView)
+        containerStackView.addArrangedSubview(settingsStackView)
     }
     
     private func setupNameStackView() {
@@ -149,10 +154,11 @@ final class AddHabitScreenView: UIView {
         imageLabel = UILabel()
         imageLabel.text = "Image:"
         
-        imageView.image = UIImage(named: "💧")
+        imageViewLabel = UILabel()
+        imageViewLabel.text = "💧"
         
         imageStackView.addArrangedSubview(imageLabel)
-        imageStackView.addArrangedSubview(imageView)
+        imageStackView.addArrangedSubview(imageViewLabel)
         
         settingsStackView.addArrangedSubview(imageStackView)
     }
@@ -245,7 +251,7 @@ final class AddHabitScreenView: UIView {
         noteFieldView = UITextField()
         noteFieldView.placeholder = "Note..."
         
-        containerView.addSubview(noteFieldView)
+        containerStackView.addArrangedSubview(settingsStackView)
     }
     
     private func setupOptions() {
@@ -258,7 +264,7 @@ final class AddHabitScreenView: UIView {
         setupFreezeButton()
         setupStreakStackView()
         
-        containerView.addSubview(optionsStackView)
+        containerStackView.addArrangedSubview(settingsStackView)
     }
     
     private func setupEditButton() {
@@ -307,7 +313,7 @@ final class AddHabitScreenView: UIView {
         completeButton.layer.cornerRadius = 8
         completeButton.layer.masksToBounds = true
         
-        containerView.addSubview(completeButton)
+        containerStackView.addArrangedSubview(settingsStackView)
     }
     
     
