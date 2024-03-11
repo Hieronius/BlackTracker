@@ -340,6 +340,10 @@ final class AddHabitScreenView: UIView {
         completeButton.layer.masksToBounds = true
         
         containerStackView.addArrangedSubview(completeButton)
+        
+        completeButton.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
     }
     
     
