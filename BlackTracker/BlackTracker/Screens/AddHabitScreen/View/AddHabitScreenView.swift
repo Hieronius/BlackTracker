@@ -8,7 +8,6 @@ final class AddHabitScreenView: UIView {
     // MARK: - Public Properties
     
     // view for all UI elements on the screen
-    var containerView: UIView!
     var containerStackView: UIStackView!
     
     // MARK: - Settings stack view
@@ -18,6 +17,11 @@ final class AddHabitScreenView: UIView {
     var nameStackView: UIStackView!
     var nameLabel: UILabel!
     var nameTextField: UITextField!
+    
+    // habit description
+    var descriptionStackView: UIStackView!
+    var descriptionLabel: UILabel!
+    var descriptionTextField: UITextField!
     
     // habit image
     var imageStackView: UIStackView!
@@ -56,8 +60,6 @@ final class AddHabitScreenView: UIView {
     var reminderPicker: UIDatePicker!
     // MARK: End of the settings stack view
     
-    var noteFieldView: UITextField!
-    
     // MARK: - View for skip/froze/edit/streak options
     var optionsStackView: UIStackView!
     
@@ -86,7 +88,7 @@ final class AddHabitScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
-        backgroundColor = AppColors.darkGray
+        backgroundColor = AppColors.veryDarkGray
         setupContainerStackView()
     }
     
@@ -106,12 +108,11 @@ final class AddHabitScreenView: UIView {
         
        setupSettings()
        print("settings added")
-       setupNoteField()
-       print("note added")
        setupOptions()
        print("options added")
        setupCompleteButton()
        print("button added")
+        
     }
     
     private func setupSettings() {
@@ -120,6 +121,7 @@ final class AddHabitScreenView: UIView {
         settingsStackView.spacing = 8 // Adjust spacing between elements
         
         setupNameStackView()
+        setupDescriptionStackView()
         setupImageStackView()
         setupFrequencyStackView()
         setupRateStackView()
@@ -132,13 +134,17 @@ final class AddHabitScreenView: UIView {
     
     private func setupNameStackView() {
         nameStackView = UIStackView()
-        nameStackView.axis = .horizontal
+        nameStackView.axis = .vertical
         nameStackView.spacing = 10
+        nameStackView.distribution = .fillEqually
         
         nameLabel = UILabel()
-        nameLabel.text = "Name:"
+        nameLabel.text = "Name"
         
         nameTextField = UITextField()
+        nameTextField.backgroundColor = .gray
+        nameTextField.layer.cornerRadius = 8
+        nameTextField.layer.masksToBounds = true
         
         nameStackView.addArrangedSubview(nameLabel)
         nameStackView.addArrangedSubview(nameTextField)
@@ -146,15 +152,38 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(nameStackView)
     }
     
+    private func setupDescriptionStackView() {
+        descriptionStackView = UIStackView()
+        descriptionStackView.axis = .vertical
+        descriptionStackView.spacing = 10
+        
+        descriptionLabel = UILabel()
+        descriptionLabel.text = "Description"
+        
+        descriptionTextField = UITextField()
+        descriptionTextField.placeholder = "Habit description"
+        
+        descriptionTextField.backgroundColor = .gray
+        descriptionTextField.layer.cornerRadius = 8
+        descriptionTextField.layer.masksToBounds = true
+        
+        descriptionStackView.addArrangedSubview(descriptionLabel)
+        descriptionStackView.addArrangedSubview(descriptionTextField)
+        
+        settingsStackView.addArrangedSubview(descriptionStackView)
+    }
+    
     private func setupImageStackView() {
         imageStackView = UIStackView()
         imageStackView.axis = .horizontal
         imageStackView.spacing = 10
+        imageStackView.distribution = .fillEqually
         
         imageLabel = UILabel()
-        imageLabel.text = "Image:"
+        imageLabel.text = "Image"
         
         imageViewLabel = UILabel()
+        imageViewLabel.backgroundColor = .darkGray
         imageViewLabel.text = "💧"
         
         imageStackView.addArrangedSubview(imageLabel)
@@ -169,9 +198,10 @@ final class AddHabitScreenView: UIView {
         frequencyStackView.spacing = 10
         
         frequencyLabel = UILabel()
-        frequencyLabel.text = "Frequency:"
+        frequencyLabel.text = "Frequency"
         
         frequencyTextField = UITextField()
+        frequencyTextField.backgroundColor = .darkGray
         
         frequencyStackView.addArrangedSubview(frequencyLabel)
         frequencyStackView.addArrangedSubview(frequencyTextField)
@@ -180,12 +210,13 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupRateStackView() {
+        // can be placed as two-liners stack
         rateStackView = UIStackView()
         rateStackView.axis = .horizontal
         rateStackView.spacing = 10
         
         rateLabel = UILabel()
-        rateLabel.text = "Rate:"
+        rateLabel.text = "Rate"
         
         rateSegmentedControl = UISegmentedControl(items: ["Daily", "Weekly", "Monthly"])
         
@@ -207,6 +238,7 @@ final class AddHabitScreenView: UIView {
         categoryLabel.text = "Category:"
         
         categoryTextField = UITextField()
+        categoryTextField.backgroundColor = .darkGray
         
         categoryStackView.addArrangedSubview(categoryLabel)
         categoryStackView.addArrangedSubview(categoryTextField)
@@ -223,6 +255,7 @@ final class AddHabitScreenView: UIView {
         tagLabel.text = "Tag:"
         
         tagTextField = UITextField()
+        tagTextField.backgroundColor = .darkGray
         
         tagStackView.addArrangedSubview(tagLabel)
         tagStackView.addArrangedSubview(tagTextField)
@@ -247,13 +280,6 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(reminderStackView)
     }
     
-    private func setupNoteField() {
-        noteFieldView = UITextField()
-        noteFieldView.placeholder = "Note..."
-        
-        containerStackView.addArrangedSubview(settingsStackView)
-    }
-    
     private func setupOptions() {
         optionsStackView = UIStackView()
         optionsStackView.axis = .horizontal
@@ -264,7 +290,7 @@ final class AddHabitScreenView: UIView {
         setupFreezeButton()
         setupStreakStackView()
         
-        containerStackView.addArrangedSubview(settingsStackView)
+        containerStackView.addArrangedSubview(optionsStackView)
     }
     
     private func setupEditButton() {
@@ -313,7 +339,7 @@ final class AddHabitScreenView: UIView {
         completeButton.layer.cornerRadius = 8
         completeButton.layer.masksToBounds = true
         
-        containerStackView.addArrangedSubview(settingsStackView)
+        containerStackView.addArrangedSubview(completeButton)
     }
     
     
