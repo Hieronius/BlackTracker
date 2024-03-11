@@ -74,7 +74,6 @@ final class AddHabitScreenView: UIView {
     
     init() {
         super.init(frame: .zero)
-        // backgroundColor = AppColors.darkGray
         setupViews()
     }
     
@@ -85,6 +84,8 @@ final class AddHabitScreenView: UIView {
     // MARK: - Private Methods
     
     private func setupViews() {
+        backgroundColor = AppColors.darkGray
+        
         setupContainerView()
     }
     

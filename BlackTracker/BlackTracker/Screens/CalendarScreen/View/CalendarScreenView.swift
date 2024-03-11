@@ -28,7 +28,6 @@
         // MARK: - Private Methods
         
         private func setupViews() {
-            
             backgroundColor = AppColors.darkGray
             
             setupCalendarCollectionView()
