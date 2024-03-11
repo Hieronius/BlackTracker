@@ -10,7 +10,7 @@ final class AddHabitScreenView: UIView {
     // view for all UI elements on the screen
     var containerView: UIView!
     
-    // view for habit settings
+    // MARK: - Settings stack view
     var settingsStackView: UIStackView!
     
     // habit name
@@ -54,22 +54,22 @@ final class AddHabitScreenView: UIView {
     var reminderStackView: UIStackView!
     var reminderLabel: UILabel!
     var reminderPicker: UIDatePicker!
+    // MARK: End of the settings stack view
     
-    // view for skip/froze/edit/streak options
+    var noteFieldView: UITextField!
+    
+    // MARK: - View for skip/froze/edit/streak options
     var optionsStackView: UIStackView!
-    
-    var streakStackView: UIStackView!
-    var streakLabel: UILabel!
-    var streakNumber: UILabel!
     
     var editButton: UIButton!
     var skipButton: UIButton!
-    var frozeButton: UIButton!
+    var freezeButton: UIButton!
     
-    // note field
-    var noteFieldView: UITextField!
+    var streakStackView: UIStackView!
+    var streakTitleLabel: UILabel!
+    var streakNumberLabel: UILabel!
+    // MARK: End of the options block
     
-    // button to complete the habit
     var completeButton: UIButton!
     
     // MARK: - Initialization
@@ -126,15 +126,8 @@ final class AddHabitScreenView: UIView {
         setupCategoryStackView()
         setupTagStackView()
         setupReminderStack()
-        
-//        add to container view and only after setup constraints
-//        containerView.addSubview(settingsStackView)
-//
-//        settingsStackView.snp.makeConstraints { make in
-//            make.top.equalToSuperview().offset(-15)
-//            make.left.equalToSuperview().offset(15)
-//        }
-        
+
+        containerView.addSubview(settingsStackView)
     }
     
     private func setupNameStackView() {
@@ -254,11 +247,10 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupNoteField() {
+        noteFieldView = UITextField()
+        noteFieldView.placeholder = "Note..."
         
-        // add to container view
-        
-        // add constraints to settings
-        
+        containerView.addSubview(noteFieldView)
     }
     
     private func setupOptions() {
@@ -267,14 +259,11 @@ final class AddHabitScreenView: UIView {
         optionsStackView.spacing = 8
         
         setupEditButton()
-        // setup frozeButton
-        // setup skipButton
-        // setup streakStack
+        setupSkipButton()
+        setupFreezeButton()
+        setupStreakStackView()
         
-        // add options to container view
-        
-        // add constraints to right of settings / top-right of container view
-        
+        containerView.addSubview(optionsStackView)
     }
     
     private func setupEditButton() {
@@ -284,16 +273,46 @@ final class AddHabitScreenView: UIView {
         optionsStackView.addArrangedSubview(editButton)
     }
     
-    private func setupFrozeStack() {
+    private func setupSkipButton() {
+        skipButton = UIButton()
+        skipButton.setTitle("Skip", for: .normal)
         
-        // add elements to frozeStack
+        optionsStackView.addArrangedSubview(skipButton)
+    }
+    
+    private func setupFreezeButton() {
+        freezeButton = UIButton()
+        freezeButton.setTitle("Freeze", for: .normal)
+        
+        optionsStackView.addArrangedSubview(freezeButton)
+    }
+    
+    private func setupStreakStackView() {
+        streakStackView = UIStackView()
+        streakStackView.axis = .horizontal
+        streakStackView.spacing = 10
+        
+        streakTitleLabel = UILabel()
+        streakTitleLabel.text = "Streak"
+        
+        streakNumberLabel = UILabel()
+        // just place /(currentStreak)
+        streakNumberLabel.text = "0"
+        
+        optionsStackView.addArrangedSubview(streakStackView)
     }
     
     private func setupCompleteButton() {
+        completeButton = UIButton()
+        completeButton.setTitle("Complete", for: .normal)
+        completeButton.setTitleColor(.white, for: .normal)
         
-        // add to container view
+        completeButton.backgroundColor = .black
         
-        // add constraints to note
+        completeButton.layer.cornerRadius = 8
+        completeButton.layer.masksToBounds = true
+        
+        containerView.addSubview(completeButton)
     }
     
     
