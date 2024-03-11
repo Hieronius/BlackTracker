@@ -88,6 +88,11 @@ final class AddHabitScreenView: UIView {
     private func setupViews() {
         backgroundColor = AppColors.darkGray
         
+        setupSettings()
+        setupOptions()
+        setupNoteField()
+        setupCompleteButton()
+        
         setupContainerView()
     }
     
@@ -101,33 +106,34 @@ final class AddHabitScreenView: UIView {
             make.edges.equalTo(self.safeAreaLayoutGuide)
         }
         
-        setupSettings()
-        setupOptions()
-        setupNoteField()
-        setupCompleteButton()
+        // add constraints for all it's content stack views here
+        // settingsStack
+        // optionsStack
+        // NoteField
+        // CompleteButton
+        
     }
     
     private func setupSettings() {
         settingsStackView = UIStackView()
-        
-        // Configure stack view
         settingsStackView.axis = .vertical
         settingsStackView.spacing = 8 // Adjust spacing between elements
         
-        settingsStackView.addArrangedSubview(nameStackView)
-        settingsStackView.addArrangedSubview(imageStackView)
-        settingsStackView.addArrangedSubview(frequencyStackView)
-        settingsStackView.addArrangedSubview(rateStackView)
-        settingsStackView.addArrangedSubview(categoryStackView)
-        settingsStackView.addArrangedSubview(tagStackView)
-        settingsStackView.addArrangedSubview(reminderStackView)
+        setupNameStackView()
+        setupImageStackView()
+        setupFrequencyStackView()
+        setupRateStackView()
+        setupCategoryStackView()
+        setupTagStackView()
+        setupReminderStack()
         
-        containerView.addSubview(settingsStackView)
-        
-        settingsStackView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(-15)
-            make.left.equalToSuperview().offset(15)
-        }
+//        add to container view and only after setup constraints
+//        containerView.addSubview(settingsStackView)
+//
+//        settingsStackView.snp.makeConstraints { make in
+//            make.top.equalToSuperview().offset(-15)
+//            make.left.equalToSuperview().offset(15)
+//        }
         
     }
     
@@ -247,12 +253,23 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(reminderStackView)
     }
     
-    private func setupOptions() {
+    private func setupNoteField() {
         
-        // add editStack
-        // add frozeStack
-        // add skipStack
-        // add streakStack
+        // add to container view
+        
+        // add constraints to settings
+        
+    }
+    
+    private func setupOptions() {
+        optionsStackView = UIStackView()
+        optionsStackView.axis = .horizontal
+        optionsStackView.spacing = 8
+        
+        setupEditButton()
+        // setup frozeButton
+        // setup skipButton
+        // setup streakStack
         
         // add options to container view
         
@@ -260,22 +277,16 @@ final class AddHabitScreenView: UIView {
         
     }
     
-    private func setupEditStackView() {
+    private func setupEditButton() {
+        editButton = UIButton()
+        editButton.setTitle("Edit", for: .normal)
         
-        // add elements to edit stack
+        optionsStackView.addArrangedSubview(editButton)
     }
     
     private func setupFrozeStack() {
         
         // add elements to frozeStack
-    }
-    
-    private func setupNoteField() {
-        
-        // add to container view
-        
-        // add constraints to settings
-        
     }
     
     private func setupCompleteButton() {
