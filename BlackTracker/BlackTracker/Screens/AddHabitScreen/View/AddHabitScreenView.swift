@@ -161,14 +161,22 @@ final class AddHabitScreenView: UIView {
         imageStackView.addArrangedSubview(imageView)
         
         settingsStackView.addArrangedSubview(imageStackView)
-        
-        
-        // add elements to image stack
     }
     
     private func setupFrequencyStackView() {
+        frequencyStackView = UIStackView()
+        frequencyStackView.axis = .horizontal
+        frequencyStackView.spacing = 10
         
-        // add elements to frequency stack
+        frequencyLabel = UILabel()
+        frequencyLabel.text = "Frequency"
+        
+        frequencyTextField = UITextField()
+        
+        frequencyStackView.addArrangedSubview(frequencyLabel)
+        frequencyStackView.addArrangedSubview(frequencyTextField)
+        
+        settingsStackView.addArrangedSubview(frequencyStackView)
     }
     
     private func setupRateStackView() {
