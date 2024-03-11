@@ -120,7 +120,7 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(rateStackView)
         settingsStackView.addArrangedSubview(categoryStackView)
         settingsStackView.addArrangedSubview(tagStackView)
-//        settingsStackView.addArrangedSubview(reminderStackView)
+        settingsStackView.addArrangedSubview(reminderStackView)
         
         containerView.addSubview(settingsStackView)
         
@@ -231,8 +231,20 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupReminderStack() {
+        reminderStackView = UIStackView()
+        reminderStackView.axis = .horizontal
+        reminderStackView.spacing = 10
         
-        // add elements to reminder stack
+        reminderLabel = UILabel()
+        reminderLabel.text = "Reminder:"
+        
+        reminderPicker = UIDatePicker()
+        reminderPicker.datePickerMode = .time
+        
+        reminderStackView.addArrangedSubview(reminderLabel)
+        reminderStackView.addArrangedSubview(reminderPicker)
+        
+        settingsStackView.addArrangedSubview(reminderStackView)
     }
     
     private func setupOptions() {
