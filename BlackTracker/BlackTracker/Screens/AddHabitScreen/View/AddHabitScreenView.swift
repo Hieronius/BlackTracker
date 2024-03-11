@@ -15,50 +15,52 @@ final class AddHabitScreenView: UIView {
     
     // habit name
     var nameStackView: UIStackView!
-    var nameLabel = "Name:"
+    var nameLabel: UILabel!
     var nameTextField: UITextField!
     
     // habit image
     var imageStackView: UIStackView!
-    var imageLabel = "Image:"
+    var imageLabel: UILabel!
+    // imageView may be should be replace with UISegmentedControl
+    // small collection view can be implemented
     var imageView: UIImageView!
     
     // habit duration in minutes (may be tracking should be implemented later)
     var durationStackView: UIStackView!
-    var durationLabel = "Duration:"
+    var durationLabel: UILabel!
     var durationTextField: UITextField!
     
     // habit frequency
     var frequencyStackView: UIStackView!
-    var frequencyLabel = "Frequency:"
+    var frequencyLabel: UILabel!
     var frequencyTextField: UITextField!
     
     // habit reminder
     var reminderStackView: UIStackView!
-    var reminderLabel = "Reminder:"
+    var reminderLabel: UILabel!
     var reminderPicker: UIDatePicker!
     
     // habit category
     var categoryStackView: UIStackView!
-    var categoryLabel = "Category:"
+    var categoryLabel: UILabel!
     var categoryTextField: UITextField!
     
     // habit tag
     var tagStackView: UIStackView!
-    var tagLabel = "Tag:"
+    var tagLabel: UILabel!
     var tagTextField: UITextField!
     
     // habit rate (daily, weekly, monthly)
     var rateStackView: UIStackView!
-    var rateLabel = "Rate:"
+    var rateLabel: UILabel!
     var rateTextField: UISegmentedControl!
     
     // view for skip/froze/edit/streak options
     var optionsStackView: UIStackView!
     
     var streakStackView: UIStackView!
-    var streakLabel = "Streak"
-    var streakNumber = "0"
+    var streakLabel: UILabel!
+    var streakNumber: UILabel!
     
     var editButton: UIButton!
     var skipButton: UIButton!
@@ -113,12 +115,12 @@ final class AddHabitScreenView: UIView {
         settingsStackView.spacing = 8 // Adjust spacing between elements
         
         settingsStackView.addArrangedSubview(nameStackView)
-        settingsStackView.addArrangedSubview(imageStackView)
-        settingsStackView.addArrangedSubview(frequencyStackView)
-        settingsStackView.addArrangedSubview(rateStackView)
-        settingsStackView.addArrangedSubview(categoryStackView)
-        settingsStackView.addArrangedSubview(tagStackView)
-        settingsStackView.addArrangedSubview(reminderStackView)
+//        settingsStackView.addArrangedSubview(imageStackView)
+//        settingsStackView.addArrangedSubview(frequencyStackView)
+//        settingsStackView.addArrangedSubview(rateStackView)
+//        settingsStackView.addArrangedSubview(categoryStackView)
+//        settingsStackView.addArrangedSubview(tagStackView)
+//        settingsStackView.addArrangedSubview(reminderStackView)
         
         containerView.addSubview(settingsStackView)
         
@@ -130,12 +132,36 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupNameStackView() {
+        nameStackView = UIStackView()
+        nameStackView.axis = .horizontal
+        nameStackView.spacing = 10
         
-        // add elements to name stack
+        nameLabel = UILabel()
+        nameLabel.text = "Name"
         
+        nameTextField = UITextField()
+        
+        nameStackView.addArrangedSubview(nameLabel)
+        nameStackView.addArrangedSubview(nameTextField)
+        
+        settingsStackView.addArrangedSubview(nameStackView)
     }
     
     private func setupImageStackView() {
+        imageStackView = UIStackView()
+        imageStackView.axis = .horizontal
+        imageStackView.spacing = 10
+        
+        imageLabel = UILabel()
+        imageLabel.text = "Image"
+        
+        imageView.image = UIImage(named: "💧")
+        
+        imageStackView.addArrangedSubview(imageLabel)
+        imageStackView.addArrangedSubview(imageView)
+        
+        settingsStackView.addArrangedSubview(imageStackView)
+        
         
         // add elements to image stack
     }
