@@ -119,7 +119,7 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(frequencyStackView)
         settingsStackView.addArrangedSubview(rateStackView)
         settingsStackView.addArrangedSubview(categoryStackView)
-//        settingsStackView.addArrangedSubview(tagStackView)
+        settingsStackView.addArrangedSubview(tagStackView)
 //        settingsStackView.addArrangedSubview(reminderStackView)
         
         containerView.addSubview(settingsStackView)
@@ -137,7 +137,7 @@ final class AddHabitScreenView: UIView {
         nameStackView.spacing = 10
         
         nameLabel = UILabel()
-        nameLabel.text = "Name"
+        nameLabel.text = "Name:"
         
         nameTextField = UITextField()
         
@@ -153,7 +153,7 @@ final class AddHabitScreenView: UIView {
         imageStackView.spacing = 10
         
         imageLabel = UILabel()
-        imageLabel.text = "Image"
+        imageLabel.text = "Image:"
         
         imageView.image = UIImage(named: "💧")
         
@@ -169,7 +169,7 @@ final class AddHabitScreenView: UIView {
         frequencyStackView.spacing = 10
         
         frequencyLabel = UILabel()
-        frequencyLabel.text = "Frequency"
+        frequencyLabel.text = "Frequency:"
         
         frequencyTextField = UITextField()
         
@@ -185,7 +185,7 @@ final class AddHabitScreenView: UIView {
         rateStackView.spacing = 10
         
         rateLabel = UILabel()
-        rateLabel.text = "Rate"
+        rateLabel.text = "Rate:"
         
         rateSegmentedControl = UISegmentedControl(items: ["Daily", "Weekly", "Monthly"])
         
@@ -200,11 +200,11 @@ final class AddHabitScreenView: UIView {
     
     private func setupCategoryStackView() {
         categoryStackView = UIStackView()
-        categoryStackView.axis = .vertical
+        categoryStackView.axis = .horizontal
         categoryStackView.spacing = 10
         
         categoryLabel = UILabel()
-        categoryLabel.text = "Category"
+        categoryLabel.text = "Category:"
         
         categoryTextField = UITextField()
         
@@ -215,8 +215,19 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupTagStackView() {
+        tagStackView = UIStackView()
+        tagStackView.axis = .horizontal
+        tagStackView.spacing = 10
         
-        // add elements to tag stack
+        tagLabel = UILabel()
+        tagLabel.text = "Tag:"
+        
+        tagTextField = UITextField()
+        
+        tagStackView.addArrangedSubview(tagLabel)
+        tagStackView.addArrangedSubview(tagTextField)
+        
+        settingsStackView.addArrangedSubview(tagStackView)
     }
     
     private func setupReminderStack() {
