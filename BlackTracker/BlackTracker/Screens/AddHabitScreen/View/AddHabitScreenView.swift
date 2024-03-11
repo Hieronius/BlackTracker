@@ -35,11 +35,6 @@ final class AddHabitScreenView: UIView {
     var frequencyLabel: UILabel!
     var frequencyTextField: UITextField!
     
-    // habit reminder
-    var reminderStackView: UIStackView!
-    var reminderLabel: UILabel!
-    var reminderPicker: UIDatePicker!
-    
     // habit category
     var categoryStackView: UIStackView!
     var categoryLabel: UILabel!
@@ -53,7 +48,12 @@ final class AddHabitScreenView: UIView {
     // habit rate (daily, weekly, monthly)
     var rateStackView: UIStackView!
     var rateLabel: UILabel!
-    var rateTextField: UISegmentedControl!
+    var rateSegmentedControl: UISegmentedControl!
+    
+    // habit reminder
+    var reminderStackView: UIStackView!
+    var reminderLabel: UILabel!
+    var reminderPicker: UIDatePicker!
     
     // view for skip/froze/edit/streak options
     var optionsStackView: UIStackView!
@@ -115,9 +115,9 @@ final class AddHabitScreenView: UIView {
         settingsStackView.spacing = 8 // Adjust spacing between elements
         
         settingsStackView.addArrangedSubview(nameStackView)
-//        settingsStackView.addArrangedSubview(imageStackView)
-//        settingsStackView.addArrangedSubview(frequencyStackView)
-//        settingsStackView.addArrangedSubview(rateStackView)
+        settingsStackView.addArrangedSubview(imageStackView)
+        settingsStackView.addArrangedSubview(frequencyStackView)
+        settingsStackView.addArrangedSubview(rateStackView)
 //        settingsStackView.addArrangedSubview(categoryStackView)
 //        settingsStackView.addArrangedSubview(tagStackView)
 //        settingsStackView.addArrangedSubview(reminderStackView)
@@ -180,8 +180,22 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupRateStackView() {
+        rateStackView = UIStackView()
+        rateStackView.axis = .horizontal
+        rateStackView.spacing = 10
         
-        // add elements to rate stack
+        rateLabel = UILabel()
+        rateLabel.text = "Rate"
+        
+        rateSegmentedControl = UISegmentedControl(items: ["Daily", "Weekly", "Monthly"])
+        
+        rateSegmentedControl.selectedSegmentIndex = 0 // Set initial selection to "Daily"
+        rateSegmentedControl.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        
+        rateStackView.addArrangedSubview(rateLabel)
+        rateStackView.addArrangedSubview(rateSegmentedControl)
+        
+        settingsStackView.addArrangedSubview(rateStackView)
     }
     
     private func setupCategoryStackView() {
@@ -235,5 +249,24 @@ final class AddHabitScreenView: UIView {
         // add to container view
         
         // add constraints to note
+    }
+    
+    
+    // MARK: - Actions
+    
+    @objc func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("Daily selected")
+            // Handle daily selection
+        case 1:
+            print("Weekly selected")
+            // Handle weekly selection
+        case 2:
+            print("Monthly selected")
+            // Handle monthly selection
+        default:
+            break
+        }
     }
 }
