@@ -21,8 +21,7 @@ final class AddHabitScreenView: UIView {
     // habit image
     var imageStackView: UIStackView!
     var imageLabel: UILabel!
-    // imageView may be should be replace with UISegmentedControl
-    // small collection view can be implemented
+    // small collection view with emogies can be implemented
     var imageView: UIImageView!
     
     // habit duration in minutes (may be tracking should be implemented later)
@@ -87,17 +86,12 @@ final class AddHabitScreenView: UIView {
     
     private func setupViews() {
         backgroundColor = AppColors.darkGray
-        
-        setupSettings()
-        setupOptions()
-        setupNoteField()
-        setupCompleteButton()
-        
         setupContainerView()
     }
     
     private func setupContainerView() {
         containerView = UIView()
+        containerView.backgroundColor = .brown
         
         addSubview(containerView)
         
@@ -106,11 +100,12 @@ final class AddHabitScreenView: UIView {
             make.edges.equalTo(self.safeAreaLayoutGuide)
         }
         
-        // add constraints for all it's content stack views here
-        // settingsStack
-        // optionsStack
-        // NoteField
-        // CompleteButton
+        setupSettings()
+        setupNoteField()
+        setupOptions()
+        setupCompleteButton()
+        
+        // should be constraints from top to bottom
         
     }
     
