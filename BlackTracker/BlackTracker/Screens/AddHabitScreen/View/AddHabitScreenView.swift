@@ -29,12 +29,7 @@ final class AddHabitScreenView: UIView {
     // small collection view with emogies can be implemented
     var imageViewLabel: UILabel!
     
-    // habit duration in minutes (may be tracking should be implemented later)
-    var durationStackView: UIStackView!
-    var durationLabel: UILabel!
-    var durationTextField: UITextField!
-    
-    // habit frequency
+    // habit frequency (no place for this feature right now)
     var frequencyStackView: UIStackView!
     var frequencyLabel: UILabel!
     var frequencyTextField: UITextField!
@@ -43,11 +38,6 @@ final class AddHabitScreenView: UIView {
     var categoryStackView: UIStackView!
     var categoryLabel: UILabel!
     var categoryTextField: UITextField!
-    
-    // habit tag
-    var tagStackView: UIStackView!
-    var tagLabel: UILabel!
-    var tagTextField: UITextField!
     
     // habit rate (daily, weekly, monthly)
     var rateStackView: UIStackView!
@@ -107,18 +97,15 @@ final class AddHabitScreenView: UIView {
         }
         
        setupSettings()
-       print("settings added")
        setupOptions()
-       print("options added")
        setupCompleteButton()
-       print("button added")
-        
     }
     
+    // MARK: Setting Block
     private func setupSettings() {
         settingsStackView = UIStackView()
         settingsStackView.axis = .vertical
-        settingsStackView.spacing = 8 // Adjust spacing between elements
+        settingsStackView.spacing = 8
         
         setupNameStackView()
         setupDescriptionStackView()
@@ -126,7 +113,6 @@ final class AddHabitScreenView: UIView {
         setupFrequencyStackView()
         setupRateStackView()
         setupCategoryStackView()
-        setupTagStackView()
         setupReminderStack()
 
         containerStackView.addArrangedSubview(settingsStackView)
@@ -135,13 +121,14 @@ final class AddHabitScreenView: UIView {
     private func setupNameStackView() {
         nameStackView = UIStackView()
         nameStackView.axis = .vertical
-        nameStackView.spacing = 10
+        nameStackView.spacing = 5
         nameStackView.distribution = .fillEqually
         
         nameLabel = UILabel()
         nameLabel.text = "Name"
         
         nameTextField = UITextField()
+        nameTextField.placeholder = "Walk"
         nameTextField.backgroundColor = .gray
         nameTextField.layer.cornerRadius = 8
         nameTextField.layer.masksToBounds = true
@@ -149,13 +136,18 @@ final class AddHabitScreenView: UIView {
         nameStackView.addArrangedSubview(nameLabel)
         nameStackView.addArrangedSubview(nameTextField)
         
+        nameTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
+        
         settingsStackView.addArrangedSubview(nameStackView)
     }
     
     private func setupDescriptionStackView() {
         descriptionStackView = UIStackView()
         descriptionStackView.axis = .vertical
-        descriptionStackView.spacing = 10
+        descriptionStackView.spacing = 5
+        descriptionStackView.distribution = .fillEqually
         
         descriptionLabel = UILabel()
         descriptionLabel.text = "Description"
@@ -170,50 +162,78 @@ final class AddHabitScreenView: UIView {
         descriptionStackView.addArrangedSubview(descriptionLabel)
         descriptionStackView.addArrangedSubview(descriptionTextField)
         
+        descriptionTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
+        
         settingsStackView.addArrangedSubview(descriptionStackView)
+        
+        
     }
     
     private func setupImageStackView() {
         imageStackView = UIStackView()
         imageStackView.axis = .horizontal
         imageStackView.spacing = 10
-        imageStackView.distribution = .fillEqually
         
         imageLabel = UILabel()
         imageLabel.text = "Image"
         
         imageViewLabel = UILabel()
-        imageViewLabel.backgroundColor = .darkGray
         imageViewLabel.text = "💧"
+        imageViewLabel.textAlignment = .center
+        
+        imageViewLabel.backgroundColor = .gray
+        imageViewLabel.layer.cornerRadius = 8
+        imageViewLabel.layer.masksToBounds = true
+        
+        let spacer = UIView()
         
         imageStackView.addArrangedSubview(imageLabel)
         imageStackView.addArrangedSubview(imageViewLabel)
+        imageStackView.addArrangedSubview(spacer)
+        
+        imageViewLabel.snp.makeConstraints { make in
+            make.width.equalTo(30)
+        }
+        
+        spacer.snp.makeConstraints { make in
+            make.width.equalTo(235)
+        }
         
         settingsStackView.addArrangedSubview(imageStackView)
     }
     
     private func setupFrequencyStackView() {
         frequencyStackView = UIStackView()
-        frequencyStackView.axis = .horizontal
-        frequencyStackView.spacing = 10
+        frequencyStackView.axis = .vertical
+        frequencyStackView.spacing = 5
+        frequencyStackView.distribution = .fillEqually
         
         frequencyLabel = UILabel()
         frequencyLabel.text = "Frequency"
         
         frequencyTextField = UITextField()
-        frequencyTextField.backgroundColor = .darkGray
+        frequencyTextField.placeholder = "Once per day"
+        frequencyTextField.backgroundColor = .gray
+        frequencyTextField.layer.cornerRadius = 8
+        frequencyTextField.layer.masksToBounds = true
         
         frequencyStackView.addArrangedSubview(frequencyLabel)
         frequencyStackView.addArrangedSubview(frequencyTextField)
+        
+        frequencyTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
         
         settingsStackView.addArrangedSubview(frequencyStackView)
     }
     
     private func setupRateStackView() {
-        // can be placed as two-liners stack
         rateStackView = UIStackView()
-        rateStackView.axis = .horizontal
-        rateStackView.spacing = 10
+        rateStackView.axis = .vertical
+        rateStackView.spacing = 5
+        rateStackView.distribution = .fillEqually
         
         rateLabel = UILabel()
         rateLabel.text = "Rate"
@@ -231,36 +251,27 @@ final class AddHabitScreenView: UIView {
     
     private func setupCategoryStackView() {
         categoryStackView = UIStackView()
-        categoryStackView.axis = .horizontal
-        categoryStackView.spacing = 10
+        categoryStackView.axis = .vertical
+        categoryStackView.spacing = 5
+        categoryStackView.distribution = .fillEqually
         
         categoryLabel = UILabel()
-        categoryLabel.text = "Category:"
+        categoryLabel.text = "Category"
         
         categoryTextField = UITextField()
-        categoryTextField.backgroundColor = .darkGray
+        categoryTextField.placeholder = "Fitness"
+        categoryTextField.backgroundColor = .gray
+        categoryTextField.layer.cornerRadius = 8
+        categoryTextField.layer.masksToBounds = true
         
         categoryStackView.addArrangedSubview(categoryLabel)
         categoryStackView.addArrangedSubview(categoryTextField)
         
+        categoryTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
+        
         settingsStackView.addArrangedSubview(categoryStackView)
-    }
-    
-    private func setupTagStackView() {
-        tagStackView = UIStackView()
-        tagStackView.axis = .horizontal
-        tagStackView.spacing = 10
-        
-        tagLabel = UILabel()
-        tagLabel.text = "Tag:"
-        
-        tagTextField = UITextField()
-        tagTextField.backgroundColor = .darkGray
-        
-        tagStackView.addArrangedSubview(tagLabel)
-        tagStackView.addArrangedSubview(tagTextField)
-        
-        settingsStackView.addArrangedSubview(tagStackView)
     }
     
     private func setupReminderStack() {
@@ -269,21 +280,32 @@ final class AddHabitScreenView: UIView {
         reminderStackView.spacing = 10
         
         reminderLabel = UILabel()
-        reminderLabel.text = "Reminder:"
+        reminderLabel.text = "Reminder"
         
         reminderPicker = UIDatePicker()
         reminderPicker.datePickerMode = .time
         
+        let spacer = UIView()
+        
         reminderStackView.addArrangedSubview(reminderLabel)
         reminderStackView.addArrangedSubview(reminderPicker)
+        reminderStackView.addArrangedSubview(spacer)
+        
+        spacer.snp.makeConstraints { make in
+            make.width.equalTo(160)
+        }
         
         settingsStackView.addArrangedSubview(reminderStackView)
+        // MARK: End of Settings Block
     }
     
+    
+    // MARK: Options Block
     private func setupOptions() {
         optionsStackView = UIStackView()
         optionsStackView.axis = .horizontal
         optionsStackView.spacing = 8
+        optionsStackView.distribution = .equalSpacing
         
         setupEditButton()
         setupSkipButton()
@@ -296,6 +318,7 @@ final class AddHabitScreenView: UIView {
     private func setupEditButton() {
         editButton = UIButton()
         editButton.setTitle("Edit", for: .normal)
+        editButton.backgroundColor = .black
         
         optionsStackView.addArrangedSubview(editButton)
     }
@@ -303,6 +326,7 @@ final class AddHabitScreenView: UIView {
     private func setupSkipButton() {
         skipButton = UIButton()
         skipButton.setTitle("Skip", for: .normal)
+        skipButton.backgroundColor = .black
         
         optionsStackView.addArrangedSubview(skipButton)
     }
@@ -310,6 +334,7 @@ final class AddHabitScreenView: UIView {
     private func setupFreezeButton() {
         freezeButton = UIButton()
         freezeButton.setTitle("Freeze", for: .normal)
+        freezeButton.backgroundColor = .black
         
         optionsStackView.addArrangedSubview(freezeButton)
     }
@@ -326,7 +351,11 @@ final class AddHabitScreenView: UIView {
         // just place /(currentStreak)
         streakNumberLabel.text = "0"
         
+        streakStackView.addArrangedSubview(streakTitleLabel)
+        streakStackView.addArrangedSubview(streakNumberLabel)
+        
         optionsStackView.addArrangedSubview(streakStackView)
+        // MARK: End of Options Block
     }
     
     private func setupCompleteButton() {
