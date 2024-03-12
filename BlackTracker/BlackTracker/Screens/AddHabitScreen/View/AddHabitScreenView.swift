@@ -140,6 +140,10 @@ final class AddHabitScreenView: UIView {
         nameStackView.addArrangedSubview(nameLabel)
         nameStackView.addArrangedSubview(nameTextField)
         
+        nameTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
+        
         settingsStackView.addArrangedSubview(nameStackView)
     }
     
@@ -161,7 +165,13 @@ final class AddHabitScreenView: UIView {
         descriptionStackView.addArrangedSubview(descriptionLabel)
         descriptionStackView.addArrangedSubview(descriptionTextField)
         
+        descriptionTextField.snp.makeConstraints { make in
+            make.height.equalTo(50)
+        }
+        
         settingsStackView.addArrangedSubview(descriptionStackView)
+        
+        
     }
     
     private func setupImageStackView() {
@@ -180,7 +190,7 @@ final class AddHabitScreenView: UIView {
         imageViewLabel.layer.cornerRadius = 8
         imageViewLabel.layer.masksToBounds = true
         
-        var spacer = UIView()
+        let spacer = UIView()
         
         imageStackView.addArrangedSubview(imageLabel)
         imageStackView.addArrangedSubview(imageViewLabel)
@@ -213,6 +223,10 @@ final class AddHabitScreenView: UIView {
         
         frequencyStackView.addArrangedSubview(frequencyLabel)
         frequencyStackView.addArrangedSubview(frequencyTextField)
+        
+        frequencyTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
         
         settingsStackView.addArrangedSubview(frequencyStackView)
     }
@@ -254,6 +268,10 @@ final class AddHabitScreenView: UIView {
         categoryStackView.addArrangedSubview(categoryLabel)
         categoryStackView.addArrangedSubview(categoryTextField)
         
+        categoryTextField.snp.makeConstraints { make in
+            make.height.equalTo(25)
+        }
+        
         settingsStackView.addArrangedSubview(categoryStackView)
     }
     
@@ -268,7 +286,7 @@ final class AddHabitScreenView: UIView {
         reminderPicker = UIDatePicker()
         reminderPicker.datePickerMode = .time
         
-        var spacer = UIView()
+        let spacer = UIView()
         
         reminderStackView.addArrangedSubview(reminderLabel)
         reminderStackView.addArrangedSubview(reminderPicker)
