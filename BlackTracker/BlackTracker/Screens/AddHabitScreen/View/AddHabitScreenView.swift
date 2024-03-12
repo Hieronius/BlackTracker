@@ -29,12 +29,7 @@ final class AddHabitScreenView: UIView {
     // small collection view with emogies can be implemented
     var imageViewLabel: UILabel!
     
-    // habit duration in minutes (may be tracking should be implemented later)
-    var durationStackView: UIStackView!
-    var durationLabel: UILabel!
-    var durationTextField: UITextField!
-    
-    // habit frequency
+    // habit frequency (no place for this feature right now)
     var frequencyStackView: UIStackView!
     var frequencyLabel: UILabel!
     var frequencyTextField: UITextField!
@@ -43,11 +38,6 @@ final class AddHabitScreenView: UIView {
     var categoryStackView: UIStackView!
     var categoryLabel: UILabel!
     var categoryTextField: UITextField!
-    
-    // habit tag
-    var tagStackView: UIStackView!
-    var tagLabel: UILabel!
-    var tagTextField: UITextField!
     
     // habit rate (daily, weekly, monthly)
     var rateStackView: UIStackView!
@@ -107,12 +97,8 @@ final class AddHabitScreenView: UIView {
         }
         
        setupSettings()
-       print("settings added")
        setupOptions()
-       print("options added")
        setupCompleteButton()
-       print("button added")
-        
     }
     
     // MARK: Setting Block
@@ -127,18 +113,13 @@ final class AddHabitScreenView: UIView {
         setupFrequencyStackView()
         setupRateStackView()
         setupCategoryStackView()
-        setupTagStackView()
         setupReminderStack()
-        
-        imageStackView.snp.makeConstraints { make in
-            make.trailing.equalTo(settingsStackView.snp.trailing).offset(-250)
-        }
-        
-        reminderStackView.snp.makeConstraints { make in
-            make.trailing.equalTo(settingsStackView.snp.trailing).offset(-175)
-        }
 
         containerStackView.addArrangedSubview(settingsStackView)
+        
+//        imageStackView.snp.makeConstraints { make in
+//            make.trailing.equalTo(settingsStackView.snp.trailing).offset(-250)
+//        }
     }
     
     private func setupNameStackView() {
@@ -199,11 +180,18 @@ final class AddHabitScreenView: UIView {
         imageViewLabel.layer.cornerRadius = 8
         imageViewLabel.layer.masksToBounds = true
         
+        var spacer = UIView()
+        
         imageStackView.addArrangedSubview(imageLabel)
         imageStackView.addArrangedSubview(imageViewLabel)
+        imageStackView.addArrangedSubview(spacer)
         
         imageViewLabel.snp.makeConstraints { make in
             make.width.equalTo(30)
+        }
+        
+        spacer.snp.makeConstraints { make in
+            make.width.equalTo(235)
         }
         
         settingsStackView.addArrangedSubview(imageStackView)
@@ -269,26 +257,6 @@ final class AddHabitScreenView: UIView {
         settingsStackView.addArrangedSubview(categoryStackView)
     }
     
-    private func setupTagStackView() {
-        tagStackView = UIStackView()
-        tagStackView.axis = .vertical
-        tagStackView.spacing = 10
-        
-        tagLabel = UILabel()
-        tagLabel.text = "Tag:"
-        
-        tagTextField = UITextField()
-        tagTextField.placeholder = "Morning"
-        tagTextField.backgroundColor = .gray
-        tagTextField.layer.cornerRadius = 8
-        tagTextField.layer.masksToBounds = true
-        
-        tagStackView.addArrangedSubview(tagLabel)
-        tagStackView.addArrangedSubview(tagTextField)
-        
-        settingsStackView.addArrangedSubview(tagStackView)
-    }
-    
     private func setupReminderStack() {
         reminderStackView = UIStackView()
         reminderStackView.axis = .horizontal
@@ -300,8 +268,15 @@ final class AddHabitScreenView: UIView {
         reminderPicker = UIDatePicker()
         reminderPicker.datePickerMode = .time
         
+        var spacer = UIView()
+        
         reminderStackView.addArrangedSubview(reminderLabel)
         reminderStackView.addArrangedSubview(reminderPicker)
+        reminderStackView.addArrangedSubview(spacer)
+        
+        spacer.snp.makeConstraints { make in
+            make.width.equalTo(160)
+        }
         
         settingsStackView.addArrangedSubview(reminderStackView)
         // MARK: End of Settings Block
