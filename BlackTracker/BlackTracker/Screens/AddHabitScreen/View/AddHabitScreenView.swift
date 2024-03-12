@@ -133,6 +133,10 @@ final class AddHabitScreenView: UIView {
         imageStackView.snp.makeConstraints { make in
             make.trailing.equalTo(settingsStackView.snp.trailing).offset(-250)
         }
+        
+        reminderStackView.snp.makeConstraints { make in
+            make.trailing.equalTo(settingsStackView.snp.trailing).offset(-175)
+        }
 
         containerStackView.addArrangedSubview(settingsStackView)
     }
@@ -183,17 +187,24 @@ final class AddHabitScreenView: UIView {
         imageStackView = UIStackView()
         imageStackView.axis = .horizontal
         imageStackView.spacing = 10
-        // check leading or remove it
-        imageStackView.alignment = .leading
         
         imageLabel = UILabel()
         imageLabel.text = "Image"
         
         imageViewLabel = UILabel()
         imageViewLabel.text = "💧"
+        imageViewLabel.textAlignment = .center
+        
+        imageViewLabel.backgroundColor = .gray
+        imageViewLabel.layer.cornerRadius = 8
+        imageViewLabel.layer.masksToBounds = true
         
         imageStackView.addArrangedSubview(imageLabel)
         imageStackView.addArrangedSubview(imageViewLabel)
+        
+        imageViewLabel.snp.makeConstraints { make in
+            make.width.equalTo(30)
+        }
         
         settingsStackView.addArrangedSubview(imageStackView)
     }
@@ -207,6 +218,7 @@ final class AddHabitScreenView: UIView {
         frequencyLabel.text = "Frequency"
         
         frequencyTextField = UITextField()
+        frequencyTextField.placeholder = "Once per day"
         frequencyTextField.backgroundColor = .gray
         frequencyTextField.layer.cornerRadius = 8
         frequencyTextField.layer.masksToBounds = true
@@ -279,7 +291,7 @@ final class AddHabitScreenView: UIView {
     
     private func setupReminderStack() {
         reminderStackView = UIStackView()
-        reminderStackView.axis = .vertical
+        reminderStackView.axis = .horizontal
         reminderStackView.spacing = 10
         
         reminderLabel = UILabel()
