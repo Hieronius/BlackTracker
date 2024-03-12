@@ -17,8 +17,9 @@
 // 16. Note
 
 struct Habit {
-    var image = 0 // image
     var name = "habit"
+    var description = "Note"
+    var image = 0 // image
     var streak = 5 // don't need to be in "add habit"
     var frequency = "daily" // may be DatePicker or Date
     var category = "fitness"
@@ -28,6 +29,4 @@ struct Habit {
     var reminder = "yes" // Date()
     var socialValue = 10
     var duration = 15 // in min or in sec
-    var note = ""
-    
 }
