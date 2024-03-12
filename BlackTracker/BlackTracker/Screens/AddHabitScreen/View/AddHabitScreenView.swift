@@ -288,7 +288,7 @@ final class AddHabitScreenView: UIView {
         optionsStackView = UIStackView()
         optionsStackView.axis = .horizontal
         optionsStackView.spacing = 8
-        optionsStackView.distribution = .fillEqually
+        optionsStackView.distribution = .equalSpacing
         
         setupEditButton()
         setupSkipButton()
