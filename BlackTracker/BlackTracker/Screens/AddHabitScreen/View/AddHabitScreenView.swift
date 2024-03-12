@@ -105,7 +105,7 @@ final class AddHabitScreenView: UIView {
     private func setupSettings() {
         settingsStackView = UIStackView()
         settingsStackView.axis = .vertical
-        settingsStackView.spacing = 8 // Adjust spacing between elements
+        settingsStackView.spacing = 8
         
         setupNameStackView()
         setupDescriptionStackView()
@@ -116,16 +116,12 @@ final class AddHabitScreenView: UIView {
         setupReminderStack()
 
         containerStackView.addArrangedSubview(settingsStackView)
-        
-//        imageStackView.snp.makeConstraints { make in
-//            make.trailing.equalTo(settingsStackView.snp.trailing).offset(-250)
-//        }
     }
     
     private func setupNameStackView() {
         nameStackView = UIStackView()
         nameStackView.axis = .vertical
-        nameStackView.spacing = 10
+        nameStackView.spacing = 5
         nameStackView.distribution = .fillEqually
         
         nameLabel = UILabel()
@@ -150,7 +146,8 @@ final class AddHabitScreenView: UIView {
     private func setupDescriptionStackView() {
         descriptionStackView = UIStackView()
         descriptionStackView.axis = .vertical
-        descriptionStackView.spacing = 10
+        descriptionStackView.spacing = 5
+        descriptionStackView.distribution = .fillEqually
         
         descriptionLabel = UILabel()
         descriptionLabel.text = "Description"
@@ -166,7 +163,7 @@ final class AddHabitScreenView: UIView {
         descriptionStackView.addArrangedSubview(descriptionTextField)
         
         descriptionTextField.snp.makeConstraints { make in
-            make.height.equalTo(50)
+            make.height.equalTo(25)
         }
         
         settingsStackView.addArrangedSubview(descriptionStackView)
@@ -210,7 +207,8 @@ final class AddHabitScreenView: UIView {
     private func setupFrequencyStackView() {
         frequencyStackView = UIStackView()
         frequencyStackView.axis = .vertical
-        frequencyStackView.spacing = 10
+        frequencyStackView.spacing = 5
+        frequencyStackView.distribution = .fillEqually
         
         frequencyLabel = UILabel()
         frequencyLabel.text = "Frequency"
@@ -232,10 +230,10 @@ final class AddHabitScreenView: UIView {
     }
     
     private func setupRateStackView() {
-        // can be placed as two-liners stack
         rateStackView = UIStackView()
         rateStackView.axis = .vertical
-        rateStackView.spacing = 10
+        rateStackView.spacing = 5
+        rateStackView.distribution = .fillEqually
         
         rateLabel = UILabel()
         rateLabel.text = "Rate"
@@ -254,10 +252,11 @@ final class AddHabitScreenView: UIView {
     private func setupCategoryStackView() {
         categoryStackView = UIStackView()
         categoryStackView.axis = .vertical
-        categoryStackView.spacing = 10
+        categoryStackView.spacing = 5
+        categoryStackView.distribution = .fillEqually
         
         categoryLabel = UILabel()
-        categoryLabel.text = "Category:"
+        categoryLabel.text = "Category"
         
         categoryTextField = UITextField()
         categoryTextField.placeholder = "Fitness"
@@ -281,7 +280,7 @@ final class AddHabitScreenView: UIView {
         reminderStackView.spacing = 10
         
         reminderLabel = UILabel()
-        reminderLabel.text = "Reminder:"
+        reminderLabel.text = "Reminder"
         
         reminderPicker = UIDatePicker()
         reminderPicker.datePickerMode = .time
