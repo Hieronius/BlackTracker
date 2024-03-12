@@ -115,6 +115,7 @@ final class AddHabitScreenView: UIView {
         
     }
     
+    // MARK: Setting Block
     private func setupSettings() {
         settingsStackView = UIStackView()
         settingsStackView.axis = .vertical
@@ -278,12 +279,16 @@ final class AddHabitScreenView: UIView {
         reminderStackView.addArrangedSubview(reminderPicker)
         
         settingsStackView.addArrangedSubview(reminderStackView)
+        // MARK: End of Settings Block
     }
     
+    
+    // MARK: Options Block
     private func setupOptions() {
         optionsStackView = UIStackView()
         optionsStackView.axis = .horizontal
         optionsStackView.spacing = 8
+        optionsStackView.distribution = .fillEqually
         
         setupEditButton()
         setupSkipButton()
@@ -326,7 +331,11 @@ final class AddHabitScreenView: UIView {
         // just place /(currentStreak)
         streakNumberLabel.text = "0"
         
+        streakStackView.addArrangedSubview(streakTitleLabel)
+        streakStackView.addArrangedSubview(streakNumberLabel)
+        
         optionsStackView.addArrangedSubview(streakStackView)
+        // MARK: End of Options Block
     }
     
     private func setupCompleteButton() {
